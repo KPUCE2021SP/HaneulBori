@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39C8C73026A7DD4F00782217 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C8C72F26A7DD4F00782217 /* Launch Screen.storyboard */; };
+		39C8C73426A8053000782217 /* UserContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C8C73326A8053000782217 /* UserContentView.swift */; };
+		39C8C73626A8112200782217 /* AdminContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C8C73526A8112200782217 /* AdminContentView.swift */; };
+		39C8C73826A814A800782217 /* SignUpContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C8C73726A814A800782217 /* SignUpContentView.swift */; };
 		39E769CE26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E769CD26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift */; };
 		39E769D026A5289600A836A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E769CF26A5289600A836A8 /* ContentView.swift */; };
 		39E769D226A5289600A836A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E769D126A5289600A836A8 /* Assets.xcassets */; };
@@ -33,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39C8C72F26A7DD4F00782217 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		39C8C73326A8053000782217 /* UserContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContentView.swift; sourceTree = "<group>"; };
+		39C8C73526A8112200782217 /* AdminContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminContentView.swift; sourceTree = "<group>"; };
+		39C8C73726A814A800782217 /* SignUpContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContentView.swift; sourceTree = "<group>"; };
 		39E769CA26A5289600A836A8 /* taewoo_swift_HaneulBori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taewoo_swift_HaneulBori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E769CD26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taewoo_swift_HaneulBoriApp.swift; sourceTree = "<group>"; };
 		39E769CF26A5289600A836A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,8 +103,12 @@
 		39E769CC26A5289600A836A8 /* taewoo_swift_HaneulBori */ = {
 			isa = PBXGroup;
 			children = (
+				39C8C72F26A7DD4F00782217 /* Launch Screen.storyboard */,
 				39E769CD26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift */,
 				39E769CF26A5289600A836A8 /* ContentView.swift */,
+				39C8C73726A814A800782217 /* SignUpContentView.swift */,
+				39C8C73326A8053000782217 /* UserContentView.swift */,
+				39C8C73526A8112200782217 /* AdminContentView.swift */,
 				39E769D126A5289600A836A8 /* Assets.xcassets */,
 				39E769D626A5289600A836A8 /* Info.plist */,
 				39E769D326A5289600A836A8 /* Preview Content */,
@@ -233,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C8C73026A7DD4F00782217 /* Launch Screen.storyboard in Resources */,
 				39E769D526A5289600A836A8 /* Preview Assets.xcassets in Resources */,
 				39E769D226A5289600A836A8 /* Assets.xcassets in Resources */,
 			);
@@ -259,8 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C8C73826A814A800782217 /* SignUpContentView.swift in Sources */,
+				39C8C73626A8112200782217 /* AdminContentView.swift in Sources */,
 				39E769D026A5289600A836A8 /* ContentView.swift in Sources */,
 				39E769CE26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift in Sources */,
+				39C8C73426A8053000782217 /* UserContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,9 +8,57 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var id = ""
+    @State var pw = ""
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView{
+            VStack {
+                Text("Hello, Sign In To Use!")
+                    .font(.largeTitle)
+                Spacer()
+                TextField("TYPE ID HERE", text : $id)
+                    .padding([.top, .leading, .trailing])
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                SecureField("TYPE PASSWORD HERE", text : $pw)
+                    .padding(.horizontal)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                HStack {
+                    NavigationLink(destination: UserContentView()
+                                    .navigationBarHidden(true)
+                                    .navigationBarBackButtonHidden(true)){
+                        Text("SIGN IN for USER")
+                            .foregroundColor(Color.white)
+                            .padding()
+                    }
+                    .border(Color.black)
+                    .background(Color.black)
+                    NavigationLink(destination: AdminContentView()
+                                    .navigationBarHidden(true)
+                                    .navigationBarBackButtonHidden(true)){
+                        Text("SIGN IN for ADMIN")
+                            .foregroundColor(Color.white)
+                            .padding()
+                    }
+                    .border(Color.black)
+                    .background(Color.black)
+                }
+                NavigationLink(destination: SignUpContentView()
+                                .navigationBarHidden(true)
+                                .navigationBarBackButtonHidden(true)){
+                    Text("SIGN UP")
+                        .foregroundColor(Color.white)
+                        .padding()
+                }
+                .border(Color.black)
+                .background(Color.black)
+                Spacer()
+            }
+        }
     }
 }
 
