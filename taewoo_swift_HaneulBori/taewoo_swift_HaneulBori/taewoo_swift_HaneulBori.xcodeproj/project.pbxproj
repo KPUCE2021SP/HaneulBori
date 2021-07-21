@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39C8C73026A7DD4F00782217 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C8C72F26A7DD4F00782217 /* Launch Screen.storyboard */; };
+		39E769CE26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E769CD26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift */; };
+		39E769D026A5289600A836A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E769CF26A5289600A836A8 /* ContentView.swift */; };
+		39E769D226A5289600A836A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E769D126A5289600A836A8 /* Assets.xcassets */; };
+		39E769D526A5289600A836A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E769D426A5289600A836A8 /* Preview Assets.xcassets */; };
+		39E769E026A5289600A836A8 /* taewoo_swift_HaneulBoriTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E769DF26A5289600A836A8 /* taewoo_swift_HaneulBoriTests.swift */; };
+		39E769EB26A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E769EA26A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		39E769DC26A5289600A836A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39E769C226A5289500A836A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39E769C926A5289600A836A8;
+			remoteInfo = taewoo_swift_HaneulBori;
+		};
+		39E769E726A5289700A836A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39E769C226A5289500A836A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39E769C926A5289600A836A8;
+			remoteInfo = taewoo_swift_HaneulBori;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		39C8C72F26A7DD4F00782217 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		39E769CA26A5289600A836A8 /* taewoo_swift_HaneulBori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taewoo_swift_HaneulBori.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39E769CD26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taewoo_swift_HaneulBoriApp.swift; sourceTree = "<group>"; };
+		39E769CF26A5289600A836A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		39E769D126A5289600A836A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39E769D426A5289600A836A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		39E769D626A5289600A836A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39E769DB26A5289600A836A8 /* taewoo_swift_HaneulBoriTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = taewoo_swift_HaneulBoriTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39E769DF26A5289600A836A8 /* taewoo_swift_HaneulBoriTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taewoo_swift_HaneulBoriTests.swift; sourceTree = "<group>"; };
+		39E769E126A5289600A836A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39E769E626A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = taewoo_swift_HaneulBoriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39E769EA26A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taewoo_swift_HaneulBoriUITests.swift; sourceTree = "<group>"; };
+		39E769EC26A5289700A836A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39E769C726A5289600A836A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39E769D826A5289600A836A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39E769E326A5289700A836A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39E769C126A5289500A836A8 = {
+			isa = PBXGroup;
+			children = (
+				39E769CC26A5289600A836A8 /* taewoo_swift_HaneulBori */,
+				39E769DE26A5289600A836A8 /* taewoo_swift_HaneulBoriTests */,
+				39E769E926A5289700A836A8 /* taewoo_swift_HaneulBoriUITests */,
+				39E769CB26A5289600A836A8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		39E769CB26A5289600A836A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39E769CA26A5289600A836A8 /* taewoo_swift_HaneulBori.app */,
+				39E769DB26A5289600A836A8 /* taewoo_swift_HaneulBoriTests.xctest */,
+				39E769E626A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39E769CC26A5289600A836A8 /* taewoo_swift_HaneulBori */ = {
+			isa = PBXGroup;
+			children = (
+				39C8C72F26A7DD4F00782217 /* Launch Screen.storyboard */,
+				39E769CD26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift */,
+				39E769CF26A5289600A836A8 /* ContentView.swift */,
+				39E769D126A5289600A836A8 /* Assets.xcassets */,
+				39E769D626A5289600A836A8 /* Info.plist */,
+				39E769D326A5289600A836A8 /* Preview Content */,
+			);
+			path = taewoo_swift_HaneulBori;
+			sourceTree = "<group>";
+		};
+		39E769D326A5289600A836A8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				39E769D426A5289600A836A8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		39E769DE26A5289600A836A8 /* taewoo_swift_HaneulBoriTests */ = {
+			isa = PBXGroup;
+			children = (
+				39E769DF26A5289600A836A8 /* taewoo_swift_HaneulBoriTests.swift */,
+				39E769E126A5289600A836A8 /* Info.plist */,
+			);
+			path = taewoo_swift_HaneulBoriTests;
+			sourceTree = "<group>";
+		};
+		39E769E926A5289700A836A8 /* taewoo_swift_HaneulBoriUITests */ = {
+			isa = PBXGroup;
+			children = (
+				39E769EA26A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.swift */,
+				39E769EC26A5289700A836A8 /* Info.plist */,
+			);
+			path = taewoo_swift_HaneulBoriUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39E769C926A5289600A836A8 /* taewoo_swift_HaneulBori */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39E769EF26A5289700A836A8 /* Build configuration list for PBXNativeTarget "taewoo_swift_HaneulBori" */;
+			buildPhases = (
+				39E769C626A5289600A836A8 /* Sources */,
+				39E769C726A5289600A836A8 /* Frameworks */,
+				39E769C826A5289600A836A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = taewoo_swift_HaneulBori;
+			productName = taewoo_swift_HaneulBori;
+			productReference = 39E769CA26A5289600A836A8 /* taewoo_swift_HaneulBori.app */;
+			productType = "com.apple.product-type.application";
+		};
+		39E769DA26A5289600A836A8 /* taewoo_swift_HaneulBoriTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39E769F226A5289700A836A8 /* Build configuration list for PBXNativeTarget "taewoo_swift_HaneulBoriTests" */;
+			buildPhases = (
+				39E769D726A5289600A836A8 /* Sources */,
+				39E769D826A5289600A836A8 /* Frameworks */,
+				39E769D926A5289600A836A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39E769DD26A5289600A836A8 /* PBXTargetDependency */,
+			);
+			name = taewoo_swift_HaneulBoriTests;
+			productName = taewoo_swift_HaneulBoriTests;
+			productReference = 39E769DB26A5289600A836A8 /* taewoo_swift_HaneulBoriTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		39E769E526A5289700A836A8 /* taewoo_swift_HaneulBoriUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39E769F526A5289700A836A8 /* Build configuration list for PBXNativeTarget "taewoo_swift_HaneulBoriUITests" */;
+			buildPhases = (
+				39E769E226A5289700A836A8 /* Sources */,
+				39E769E326A5289700A836A8 /* Frameworks */,
+				39E769E426A5289700A836A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39E769E826A5289700A836A8 /* PBXTargetDependency */,
+			);
+			name = taewoo_swift_HaneulBoriUITests;
+			productName = taewoo_swift_HaneulBoriUITests;
+			productReference = 39E769E626A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39E769C226A5289500A836A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					39E769C926A5289600A836A8 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					39E769DA26A5289600A836A8 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 39E769C926A5289600A836A8;
+					};
+					39E769E526A5289700A836A8 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 39E769C926A5289600A836A8;
+					};
+				};
+			};
+			buildConfigurationList = 39E769C526A5289500A836A8 /* Build configuration list for PBXProject "taewoo_swift_HaneulBori" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39E769C126A5289500A836A8;
+			productRefGroup = 39E769CB26A5289600A836A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39E769C926A5289600A836A8 /* taewoo_swift_HaneulBori */,
+				39E769DA26A5289600A836A8 /* taewoo_swift_HaneulBoriTests */,
+				39E769E526A5289700A836A8 /* taewoo_swift_HaneulBoriUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39E769C826A5289600A836A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39C8C73026A7DD4F00782217 /* Launch Screen.storyboard in Resources */,
+				39E769D526A5289600A836A8 /* Preview Assets.xcassets in Resources */,
+				39E769D226A5289600A836A8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39E769D926A5289600A836A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39E769E426A5289700A836A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39E769C626A5289600A836A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39E769D026A5289600A836A8 /* ContentView.swift in Sources */,
+				39E769CE26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39E769D726A5289600A836A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39E769E026A5289600A836A8 /* taewoo_swift_HaneulBoriTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39E769E226A5289700A836A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39E769EB26A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39E769DD26A5289600A836A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39E769C926A5289600A836A8 /* taewoo_swift_HaneulBori */;
+			targetProxy = 39E769DC26A5289600A836A8 /* PBXContainerItemProxy */;
+		};
+		39E769E826A5289700A836A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39E769C926A5289600A836A8 /* taewoo_swift_HaneulBori */;
+			targetProxy = 39E769E726A5289700A836A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		39E769ED26A5289700A836A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		39E769EE26A5289700A836A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39E769F026A5289700A836A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"taewoo_swift_HaneulBori/Preview Content\"";
+				DEVELOPMENT_TEAM = ADCRD9D3LZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = taewoo_swift_HaneulBori/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mataewoos.taewoo-swift-HaneulBori";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39E769F126A5289700A836A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"taewoo_swift_HaneulBori/Preview Content\"";
+				DEVELOPMENT_TEAM = ADCRD9D3LZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = taewoo_swift_HaneulBori/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mataewoos.taewoo-swift-HaneulBori";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		39E769F326A5289700A836A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ADCRD9D3LZ;
+				INFOPLIST_FILE = taewoo_swift_HaneulBoriTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mataewoos.taewoo-swift-HaneulBoriTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/taewoo_swift_HaneulBori.app/taewoo_swift_HaneulBori";
+			};
+			name = Debug;
+		};
+		39E769F426A5289700A836A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ADCRD9D3LZ;
+				INFOPLIST_FILE = taewoo_swift_HaneulBoriTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mataewoos.taewoo-swift-HaneulBoriTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/taewoo_swift_HaneulBori.app/taewoo_swift_HaneulBori";
+			};
+			name = Release;
+		};
+		39E769F626A5289700A836A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ADCRD9D3LZ;
+				INFOPLIST_FILE = taewoo_swift_HaneulBoriUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mataewoos.taewoo-swift-HaneulBoriUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = taewoo_swift_HaneulBori;
+			};
+			name = Debug;
+		};
+		39E769F726A5289700A836A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ADCRD9D3LZ;
+				INFOPLIST_FILE = taewoo_swift_HaneulBoriUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mataewoos.taewoo-swift-HaneulBoriUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = taewoo_swift_HaneulBori;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39E769C526A5289500A836A8 /* Build configuration list for PBXProject "taewoo_swift_HaneulBori" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39E769ED26A5289700A836A8 /* Debug */,
+				39E769EE26A5289700A836A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39E769EF26A5289700A836A8 /* Build configuration list for PBXNativeTarget "taewoo_swift_HaneulBori" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39E769F026A5289700A836A8 /* Debug */,
+				39E769F126A5289700A836A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39E769F226A5289700A836A8 /* Build configuration list for PBXNativeTarget "taewoo_swift_HaneulBoriTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39E769F326A5289700A836A8 /* Debug */,
+				39E769F426A5289700A836A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39E769F526A5289700A836A8 /* Build configuration list for PBXNativeTarget "taewoo_swift_HaneulBoriUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39E769F626A5289700A836A8 /* Debug */,
+				39E769F726A5289700A836A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39E769C226A5289500A836A8 /* Project object */;
+}
