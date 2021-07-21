@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack {
-                Text("Hello, Log In To Use!")
+                Text("Hello, Sign In To Use!")
                     .font(.largeTitle)
                 Spacer()
                 TextField("TYPE ID HERE", text : $id)
@@ -27,10 +27,30 @@ struct ContentView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                NavigationLink(destination: MainContentView()
+                HStack {
+                    NavigationLink(destination: UserContentView()
+                                    .navigationBarHidden(true)
+                                    .navigationBarBackButtonHidden(true)){
+                        Text("SIGN IN for USER")
+                            .foregroundColor(Color.white)
+                            .padding()
+                    }
+                    .border(Color.black)
+                    .background(Color.black)
+                    NavigationLink(destination: AdminContentView()
+                                    .navigationBarHidden(true)
+                                    .navigationBarBackButtonHidden(true)){
+                        Text("SIGN IN for ADMIN")
+                            .foregroundColor(Color.white)
+                            .padding()
+                    }
+                    .border(Color.black)
+                    .background(Color.black)
+                }
+                NavigationLink(destination: SignUpContentView()
                                 .navigationBarHidden(true)
                                 .navigationBarBackButtonHidden(true)){
-                    Text("LOG IN")
+                    Text("SIGN UP")
                         .foregroundColor(Color.white)
                         .padding()
                 }
