@@ -22,18 +22,18 @@ struct ContentView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                TextField("TYPE PASSWORD HERE", text : $pw)
+                SecureField("TYPE PASSWORD HERE", text : $pw)
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-//                NavigationLink(destination: MainContentView()
-//                                .navigationBarHidden(true)
-//                                .navigationBarBackButtonHidden(true)){
-//                    Text("LOG IN")
-//                        .foregroundColor(Color.white)
-//                        .padding()
-//                }
+                NavigationLink(destination: MainContentView()
+                                .navigationBarHidden(true)
+                                .navigationBarBackButtonHidden(true)){
+                    Text("LOG IN")
+                        .foregroundColor(Color.white)
+                        .padding()
+                }
                 .border(Color.black)
                 .background(Color.black)
                 Spacer()
