@@ -20,7 +20,7 @@
   > Swfit w. Xcode <br>
   > Google Firebase <br>
 ## Members & Contacts
-> 권태우 <a href="kwontaewoo0901@gmail.com"><img src="https://img.shields.io/badge/Gmail-red?style=flat-square&logo=Gmail&logoColor=white&link=kwontaewoo0901@gmail.com"/></a>  
+> 권태우 kwontaewoo0901@gmail.com  
 > 김형환 hedwig3798@gmail.com  
 > 이혜원 904lhw@gmail.com  
 > 조현근 hkcho0101@gmail.com  
