@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "970980545204",
+    "project_id": "haneulbori-3ad57",
+    "storage_bucket": "haneulbori-3ad57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970980545204:android:e5e3e6b43cd09b10707de1",
+        "android_client_info": {
+          "package_name": "kr.ac.kpu.kpuce2021sp.haneulbori"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970980545204-144rge9ababoidpr13jigf0nsoeaabh9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4AbjkDZhbi8IZMI8BhnKDcTretH_Rfrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970980545204-144rge9ababoidpr13jigf0nsoeaabh9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
