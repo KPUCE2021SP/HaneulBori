@@ -12,6 +12,7 @@ struct SignUpContentView: View {
     @State var pw = ""
     @State var pwcheck = ""
     @State var name = ""
+    @State var bday = Date()
     
     var body: some View {
         NavigationView{
@@ -37,6 +38,11 @@ struct SignUpContentView: View {
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
+                DatePicker(selection: $bday, displayedComponents: .date){
+                    Text("BIRTHDAY")
+                }
+                .padding()
+//                .datePickerStyle(WheelDatePickerStyle())
                 NavigationLink(destination: ContentView()
                                 .navigationBarHidden(true)
                                 .navigationBarBackButtonHidden(true)){
