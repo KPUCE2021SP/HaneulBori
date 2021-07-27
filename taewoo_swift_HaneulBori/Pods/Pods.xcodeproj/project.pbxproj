@@ -1,0 +1,755 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00EB409EB4A4BB08289966211E0752E7 /* Pods-taewoo_swift_HaneulBoriTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DEDE28EEDDF996287BA3E168980B7E5A /* Pods-taewoo_swift_HaneulBoriTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		128ED3862A72DEEA208995115B9D17B5 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9742426045D6141E7ACD0F1B3E8CFDC7 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-dummy.m */; };
+		2E14435852E9C21501A0115604085579 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CFA6D560FD2784E7F86BD7059A92997B /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A94B6653D9775002AB2BD91B8F5A5A3 /* Pods-taewoo_swift_HaneulBori-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCAD9AA51DE7798C699C3071F4AE73 /* Pods-taewoo_swift_HaneulBori-dummy.m */; };
+		50AF9C1FB75E84B53EDD3176C79D1AE3 /* Pods-taewoo_swift_HaneulBoriTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 020C5C933C22E337242FDB5453301426 /* Pods-taewoo_swift_HaneulBoriTests-dummy.m */; };
+		6C50FADB8EE3F291EB98D2E7B2A044E5 /* Pods-taewoo_swift_HaneulBori-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7921EA690386B9CEF6D4A712DC18BE30 /* Pods-taewoo_swift_HaneulBori-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FECC477F6949A19022B0E5F441292CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		73B43A6893DFC350C5DBE819C0D7B4E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		FFA8C47032E5D172295B007313990036 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA4259434D1BB819AC866399692E19A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4DD69FED5699377A108BF09874425A3;
+			remoteInfo = "Pods-taewoo_swift_HaneulBori";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		020C5C933C22E337242FDB5453301426 /* Pods-taewoo_swift_HaneulBoriTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-taewoo_swift_HaneulBoriTests-dummy.m"; sourceTree = "<group>"; };
+		044E1E4839365B710A2E2A745B176A68 /* Pods-taewoo_swift_HaneulBoriTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-taewoo_swift_HaneulBoriTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		058C9BA6903F26181EAC9259176E7B56 /* Pods-taewoo_swift_HaneulBoriTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-taewoo_swift_HaneulBoriTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		107953AF61E7832FAF532B78676785FD /* Pods-taewoo_swift_HaneulBori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-taewoo_swift_HaneulBori.release.xcconfig"; sourceTree = "<group>"; };
+		2596E9C3435C7DF07F7A742C6B420B42 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.modulemap"; sourceTree = "<group>"; };
+		3291EBD3741C41EE402BD2C4F47FD7D5 /* Pods-taewoo_swift_HaneulBoriTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-taewoo_swift_HaneulBoriTests.debug.xcconfig"; sourceTree = "<group>"; };
+		41F3450DE2C35C5D0B823CBE25B5DD0B /* Pods_taewoo_swift_HaneulBoriTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_taewoo_swift_HaneulBoriTests.framework; path = "Pods-taewoo_swift_HaneulBoriTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4402112DBDC6142AB7519B666EAD21B5 /* Pods-taewoo_swift_HaneulBori-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-taewoo_swift_HaneulBori-acknowledgements.plist"; sourceTree = "<group>"; };
+		46C955B0D5FFD8BADD63B786E11C23C3 /* Pods-taewoo_swift_HaneulBoriTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-taewoo_swift_HaneulBoriTests-Info.plist"; sourceTree = "<group>"; };
+		55BEBBA4362AAF61CD9E0D83D36B6C4C /* Pods-taewoo_swift_HaneulBoriTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-taewoo_swift_HaneulBoriTests.modulemap"; sourceTree = "<group>"; };
+		5697845C78933D9CFCCA0BCA4938C582 /* Pods_taewoo_swift_HaneulBori.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_taewoo_swift_HaneulBori.framework; path = "Pods-taewoo_swift_HaneulBori.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		73097A2C0D22612880A583D908478449 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		775B9903A54BBA2BD1ED731A32359F1F /* Pods-taewoo_swift_HaneulBori.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-taewoo_swift_HaneulBori.modulemap"; sourceTree = "<group>"; };
+		7921EA690386B9CEF6D4A712DC18BE30 /* Pods-taewoo_swift_HaneulBori-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-taewoo_swift_HaneulBori-umbrella.h"; sourceTree = "<group>"; };
+		8226F2EB65E46FF5160DA7E9470D58E2 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9742426045D6141E7ACD0F1B3E8CFDC7 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B9BA14C38EB7AC27940959FB892B73F4 /* Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests.framework; path = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE33E0D3FCA4E976223E63CB8E174627 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		BEFC5BAF86C1E461F367B6DC25628E9A /* Pods-taewoo_swift_HaneulBori-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-taewoo_swift_HaneulBori-Info.plist"; sourceTree = "<group>"; };
+		C0CCAD9AA51DE7798C699C3071F4AE73 /* Pods-taewoo_swift_HaneulBori-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-taewoo_swift_HaneulBori-dummy.m"; sourceTree = "<group>"; };
+		C5390DC08F3321BD65F0E478B49B90F3 /* Pods-taewoo_swift_HaneulBori-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-taewoo_swift_HaneulBori-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C8334E4E05DA7373843F464D8833A0D0 /* Pods-taewoo_swift_HaneulBoriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-taewoo_swift_HaneulBoriTests.release.xcconfig"; sourceTree = "<group>"; };
+		CBA8C9055A97D8C269DB93E3F77694E7 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-Info.plist"; sourceTree = "<group>"; };
+		CFA6D560FD2784E7F86BD7059A92997B /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-umbrella.h"; sourceTree = "<group>"; };
+		DEDE28EEDDF996287BA3E168980B7E5A /* Pods-taewoo_swift_HaneulBoriTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-taewoo_swift_HaneulBoriTests-umbrella.h"; sourceTree = "<group>"; };
+		F2E5E0FC14B16B905F45E6DF9440DDFF /* Pods-taewoo_swift_HaneulBori.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-taewoo_swift_HaneulBori.debug.xcconfig"; sourceTree = "<group>"; };
+		F4D7B7AEBA41020E6E525A6BD95D09A5 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00A4FA2C3A2F95AC4AB66BB3765EE2AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FECC477F6949A19022B0E5F441292CD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72212B6DEACD9FD72BF0D157E21E89F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFA8C47032E5D172295B007313990036 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DB35C9BA19C466308C977F9CC82FC29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73B43A6893DFC350C5DBE819C0D7B4E4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B0214D4ABF4ABAF162AD6AA5B2488A9 /* Pods-taewoo_swift_HaneulBoriTests */ = {
+			isa = PBXGroup;
+			children = (
+				55BEBBA4362AAF61CD9E0D83D36B6C4C /* Pods-taewoo_swift_HaneulBoriTests.modulemap */,
+				044E1E4839365B710A2E2A745B176A68 /* Pods-taewoo_swift_HaneulBoriTests-acknowledgements.markdown */,
+				058C9BA6903F26181EAC9259176E7B56 /* Pods-taewoo_swift_HaneulBoriTests-acknowledgements.plist */,
+				020C5C933C22E337242FDB5453301426 /* Pods-taewoo_swift_HaneulBoriTests-dummy.m */,
+				46C955B0D5FFD8BADD63B786E11C23C3 /* Pods-taewoo_swift_HaneulBoriTests-Info.plist */,
+				DEDE28EEDDF996287BA3E168980B7E5A /* Pods-taewoo_swift_HaneulBoriTests-umbrella.h */,
+				3291EBD3741C41EE402BD2C4F47FD7D5 /* Pods-taewoo_swift_HaneulBoriTests.debug.xcconfig */,
+				C8334E4E05DA7373843F464D8833A0D0 /* Pods-taewoo_swift_HaneulBoriTests.release.xcconfig */,
+			);
+			name = "Pods-taewoo_swift_HaneulBoriTests";
+			path = "Target Support Files/Pods-taewoo_swift_HaneulBoriTests";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		75D778D864395F6C118E2D34ADEECF55 /* Pods-taewoo_swift_HaneulBori */ = {
+			isa = PBXGroup;
+			children = (
+				775B9903A54BBA2BD1ED731A32359F1F /* Pods-taewoo_swift_HaneulBori.modulemap */,
+				C5390DC08F3321BD65F0E478B49B90F3 /* Pods-taewoo_swift_HaneulBori-acknowledgements.markdown */,
+				4402112DBDC6142AB7519B666EAD21B5 /* Pods-taewoo_swift_HaneulBori-acknowledgements.plist */,
+				C0CCAD9AA51DE7798C699C3071F4AE73 /* Pods-taewoo_swift_HaneulBori-dummy.m */,
+				BEFC5BAF86C1E461F367B6DC25628E9A /* Pods-taewoo_swift_HaneulBori-Info.plist */,
+				7921EA690386B9CEF6D4A712DC18BE30 /* Pods-taewoo_swift_HaneulBori-umbrella.h */,
+				F2E5E0FC14B16B905F45E6DF9440DDFF /* Pods-taewoo_swift_HaneulBori.debug.xcconfig */,
+				107953AF61E7832FAF532B78676785FD /* Pods-taewoo_swift_HaneulBori.release.xcconfig */,
+			);
+			name = "Pods-taewoo_swift_HaneulBori";
+			path = "Target Support Files/Pods-taewoo_swift_HaneulBori";
+			sourceTree = "<group>";
+		};
+		CB7B73A9E71CF0193D8EB978EA5EA0D4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				75D778D864395F6C118E2D34ADEECF55 /* Pods-taewoo_swift_HaneulBori */,
+				E085DB817CE4D74977146EABFF24749C /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests */,
+				4B0214D4ABF4ABAF162AD6AA5B2488A9 /* Pods-taewoo_swift_HaneulBoriTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				F60404EC3BF8A3ECD9EC25A9E1ABE383 /* Products */,
+				CB7B73A9E71CF0193D8EB978EA5EA0D4 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E085DB817CE4D74977146EABFF24749C /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2596E9C3435C7DF07F7A742C6B420B42 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.modulemap */,
+				73097A2C0D22612880A583D908478449 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-acknowledgements.markdown */,
+				BE33E0D3FCA4E976223E63CB8E174627 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-acknowledgements.plist */,
+				9742426045D6141E7ACD0F1B3E8CFDC7 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-dummy.m */,
+				CBA8C9055A97D8C269DB93E3F77694E7 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-Info.plist */,
+				CFA6D560FD2784E7F86BD7059A92997B /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-umbrella.h */,
+				F4D7B7AEBA41020E6E525A6BD95D09A5 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.debug.xcconfig */,
+				8226F2EB65E46FF5160DA7E9470D58E2 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig */,
+			);
+			name = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests";
+			path = "Target Support Files/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests";
+			sourceTree = "<group>";
+		};
+		F60404EC3BF8A3ECD9EC25A9E1ABE383 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5697845C78933D9CFCCA0BCA4938C582 /* Pods_taewoo_swift_HaneulBori.framework */,
+				B9BA14C38EB7AC27940959FB892B73F4 /* Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests.framework */,
+				41F3450DE2C35C5D0B823CBE25B5DD0B /* Pods_taewoo_swift_HaneulBoriTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		63C6B1189E254E0E061E628D1AD4626F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C50FADB8EE3F291EB98D2E7B2A044E5 /* Pods-taewoo_swift_HaneulBori-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AD81F0CDB4A37A72EA3045FE8F3BDE1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00EB409EB4A4BB08289966211E0752E7 /* Pods-taewoo_swift_HaneulBoriTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A67256479ED5C6FF0B24D0404557C35D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E14435852E9C21501A0115604085579 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		03305D33ABF765FD5694F7D0C46EF462 /* Pods-taewoo_swift_HaneulBoriTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2358240995437B8B0063293627A976AE /* Build configuration list for PBXNativeTarget "Pods-taewoo_swift_HaneulBoriTests" */;
+			buildPhases = (
+				6AD81F0CDB4A37A72EA3045FE8F3BDE1 /* Headers */,
+				61368E7ADFA79AE26BE051E4E69C80F0 /* Sources */,
+				00A4FA2C3A2F95AC4AB66BB3765EE2AA /* Frameworks */,
+				CED083EC518E6A41839EEFED3892365F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8BCE8525AB7B4AB34FD66B01A239C79 /* PBXTargetDependency */,
+			);
+			name = "Pods-taewoo_swift_HaneulBoriTests";
+			productName = "Pods-taewoo_swift_HaneulBoriTests";
+			productReference = 41F3450DE2C35C5D0B823CBE25B5DD0B /* Pods_taewoo_swift_HaneulBoriTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D4DD69FED5699377A108BF09874425A3 /* Pods-taewoo_swift_HaneulBori */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC141BE5625AAA0D9825A07408E35F63 /* Build configuration list for PBXNativeTarget "Pods-taewoo_swift_HaneulBori" */;
+			buildPhases = (
+				63C6B1189E254E0E061E628D1AD4626F /* Headers */,
+				7ED97828DB5908D5D0C6910FF14D91FE /* Sources */,
+				8DB35C9BA19C466308C977F9CC82FC29 /* Frameworks */,
+				EFDC0DEC3C4C3EF0B5234A7B302CF897 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-taewoo_swift_HaneulBori";
+			productName = "Pods-taewoo_swift_HaneulBori";
+			productReference = 5697845C78933D9CFCCA0BCA4938C582 /* Pods_taewoo_swift_HaneulBori.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E9C8668A6CFD46AC6F546CE57B4AEB9B /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94CDF0096CDAD2C26978B208A51C4720 /* Build configuration list for PBXNativeTarget "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests" */;
+			buildPhases = (
+				A67256479ED5C6FF0B24D0404557C35D /* Headers */,
+				2AD097631B22BB7AD34A93552548B597 /* Sources */,
+				72212B6DEACD9FD72BF0D157E21E89F1 /* Frameworks */,
+				4D63BF9DFE2E938522729F4F894CBA24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests";
+			productName = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests";
+			productReference = B9BA14C38EB7AC27940959FB892B73F4 /* Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = F60404EC3BF8A3ECD9EC25A9E1ABE383 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4DD69FED5699377A108BF09874425A3 /* Pods-taewoo_swift_HaneulBori */,
+				E9C8668A6CFD46AC6F546CE57B4AEB9B /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests */,
+				03305D33ABF765FD5694F7D0C46EF462 /* Pods-taewoo_swift_HaneulBoriTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D63BF9DFE2E938522729F4F894CBA24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED083EC518E6A41839EEFED3892365F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFDC0DEC3C4C3EF0B5234A7B302CF897 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AD097631B22BB7AD34A93552548B597 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				128ED3862A72DEEA208995115B9D17B5 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61368E7ADFA79AE26BE051E4E69C80F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AF9C1FB75E84B53EDD3176C79D1AE3 /* Pods-taewoo_swift_HaneulBoriTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ED97828DB5908D5D0C6910FF14D91FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A94B6653D9775002AB2BD91B8F5A5A3 /* Pods-taewoo_swift_HaneulBori-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B8BCE8525AB7B4AB34FD66B01A239C79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-taewoo_swift_HaneulBori";
+			target = D4DD69FED5699377A108BF09874425A3 /* Pods-taewoo_swift_HaneulBori */;
+			targetProxy = AA4259434D1BB819AC866399692E19A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4BC7450F9457737EE3E637BA155B56F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		5A34B700A5AE338C5CCC7EB3FBC4D204 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4D7B7AEBA41020E6E525A6BD95D09A5 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		637EA8FF12440D7B09E4413F4527F090 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8334E4E05DA7373843F464D8833A0D0 /* Pods-taewoo_swift_HaneulBoriTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBoriTests/Pods-taewoo_swift_HaneulBoriTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBoriTests/Pods-taewoo_swift_HaneulBoriTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		64DA304417CF5FB8AE6BD0E02C685B8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8226F2EB65E46FF5160DA7E9470D58E2 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		79218EACF3C1E6B9D73B4D040945022A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 107953AF61E7832FAF532B78676785FD /* Pods-taewoo_swift_HaneulBori.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBori/Pods-taewoo_swift_HaneulBori-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBori/Pods-taewoo_swift_HaneulBori.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		799BC29942B846EE0128951E5D509315 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E5E0FC14B16B905F45E6DF9440DDFF /* Pods-taewoo_swift_HaneulBori.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBori/Pods-taewoo_swift_HaneulBori-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBori/Pods-taewoo_swift_HaneulBori.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		C33E850AF1CFEF2F4D2FE75119B86F44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3291EBD3741C41EE402BD2C4F47FD7D5 /* Pods-taewoo_swift_HaneulBoriTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBoriTests/Pods-taewoo_swift_HaneulBoriTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-taewoo_swift_HaneulBoriTests/Pods-taewoo_swift_HaneulBoriTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2358240995437B8B0063293627A976AE /* Build configuration list for PBXNativeTarget "Pods-taewoo_swift_HaneulBoriTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C33E850AF1CFEF2F4D2FE75119B86F44 /* Debug */,
+				637EA8FF12440D7B09E4413F4527F090 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BC7450F9457737EE3E637BA155B56F7 /* Debug */,
+				8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94CDF0096CDAD2C26978B208A51C4720 /* Build configuration list for PBXNativeTarget "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A34B700A5AE338C5CCC7EB3FBC4D204 /* Debug */,
+				64DA304417CF5FB8AE6BD0E02C685B8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC141BE5625AAA0D9825A07408E35F63 /* Build configuration list for PBXNativeTarget "Pods-taewoo_swift_HaneulBori" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				799BC29942B846EE0128951E5D509315 /* Debug */,
+				79218EACF3C1E6B9D73B4D040945022A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

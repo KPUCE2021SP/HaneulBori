@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		157032EC52B462AE0CEEADF1 /* Pods_taewoo_swift_HaneulBori.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4815C7C2D88B576D4863F8CB /* Pods_taewoo_swift_HaneulBori.framework */; };
+		32E674AD89EBA08639D5B99C /* Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F6EC3CBB90D4834AD57632 /* Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests.framework */; };
+		39AA70A026AFEA190047E28B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39AA709F26AFEA190047E28B /* GoogleService-Info.plist */; };
 		39C8C73426A8053000782217 /* UserContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C8C73326A8053000782217 /* UserContentView.swift */; };
 		39C8C73626A8112200782217 /* AdminContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C8C73526A8112200782217 /* AdminContentView.swift */; };
 		39C8C73826A814A800782217 /* SignUpContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C8C73726A814A800782217 /* SignUpContentView.swift */; };
@@ -16,6 +19,7 @@
 		39E769D526A5289600A836A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E769D426A5289600A836A8 /* Preview Assets.xcassets */; };
 		39E769E026A5289600A836A8 /* taewoo_swift_HaneulBoriTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E769DF26A5289600A836A8 /* taewoo_swift_HaneulBoriTests.swift */; };
 		39E769EB26A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E769EA26A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.swift */; };
+		DAF52866E5BDB3CF2081A7BF /* Pods_taewoo_swift_HaneulBoriTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6F1C586583AE3297D1815B /* Pods_taewoo_swift_HaneulBoriTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32C1D3C086F8CFBB4D15C1E4 /* Pods-taewoo_swift_HaneulBoriTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taewoo_swift_HaneulBoriTests.debug.xcconfig"; path = "Target Support Files/Pods-taewoo_swift_HaneulBoriTests/Pods-taewoo_swift_HaneulBoriTests.debug.xcconfig"; sourceTree = "<group>"; };
+		38F6EC3CBB90D4834AD57632 /* Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39AA709F26AFEA190047E28B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		39AA70A126AFF00C0047E28B /* Reserve Washing Machine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Reserve Washing Machine.entitlements"; sourceTree = "<group>"; };
 		39C8C73326A8053000782217 /* UserContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContentView.swift; sourceTree = "<group>"; };
 		39C8C73526A8112200782217 /* AdminContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminContentView.swift; sourceTree = "<group>"; };
 		39C8C73726A814A800782217 /* SignUpContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +59,13 @@
 		39E769E626A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = taewoo_swift_HaneulBoriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E769EA26A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taewoo_swift_HaneulBoriUITests.swift; sourceTree = "<group>"; };
 		39E769EC26A5289700A836A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4815C7C2D88B576D4863F8CB /* Pods_taewoo_swift_HaneulBori.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taewoo_swift_HaneulBori.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FEA0A7823AE32301FCDA742 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig"; path = "Target Support Files/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig"; sourceTree = "<group>"; };
+		63D75C7A39C404DD6400F705 /* Pods-taewoo_swift_HaneulBori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taewoo_swift_HaneulBori.release.xcconfig"; path = "Target Support Files/Pods-taewoo_swift_HaneulBori/Pods-taewoo_swift_HaneulBori.release.xcconfig"; sourceTree = "<group>"; };
+		742CB98315B9ECA23728FDA1 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.debug.xcconfig"; path = "Target Support Files/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E6F1C586583AE3297D1815B /* Pods_taewoo_swift_HaneulBoriTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taewoo_swift_HaneulBoriTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D515C0338797A4B84979A446 /* Pods-taewoo_swift_HaneulBori.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taewoo_swift_HaneulBori.debug.xcconfig"; path = "Target Support Files/Pods-taewoo_swift_HaneulBori/Pods-taewoo_swift_HaneulBori.debug.xcconfig"; sourceTree = "<group>"; };
+		D9FB83D8081E00CECCAC64F4 /* Pods-taewoo_swift_HaneulBoriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taewoo_swift_HaneulBoriTests.release.xcconfig"; path = "Target Support Files/Pods-taewoo_swift_HaneulBoriTests/Pods-taewoo_swift_HaneulBoriTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				157032EC52B462AE0CEEADF1 /* Pods_taewoo_swift_HaneulBori.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAF52866E5BDB3CF2081A7BF /* Pods_taewoo_swift_HaneulBoriTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E674AD89EBA08639D5B99C /* Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +103,8 @@
 				39E769DE26A5289600A836A8 /* taewoo_swift_HaneulBoriTests */,
 				39E769E926A5289700A836A8 /* taewoo_swift_HaneulBoriUITests */,
 				39E769CB26A5289600A836A8 /* Products */,
+				F9E2EF0F900B51356E1AF633 /* Pods */,
+				6DF023D8F06CE11C420442BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +121,7 @@
 		39E769CC26A5289600A836A8 /* taewoo_swift_HaneulBori */ = {
 			isa = PBXGroup;
 			children = (
+				39AA70A126AFF00C0047E28B /* Reserve Washing Machine.entitlements */,
 				39E769CD26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift */,
 				39E769CF26A5289600A836A8 /* ContentView.swift */,
 				39C8C73726A814A800782217 /* SignUpContentView.swift */,
@@ -108,6 +129,7 @@
 				39C8C73526A8112200782217 /* AdminContentView.swift */,
 				39E769D126A5289600A836A8 /* Assets.xcassets */,
 				39E769D626A5289600A836A8 /* Info.plist */,
+				39AA709F26AFEA190047E28B /* GoogleService-Info.plist */,
 				39E769D326A5289600A836A8 /* Preview Content */,
 			);
 			path = taewoo_swift_HaneulBori;
@@ -139,6 +161,29 @@
 			path = taewoo_swift_HaneulBoriUITests;
 			sourceTree = "<group>";
 		};
+		6DF023D8F06CE11C420442BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4815C7C2D88B576D4863F8CB /* Pods_taewoo_swift_HaneulBori.framework */,
+				38F6EC3CBB90D4834AD57632 /* Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests.framework */,
+				8E6F1C586583AE3297D1815B /* Pods_taewoo_swift_HaneulBoriTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9E2EF0F900B51356E1AF633 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D515C0338797A4B84979A446 /* Pods-taewoo_swift_HaneulBori.debug.xcconfig */,
+				63D75C7A39C404DD6400F705 /* Pods-taewoo_swift_HaneulBori.release.xcconfig */,
+				742CB98315B9ECA23728FDA1 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.debug.xcconfig */,
+				5FEA0A7823AE32301FCDA742 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig */,
+				32C1D3C086F8CFBB4D15C1E4 /* Pods-taewoo_swift_HaneulBoriTests.debug.xcconfig */,
+				D9FB83D8081E00CECCAC64F4 /* Pods-taewoo_swift_HaneulBoriTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39E769EF26A5289700A836A8 /* Build configuration list for PBXNativeTarget "taewoo_swift_HaneulBori" */;
 			buildPhases = (
+				5F08AA1D314C13401C6AD1FD /* [CP] Check Pods Manifest.lock */,
 				39E769C626A5289600A836A8 /* Sources */,
 				39E769C726A5289600A836A8 /* Frameworks */,
 				39E769C826A5289600A836A8 /* Resources */,
@@ -163,6 +209,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39E769F226A5289700A836A8 /* Build configuration list for PBXNativeTarget "taewoo_swift_HaneulBoriTests" */;
 			buildPhases = (
+				2F119905258DFF7FB40DBA9A /* [CP] Check Pods Manifest.lock */,
 				39E769D726A5289600A836A8 /* Sources */,
 				39E769D826A5289600A836A8 /* Frameworks */,
 				39E769D926A5289600A836A8 /* Resources */,
@@ -181,6 +228,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39E769F526A5289700A836A8 /* Build configuration list for PBXNativeTarget "taewoo_swift_HaneulBoriUITests" */;
 			buildPhases = (
+				E8AC2BEE7539BFA517DA90A0 /* [CP] Check Pods Manifest.lock */,
 				39E769E226A5289700A836A8 /* Sources */,
 				39E769E326A5289700A836A8 /* Frameworks */,
 				39E769E426A5289700A836A8 /* Resources */,
@@ -244,6 +292,7 @@
 			files = (
 				39E769D526A5289600A836A8 /* Preview Assets.xcassets in Resources */,
 				39E769D226A5289600A836A8 /* Assets.xcassets in Resources */,
+				39AA70A026AFEA190047E28B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +311,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F119905258DFF7FB40DBA9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-taewoo_swift_HaneulBoriTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F08AA1D314C13401C6AD1FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-taewoo_swift_HaneulBori-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8AC2BEE7539BFA517DA90A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		39E769C626A5289600A836A8 /* Sources */ = {
@@ -426,9 +544,11 @@
 		};
 		39E769F026A5289700A836A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D515C0338797A4B84979A446 /* Pods-taewoo_swift_HaneulBori.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "taewoo_swift_HaneulBori/Reserve Washing Machine.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"taewoo_swift_HaneulBori/Preview Content\"";
 				DEVELOPMENT_TEAM = ADCRD9D3LZ;
@@ -448,9 +568,11 @@
 		};
 		39E769F126A5289700A836A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63D75C7A39C404DD6400F705 /* Pods-taewoo_swift_HaneulBori.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "taewoo_swift_HaneulBori/Reserve Washing Machine.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"taewoo_swift_HaneulBori/Preview Content\"";
 				DEVELOPMENT_TEAM = ADCRD9D3LZ;
@@ -470,6 +592,7 @@
 		};
 		39E769F326A5289700A836A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32C1D3C086F8CFBB4D15C1E4 /* Pods-taewoo_swift_HaneulBoriTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +615,7 @@
 		};
 		39E769F426A5289700A836A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9FB83D8081E00CECCAC64F4 /* Pods-taewoo_swift_HaneulBoriTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -514,6 +638,7 @@
 		};
 		39E769F626A5289700A836A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 742CB98315B9ECA23728FDA1 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -534,6 +659,7 @@
 		};
 		39E769F726A5289700A836A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FEA0A7823AE32301FCDA742 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

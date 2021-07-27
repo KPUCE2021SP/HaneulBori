@@ -47,15 +47,15 @@ struct ContentView: View {
                     .border(Color.black)
                     .background(Color.black)
                 }
-                NavigationLink(destination: SignUpContentView()
-                                .navigationBarHidden(true)
-                                .navigationBarBackButtonHidden(true)){
-                    Text("SIGN UP")
-                        .foregroundColor(Color.white)
-                        .padding()
+                HStack {
+                    Text("Don't have an account?")
+                    NavigationLink(destination: SignUpContentView()
+                                    .navigationBarHidden(true)
+                                    .navigationBarBackButtonHidden(true)){
+                        Text("SIGN UP")
+                            .padding()
+                    }
                 }
-                .border(Color.black)
-                .background(Color.black)
                 Spacer()
             }
         }
