@@ -8,8 +8,46 @@
 import SwiftUI
 
 struct SignUpContentView: View {
+    @State var id = ""
+    @State var pw = ""
+    @State var pwcheck = ""
+    @State var name = ""
+    
     var body: some View {
-        Text("회원가입")
+        NavigationView{
+            VStack {
+                Text("Sign Up")
+                    .font(.largeTitle)
+                TextField("TYPE ID HERE", text : $id)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                SecureField("TYPE PASSWORD HERE", text : $pw)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                SecureField("CHECK PASSWORD", text : $pwcheck)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                TextField("TYPE NAME HERE", text : $name)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                NavigationLink(destination: ContentView()
+                                .navigationBarHidden(true)
+                                .navigationBarBackButtonHidden(true)){
+                    Text("SIGN UP")
+                        .foregroundColor(Color.white)
+                        .padding()
+                }
+                .border(Color.black)
+                .background(Color.black)
+            }
+        }
     }
 }
 
