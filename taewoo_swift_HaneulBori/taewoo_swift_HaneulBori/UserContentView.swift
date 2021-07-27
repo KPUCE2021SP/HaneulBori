@@ -10,6 +10,8 @@ import SwiftUI
 struct UserContentView: View {
     @State var state1 = "미사용"
     @State var state2 = "미사용"
+    @State var btn1state = false
+    @State var btn2state = false
     
     var body: some View {
         VStack {
@@ -48,7 +50,11 @@ struct UserContentView: View {
                 .frame(width: 180)
                 .background(Color.green.opacity(0.8))
                 .border(Color.black)
-                Button(action: {state1 = "고장"}){
+                .disabled(btn1state)
+                Button(action: {
+                    state1 = "고장"
+                    btn1state = true
+                }){
                     Text("1번 세탁기 고장 신고")
                         .foregroundColor(.black)
                         .padding()
@@ -66,7 +72,11 @@ struct UserContentView: View {
                 .frame(width: 180)
                 .background(Color.blue.opacity(0.8))
                 .border(Color.black)
-                Button(action: {state2 = "고장"}){
+                .disabled(btn2state)
+                Button(action: {
+                    state2 = "고장"
+                    btn2state = true
+                }){
                     Text("2번 세탁기 고장 신고")
                         .foregroundColor(.black)
                         .padding()

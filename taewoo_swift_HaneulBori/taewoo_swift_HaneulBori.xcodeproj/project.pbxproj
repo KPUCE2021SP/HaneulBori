@@ -47,7 +47,7 @@
 		39C8C73326A8053000782217 /* UserContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContentView.swift; sourceTree = "<group>"; };
 		39C8C73526A8112200782217 /* AdminContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminContentView.swift; sourceTree = "<group>"; };
 		39C8C73726A814A800782217 /* SignUpContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContentView.swift; sourceTree = "<group>"; };
-		39E769CA26A5289600A836A8 /* Reserve Washing Machine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reserve Washing Machine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39E769CA26A5289600A836A8 /* HaneulBori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaneulBori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E769CD26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taewoo_swift_HaneulBoriApp.swift; sourceTree = "<group>"; };
 		39E769CF26A5289600A836A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		39E769D126A5289600A836A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		39E769CB26A5289600A836A8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				39E769CA26A5289600A836A8 /* Reserve Washing Machine.app */,
+				39E769CA26A5289600A836A8 /* HaneulBori.app */,
 				39E769DB26A5289600A836A8 /* taewoo_swift_HaneulBoriTests.xctest */,
 				39E769E626A5289700A836A8 /* taewoo_swift_HaneulBoriUITests.xctest */,
 			);
@@ -202,7 +202,7 @@
 			);
 			name = taewoo_swift_HaneulBori;
 			productName = taewoo_swift_HaneulBori;
-			productReference = 39E769CA26A5289600A836A8 /* Reserve Washing Machine.app */;
+			productReference = 39E769CA26A5289600A836A8 /* HaneulBori.app */;
 			productType = "com.apple.product-type.application";
 		};
 		39E769DA26A5289600A836A8 /* taewoo_swift_HaneulBoriTests */ = {
@@ -560,7 +560,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mataewoos.taewoo-swift-HaneulBori";
-				PRODUCT_NAME = "Reserve Washing Machine";
+				PRODUCT_NAME = HaneulBori;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -584,7 +584,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mataewoos.taewoo-swift-HaneulBori";
-				PRODUCT_NAME = "Reserve Washing Machine";
+				PRODUCT_NAME = HaneulBori;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
