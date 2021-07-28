@@ -13,6 +13,7 @@ struct SignUpContentView: View {
     @State var pwcheck = ""
     @State var name = ""
     @State var bday = Date()
+    @State var sex = ""
     
     var body: some View {
         NavigationView{
@@ -25,7 +26,7 @@ struct SignUpContentView: View {
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                 SecureField("TYPE PASSWORD HERE", text : $pw)
-                    .padding()
+                    .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
@@ -35,13 +36,55 @@ struct SignUpContentView: View {
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                 TextField("TYPE NAME HERE", text : $name)
-                    .padding()
+                    .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
+                HStack {
+                    Button(action: {sex = "M"}){
+                        if sex != "M"{
+                            Text("MALE")
+                                .foregroundColor(Color.white)
+                                .padding()
+                                .frame(width: 185)
+                                .border(Color.black)
+                                .background(Color.black)
+                                .opacity(0.5)
+                        }
+                        else{
+                            Text("MALE")
+                                .foregroundColor(Color.white)
+                                .padding()
+                                .frame(width: 185)
+                                .border(Color.black)
+                                .background(Color.black)
+                        }
+                    }
+                    Button(action: {sex = "F"}){
+                        if sex != "F"{
+                            Text("FEMALE")
+                                .foregroundColor(Color.white)
+                                .padding()
+                                .frame(width: 185)
+                                .border(Color.black)
+                                .background(Color.black)
+                                .opacity(0.5)
+                        }
+                        else{
+                            Text("FEMALE")
+                                .foregroundColor(Color.white)
+                                .padding()
+                                .frame(width: 185)
+                                .border(Color.black)
+                                .background(Color.black)
+                        }
+                    }
+                }
+                .padding()
+//                Text("\(sex)")
                 DatePicker(selection: $bday, displayedComponents: .date){
                     Text("BIRTHDAY")
                 }
-                .padding()
+                .padding(.horizontal)
 //                .datePickerStyle(WheelDatePickerStyle())
                 NavigationLink(destination: ContentView()
                                 .navigationBarHidden(true)
@@ -52,6 +95,7 @@ struct SignUpContentView: View {
                 }
                 .border(Color.black)
                 .background(Color.black)
+                Spacer()
             }
         }
     }
