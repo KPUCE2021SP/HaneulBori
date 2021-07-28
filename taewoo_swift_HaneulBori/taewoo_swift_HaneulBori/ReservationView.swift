@@ -13,7 +13,7 @@ struct ReservationView: View {
     
     var body: some View {
         VStack {
-            Text("Reserve To Use Washers")
+            Text("세탁기 예약")
                 .font(.title)
             Spacer()
             DatePicker(selection: $time, displayedComponents: .hourAndMinute){
@@ -25,7 +25,7 @@ struct ReservationView: View {
 //            .datePickerStyle(WheelDatePickerStyle())
             Button(action: {isReserved = true}){    // Female
                 if isReserved{
-                    Text("RESERVE")
+                    Text("예약하기")
                         .foregroundColor(Color.white)
                         .padding()
                         .frame(width: 185)
@@ -34,7 +34,7 @@ struct ReservationView: View {
                         .opacity(0.5)
                 }
                 else{
-                    Text("RESERVE")
+                    Text("예약하기")
                         .foregroundColor(Color.white)
                         .padding()
                         .frame(width: 185)

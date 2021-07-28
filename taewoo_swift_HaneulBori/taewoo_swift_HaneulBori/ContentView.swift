@@ -14,15 +14,15 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack {
-                Text("Hello, Sign In To Use!")
+                Text("로그인 후 이용 가능합니다!")
                     .font(.largeTitle)
                 Spacer()
-                TextField("TYPE ID HERE", text : $id)   // Type ID
+                TextField("ID", text : $id)   // Type ID
                     .padding([.top, .leading, .trailing])
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                SecureField("TYPE PASSWORD HERE", text : $pw)   // Type password
+                SecureField("비밀번호", text : $pw)   // Type password
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
@@ -31,7 +31,7 @@ struct ContentView: View {
                     NavigationLink(destination: UserContentView()
                                     .navigationBarHidden(true)
                                     .navigationBarBackButtonHidden(true)){  // User
-                        Text("SIGN IN for USER")
+                        Text("사용자 로그인")
                             .foregroundColor(Color.white)
                             .padding()
                     }
@@ -40,19 +40,20 @@ struct ContentView: View {
                     NavigationLink(destination: AdminContentView()
                                     .navigationBarHidden(true)
                                     .navigationBarBackButtonHidden(true)){  // Administrator
-                        Text("SIGN IN for ADMIN")
+                        Text("관리자 로그인")
                             .foregroundColor(Color.white)
                             .padding()
                     }
                     .border(Color.black)
                     .background(Color.black)
                 }
+                .padding()
                 HStack {
-                    Text("Don't have an account?")
+                    Text("계정이 없으십니까?")
                     NavigationLink(destination: SignUpContentView()
                                     .navigationBarHidden(true)
                                     .navigationBarBackButtonHidden(true)){  // Sign up
-                        Text("SIGN UP")
+                        Text("회원가입")
                             .padding()
                     }
                 }

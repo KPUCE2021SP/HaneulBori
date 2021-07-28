@@ -34,7 +34,7 @@ struct AdminContentView: View {
                 }.padding()
                 Spacer()
                 NavigationLink(destination: Admin_ManageView()){   // Manage Washers
-                    Text("MANAGE WASHING MACHINES")
+                    Text("세탁기 관리")
                         .foregroundColor(Color.white)
                         .padding()
                 }
@@ -43,13 +43,13 @@ struct AdminContentView: View {
                 .background(Color.black)
                 Button(action: {btnPressed.toggle()}) { // For money how much you earned
                     if btnPressed{
-                        Text("I earned \(money) (KRW)")
+                        Text("매출액 : \(money) (KRW)")
                             .foregroundColor(Color.white)
                             .padding()
                     }
                     else{
                         Text("$how Me the Money")
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color.yellow)
                             .padding()
                     }
 

@@ -18,62 +18,65 @@ struct SignUpContentView: View {
     var body: some View {
         NavigationView{
             VStack {
-                Text("Sign Up")
-                    .font(.largeTitle)
-                TextField("TYPE ID HERE", text : $id) // Id
+                Text("환영합니다! 회원 가입을 진행합니다.")
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                TextField("ID", text : $id) // Id
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                SecureField("TYPE PASSWORD HERE", text : $pw)   // Password
+                SecureField("비밀번호", text : $pw)   // Password
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                SecureField("CHECK PASSWORD", text : $pwcheck)  // Password checking
+                SecureField("비밀번호 확인", text : $pwcheck)  // Password checking
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                TextField("TYPE NAME HERE", text : $name)   // Name
+                TextField("이름", text : $name)   // Name
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                 HStack {
+                    Text("성별")
+                        .frame(width: 30)
                     Button(action: {sex = "M"}){    // Male
                         if sex != "M"{
-                            Text("MALE")
+                            Text("남성")
                                 .foregroundColor(Color.white)
                                 .padding()
-                                .frame(width: 185)
+                                .frame(width: 170)
                                 .border(Color.black)
                                 .background(Color.black)
                                 .opacity(0.5)
                         }
                         else{
-                            Text("MALE")
+                            Text("남성")
                                 .foregroundColor(Color.white)
                                 .padding()
-                                .frame(width: 185)
+                                .frame(width: 170)
                                 .border(Color.black)
                                 .background(Color.black)
                         }
                     }
                     Button(action: {sex = "F"}){    // Female
                         if sex != "F"{
-                            Text("FEMALE")
+                            Text("여성")
                                 .foregroundColor(Color.white)
                                 .padding()
-                                .frame(width: 185)
+                                .frame(width: 170)
                                 .border(Color.black)
                                 .background(Color.black)
                                 .opacity(0.5)
                         }
                         else{
-                            Text("FEMALE")
+                            Text("여성")
                                 .foregroundColor(Color.white)
                                 .padding()
-                                .frame(width: 185)
+                                .frame(width: 170)
                                 .border(Color.black)
                                 .background(Color.black)
                         }
@@ -82,14 +85,14 @@ struct SignUpContentView: View {
                 .padding()
 //                Text("\(sex)")
                 DatePicker(selection: $bday, displayedComponents: .date){   // Birthday
-                    Text("BIRTHDAY")
+                    Text("생일")
                 }
                 .padding(.horizontal)
 //                .datePickerStyle(WheelDatePickerStyle())
                 NavigationLink(destination: ContentView()
                                 .navigationBarHidden(true)
                                 .navigationBarBackButtonHidden(true)){  // Complete signing up
-                    Text("SIGN UP")
+                    Text("회원 가입")
                         .foregroundColor(Color.white)
                         .padding()
                 }
