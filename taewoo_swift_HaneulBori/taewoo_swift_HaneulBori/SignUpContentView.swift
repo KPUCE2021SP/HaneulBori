@@ -8,39 +8,39 @@
 import SwiftUI
 
 struct SignUpContentView: View {
-    @State var id = ""
-    @State var pw = ""
-    @State var pwcheck = ""
-    @State var name = ""
-    @State var bday = Date()
-    @State var sex = ""
+    @State var id = ""  // Email
+    @State var pw = ""  // Password
+    @State var pwcheck = "" // Type password again
+    @State var name = ""    // Name
+    @State var bday = Date()    // Birthday
+    @State var sex = "" // Sex
     
     var body: some View {
         NavigationView{
             VStack {
                 Text("Sign Up")
                     .font(.largeTitle)
-                TextField("TYPE ID HERE", text : $id)
+                TextField("TYPE ID HERE", text : $id) // Id
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                SecureField("TYPE PASSWORD HERE", text : $pw)
+                SecureField("TYPE PASSWORD HERE", text : $pw)   // Password
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                SecureField("CHECK PASSWORD", text : $pwcheck)
+                SecureField("CHECK PASSWORD", text : $pwcheck)  // Password checking
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                TextField("TYPE NAME HERE", text : $name)
+                TextField("TYPE NAME HERE", text : $name)   // Name
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                 HStack {
-                    Button(action: {sex = "M"}){
+                    Button(action: {sex = "M"}){    // Male
                         if sex != "M"{
                             Text("MALE")
                                 .foregroundColor(Color.white)
@@ -59,7 +59,7 @@ struct SignUpContentView: View {
                                 .background(Color.black)
                         }
                     }
-                    Button(action: {sex = "F"}){
+                    Button(action: {sex = "F"}){    // Female
                         if sex != "F"{
                             Text("FEMALE")
                                 .foregroundColor(Color.white)
@@ -81,14 +81,14 @@ struct SignUpContentView: View {
                 }
                 .padding()
 //                Text("\(sex)")
-                DatePicker(selection: $bday, displayedComponents: .date){
+                DatePicker(selection: $bday, displayedComponents: .date){   // Birthday
                     Text("BIRTHDAY")
                 }
                 .padding(.horizontal)
 //                .datePickerStyle(WheelDatePickerStyle())
                 NavigationLink(destination: ContentView()
                                 .navigationBarHidden(true)
-                                .navigationBarBackButtonHidden(true)){
+                                .navigationBarBackButtonHidden(true)){  // Complete signing up
                     Text("SIGN UP")
                         .foregroundColor(Color.white)
                         .padding()

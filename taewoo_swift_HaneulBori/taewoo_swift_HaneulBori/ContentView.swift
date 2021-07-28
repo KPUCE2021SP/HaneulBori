@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var id = ""
-    @State var pw = ""
+    @State var id = ""  // Email
+    @State var pw = ""  // Password
 
     var body: some View {
         NavigationView{
@@ -17,12 +17,12 @@ struct ContentView: View {
                 Text("Hello, Sign In To Use!")
                     .font(.largeTitle)
                 Spacer()
-                TextField("TYPE ID HERE", text : $id)
+                TextField("TYPE ID HERE", text : $id)   // Type ID
                     .padding([.top, .leading, .trailing])
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                SecureField("TYPE PASSWORD HERE", text : $pw)
+                SecureField("TYPE PASSWORD HERE", text : $pw)   // Type password
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
@@ -30,7 +30,7 @@ struct ContentView: View {
                 HStack {
                     NavigationLink(destination: UserContentView()
                                     .navigationBarHidden(true)
-                                    .navigationBarBackButtonHidden(true)){
+                                    .navigationBarBackButtonHidden(true)){  // User
                         Text("SIGN IN for USER")
                             .foregroundColor(Color.white)
                             .padding()
@@ -39,7 +39,7 @@ struct ContentView: View {
                     .background(Color.black)
                     NavigationLink(destination: AdminContentView()
                                     .navigationBarHidden(true)
-                                    .navigationBarBackButtonHidden(true)){
+                                    .navigationBarBackButtonHidden(true)){  // Administrator
                         Text("SIGN IN for ADMIN")
                             .foregroundColor(Color.white)
                             .padding()
@@ -51,7 +51,7 @@ struct ContentView: View {
                     Text("Don't have an account?")
                     NavigationLink(destination: SignUpContentView()
                                     .navigationBarHidden(true)
-                                    .navigationBarBackButtonHidden(true)){
+                                    .navigationBarBackButtonHidden(true)){  // Sign up
                         Text("SIGN UP")
                             .padding()
                     }

@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct AdminContentView: View {
-    @State var btnPressed = false
-    @State var money = 1000000
+    @State var btnPressed = false   // For $how me the money
+    @State var money = 1000000  // Earned money
     
     var body: some View {
         NavigationView{
             VStack {
                 VStack {
-                    VStack {
+                    VStack {    // Washer No.1
                         Text("1번 세탁기")
                         Text("(세탁기 상태)")
                     }
@@ -23,7 +23,7 @@ struct AdminContentView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                     .border(Color.black)
-                    VStack {
+                    VStack {    // Washer No.2
                         Text("2번 세탁기")
                         Text("(세탁기 상태)")
                     }
@@ -33,7 +33,7 @@ struct AdminContentView: View {
                     .border(Color.black)
                 }.padding()
                 Spacer()
-                NavigationLink(destination: SignUpContentView()){
+                NavigationLink(destination: SignUpContentView()){   // Manage Washers
                     Text("MANAGE WASHING MACHINES")
                         .foregroundColor(Color.white)
                         .padding()
@@ -41,7 +41,7 @@ struct AdminContentView: View {
                 .frame(width: 300)
                 .border(Color.black)
                 .background(Color.black)
-                Button(action: {btnPressed.toggle()}) {
+                Button(action: {btnPressed.toggle()}) { // For money how much you earned
                     if btnPressed{
                         Text("I earned \(money) (KRW)")
                             .foregroundColor(Color.white)
