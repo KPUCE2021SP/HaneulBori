@@ -33,7 +33,7 @@ struct AdminContentView: View {
                     .border(Color.black)
                 }.padding()
                 Spacer()
-                NavigationLink(destination: SignUpContentView()){   // Manage Washers
+                NavigationLink(destination: Admin_ManageView()){   // Manage Washers
                     Text("MANAGE WASHING MACHINES")
                         .foregroundColor(Color.white)
                         .padding()
