@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,7 +29,7 @@
 		399DA47326B29BE800C5DC1A /* ReservationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationView.swift; sourceTree = "<group>"; };
 		399DA47426B29BE800C5DC1A /* Admin_ManageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Admin_ManageView.swift; sourceTree = "<group>"; };
 		399DA47A26B29CB400C5DC1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
-		39AE757526B29B4F0010D1F4 /* HaneulBori_Taewoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaneulBori_Taewoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39AE757526B29B4F0010D1F4 /* LAUNDRY by HB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LAUNDRY by HB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39AE757826B29B4F0010D1F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39AE757A26B29B4F0010D1F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		39AE757C26B29B4F0010D1F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		39AE757626B29B4F0010D1F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				39AE757526B29B4F0010D1F4 /* HaneulBori_Taewoo.app */,
+				39AE757526B29B4F0010D1F4 /* LAUNDRY by HB.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,7 +106,6 @@
 				885212410DBACF5C3A287303 /* Pods-HaneulBori_Taewoo.debug.xcconfig */,
 				D66A438F1B61DBABE2EA4E91 /* Pods-HaneulBori_Taewoo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -137,7 +136,7 @@
 			);
 			name = HaneulBori_Taewoo;
 			productName = HaneulBori_Taewoo;
-			productReference = 39AE757526B29B4F0010D1F4 /* HaneulBori_Taewoo.app */;
+			productReference = 39AE757526B29B4F0010D1F4 /* LAUNDRY by HB.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -390,7 +389,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mataewoos.HaneulBori-Taewoo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "LAUNDRY by HB";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -412,7 +411,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mataewoos.HaneulBori-Taewoo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "LAUNDRY by HB";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
