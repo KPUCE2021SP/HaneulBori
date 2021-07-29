@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests : NSObject
-@end
-@implementation PodsDummy_Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests
-@end

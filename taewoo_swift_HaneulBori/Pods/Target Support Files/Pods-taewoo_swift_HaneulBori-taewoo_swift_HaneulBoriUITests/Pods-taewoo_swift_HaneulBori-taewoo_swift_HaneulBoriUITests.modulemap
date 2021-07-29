@@ -1,6 +1,0 @@
-framework module Pods_taewoo_swift_HaneulBori_taewoo_swift_HaneulBoriUITests {
-  umbrella header "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
