@@ -42,6 +42,7 @@ struct ReservationView: View {
                         .background(Color.black)
                 }
             }
+            .disabled(isReserved)
             Spacer()
         }
     }
