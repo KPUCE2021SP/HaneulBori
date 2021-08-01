@@ -6,10 +6,23 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
     @State var id = ""  // Email
     @State var pw = ""  // Password
+    @State var alertMessage = "Something went wrong"
+    
+    func login() {
+        Auth.auth().signIn(withEmail: id, password: pw) { result, error in
+            if error != nil {
+                self.alertMessage = error?.localizedDescription ?? ""
+            }
+//            else {
+//
+//            }
+        }
+    }
 
     var body: some View {
         NavigationView{
@@ -28,15 +41,13 @@ struct ContentView: View {
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                 HStack {
-                    NavigationLink(destination: UserContentView()
-                                    .navigationBarHidden(true)
-                                    .navigationBarBackButtonHidden(true)){  // User
+                    Button(action: {login()}){  // User
                         Text("사용자 로그인")
                             .foregroundColor(Color.white)
                             .padding()
+                            .border(Color.black)
+                            .background(Color.black)
                     }
-                    .border(Color.black)
-                    .background(Color.black)
                     NavigationLink(destination: AdminContentView()
                                     .navigationBarHidden(true)
                                     .navigationBarBackButtonHidden(true)){  // Administrator
