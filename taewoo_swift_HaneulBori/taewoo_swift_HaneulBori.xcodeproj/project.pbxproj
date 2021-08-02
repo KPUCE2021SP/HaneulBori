@@ -22,6 +22,7 @@
 		39FDAD3226B7B7B700E99370 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39FDAD3126B7B7B700E99370 /* GoogleService-Info.plist */; };
 		39FDAD3426B7BBF800E99370 /* Admin_ManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FDAD3326B7BBF800E99370 /* Admin_ManageView.swift */; };
 		39FDAD3826B7DDAF00E99370 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FDAD3726B7DDAF00E99370 /* Launch Screen.storyboard */; };
+		39FDAD3E26B8B5AE00E99370 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FDAD3D26B8B5AE00E99370 /* User.swift */; };
 		DAF52866E5BDB3CF2081A7BF /* Pods_taewoo_swift_HaneulBoriTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6F1C586583AE3297D1815B /* Pods_taewoo_swift_HaneulBoriTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		39FDAD3126B7B7B700E99370 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		39FDAD3326B7BBF800E99370 /* Admin_ManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin_ManageView.swift; sourceTree = "<group>"; };
 		39FDAD3726B7DDAF00E99370 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		39FDAD3D26B8B5AE00E99370 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4815C7C2D88B576D4863F8CB /* Pods_taewoo_swift_HaneulBori.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taewoo_swift_HaneulBori.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEA0A7823AE32301FCDA742 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig"; path = "Target Support Files/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig"; sourceTree = "<group>"; };
 		63D75C7A39C404DD6400F705 /* Pods-taewoo_swift_HaneulBori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taewoo_swift_HaneulBori.release.xcconfig"; path = "Target Support Files/Pods-taewoo_swift_HaneulBori/Pods-taewoo_swift_HaneulBori.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,15 +129,9 @@
 		39E769CC26A5289600A836A8 /* taewoo_swift_HaneulBori */ = {
 			isa = PBXGroup;
 			children = (
-				39AA70A126AFF00C0047E28B /* Reserve Washing Machine.entitlements */,
-				39FDAD3726B7DDAF00E99370 /* Launch Screen.storyboard */,
-				39E769CD26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift */,
-				39E769CF26A5289600A836A8 /* ContentView.swift */,
-				39C8C73726A814A800782217 /* SignUpView.swift */,
-				39C8C73326A8053000782217 /* UserView.swift */,
-				39A83D2526B116B4008A0190 /* ReservationView.swift */,
-				39C8C73526A8112200782217 /* AdminView.swift */,
-				39FDAD3326B7BBF800E99370 /* Admin_ManageView.swift */,
+				39FDAD3C26B8B58F00E99370 /* App */,
+				39FDAD3B26B8B58600E99370 /* Model */,
+				39FDAD3F26B8B5C000E99370 /* Views */,
 				39E769D126A5289600A836A8 /* Assets.xcassets */,
 				39FDAD3126B7B7B700E99370 /* GoogleService-Info.plist */,
 				39E769D626A5289600A836A8 /* Info.plist */,
@@ -168,6 +164,37 @@
 				39E769EC26A5289700A836A8 /* Info.plist */,
 			);
 			path = taewoo_swift_HaneulBoriUITests;
+			sourceTree = "<group>";
+		};
+		39FDAD3B26B8B58600E99370 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39FDAD3D26B8B5AE00E99370 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		39FDAD3C26B8B58F00E99370 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				39AA70A126AFF00C0047E28B /* Reserve Washing Machine.entitlements */,
+				39FDAD3726B7DDAF00E99370 /* Launch Screen.storyboard */,
+				39E769CD26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		39FDAD3F26B8B5C000E99370 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				39E769CF26A5289600A836A8 /* ContentView.swift */,
+				39C8C73726A814A800782217 /* SignUpView.swift */,
+				39C8C73326A8053000782217 /* UserView.swift */,
+				39A83D2526B116B4008A0190 /* ReservationView.swift */,
+				39C8C73526A8112200782217 /* AdminView.swift */,
+				39FDAD3326B7BBF800E99370 /* Admin_ManageView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6DF023D8F06CE11C420442BD /* Frameworks */ = {
@@ -432,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39FDAD3E26B8B5AE00E99370 /* User.swift in Sources */,
 				39C8C73826A814A800782217 /* SignUpView.swift in Sources */,
 				39A83D2626B116B4008A0190 /* ReservationView.swift in Sources */,
 				39FDAD3426B7BBF800E99370 /* Admin_ManageView.swift in Sources */,

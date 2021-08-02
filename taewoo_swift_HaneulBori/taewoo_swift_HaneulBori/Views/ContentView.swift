@@ -17,6 +17,7 @@ class AppViewModel: ObservableObject {
     }
     var type = ""
     var signedUp = false
+//    var signinFailed = false
     
     func signIn(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
@@ -24,7 +25,6 @@ class AppViewModel: ObservableObject {
             else{
                 return
             }
-            
             DispatchQueue.main.async {
                 self?.signedIn = true    // Success
             }
@@ -35,6 +35,7 @@ class AppViewModel: ObservableObject {
         auth.createUser(withEmail: email, password: password) { result, error in
             guard result != nil, error == nil
             else{
+//                self.signinFailed = true
                 return
             }
             DispatchQueue.main.async {
@@ -131,6 +132,9 @@ struct SignInView: View {
                             .padding()
                             .border(Color.black)
                             .background(Color.black)
+                    }
+//                    .alert(isPresented: $viewModel.signinFailed) {
+//                        Alert(title: Text("ERROR"), message: Text("Please enter a valid email or password."), dismissButton: .default(Text("CLOSE")))
                     }
                 }
                 .padding()
