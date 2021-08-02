@@ -141,7 +141,12 @@ struct SignUpView: View {
                     .border(Color.black)
                     .background(Color.black)
             }
-            Spacer()
+            NavigationLink(destination: SignInView()
+                            .navigationBarHidden(true)
+                            .navigationBarBackButtonHidden(true)){  // Sign up
+                Text("취소")
+                    .font(.caption)
+            }
         }
     }
 }
