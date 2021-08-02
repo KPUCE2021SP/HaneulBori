@@ -51,10 +51,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
 // Declare the dependencies for the Crashlytics and Analytics libraries
 // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-storage-ktx'
-    implementation 'com.google.firebase:firebase-config-ktx'
+
     implementation 'com.google.firebase:firebase-firestore-ktx'
-    implementation 'com.google.firebase:firebase-database-ktx'
+
 }
