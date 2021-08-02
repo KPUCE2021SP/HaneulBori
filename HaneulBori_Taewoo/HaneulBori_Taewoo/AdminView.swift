@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AdminContentView: View {
+struct AdminView: View {
     @State var btnPressed = false   // For $how me the money
     @State var money = 1000000  // Earned money
     
@@ -67,8 +67,8 @@ struct AdminContentView: View {
     }
 }
 
-struct AdminContentView_Previews: PreviewProvider {
+struct AdminView_Previews: PreviewProvider {
     static var previews: some View {
-        AdminContentView()
+        AdminView()
     }
 }

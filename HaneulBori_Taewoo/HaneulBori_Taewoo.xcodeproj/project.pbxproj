@@ -7,36 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		399DA47526B29BE800C5DC1A /* UserContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399DA47026B29BE800C5DC1A /* UserContentView.swift */; };
-		399DA47626B29BE800C5DC1A /* AdminContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399DA47126B29BE800C5DC1A /* AdminContentView.swift */; };
-		399DA47726B29BE800C5DC1A /* SignUpContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399DA47226B29BE800C5DC1A /* SignUpContentView.swift */; };
+		399DA47526B29BE800C5DC1A /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399DA47026B29BE800C5DC1A /* UserView.swift */; };
+		399DA47626B29BE800C5DC1A /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399DA47126B29BE800C5DC1A /* AdminView.swift */; };
+		399DA47726B29BE800C5DC1A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399DA47226B29BE800C5DC1A /* SignUpView.swift */; };
 		399DA47826B29BE800C5DC1A /* ReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399DA47326B29BE800C5DC1A /* ReservationView.swift */; };
 		399DA47926B29BE800C5DC1A /* Admin_ManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399DA47426B29BE800C5DC1A /* Admin_ManageView.swift */; };
 		399DA47B26B29CB400C5DC1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 399DA47A26B29CB400C5DC1A /* GoogleService-Info.plist */; };
 		39AE757926B29B4F0010D1F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE757826B29B4F0010D1F4 /* AppDelegate.swift */; };
 		39AE757B26B29B4F0010D1F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE757A26B29B4F0010D1F4 /* SceneDelegate.swift */; };
-		39AE757D26B29B4F0010D1F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE757C26B29B4F0010D1F4 /* ContentView.swift */; };
+		39AE757D26B29B4F0010D1F4 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE757C26B29B4F0010D1F4 /* SignInView.swift */; };
 		39AE757F26B29B500010D1F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39AE757E26B29B500010D1F4 /* Assets.xcassets */; };
 		39AE758226B29B500010D1F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39AE758126B29B500010D1F4 /* Preview Assets.xcassets */; };
 		39AE758526B29B500010D1F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39AE758326B29B500010D1F4 /* LaunchScreen.storyboard */; };
+		39FDAD2C26B7705300E99370 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FDAD2B26B7705300E99370 /* ContentView.swift */; };
 		B734FF0CC259D36FB6A8494A /* Pods_HaneulBori_Taewoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A831AF4BB86378279B811B0F /* Pods_HaneulBori_Taewoo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		399DA47026B29BE800C5DC1A /* UserContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContentView.swift; sourceTree = "<group>"; };
-		399DA47126B29BE800C5DC1A /* AdminContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminContentView.swift; sourceTree = "<group>"; };
-		399DA47226B29BE800C5DC1A /* SignUpContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpContentView.swift; sourceTree = "<group>"; };
+		399DA47026B29BE800C5DC1A /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		399DA47126B29BE800C5DC1A /* AdminView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		399DA47226B29BE800C5DC1A /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		399DA47326B29BE800C5DC1A /* ReservationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationView.swift; sourceTree = "<group>"; };
 		399DA47426B29BE800C5DC1A /* Admin_ManageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Admin_ManageView.swift; sourceTree = "<group>"; };
 		399DA47A26B29CB400C5DC1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		39AE757526B29B4F0010D1F4 /* LAUNDRY by HB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LAUNDRY by HB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39AE757826B29B4F0010D1F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39AE757A26B29B4F0010D1F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		39AE757C26B29B4F0010D1F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		39AE757C26B29B4F0010D1F4 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		39AE757E26B29B500010D1F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39AE758126B29B500010D1F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		39AE758426B29B500010D1F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39AE758626B29B500010D1F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39FDAD2B26B7705300E99370 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		885212410DBACF5C3A287303 /* Pods-HaneulBori_Taewoo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaneulBori_Taewoo.debug.xcconfig"; path = "Target Support Files/Pods-HaneulBori_Taewoo/Pods-HaneulBori_Taewoo.debug.xcconfig"; sourceTree = "<group>"; };
 		A831AF4BB86378279B811B0F /* Pods_HaneulBori_Taewoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaneulBori_Taewoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D66A438F1B61DBABE2EA4E91 /* Pods-HaneulBori_Taewoo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaneulBori_Taewoo.release.xcconfig"; path = "Target Support Files/Pods-HaneulBori_Taewoo/Pods-HaneulBori_Taewoo.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,12 +81,13 @@
 				39AE757826B29B4F0010D1F4 /* AppDelegate.swift */,
 				39AE757A26B29B4F0010D1F4 /* SceneDelegate.swift */,
 				39AE758326B29B500010D1F4 /* LaunchScreen.storyboard */,
-				39AE757C26B29B4F0010D1F4 /* ContentView.swift */,
-				399DA47226B29BE800C5DC1A /* SignUpContentView.swift */,
-				399DA47026B29BE800C5DC1A /* UserContentView.swift */,
+				39FDAD2B26B7705300E99370 /* ContentView.swift */,
+				39AE757C26B29B4F0010D1F4 /* SignInView.swift */,
+				399DA47226B29BE800C5DC1A /* SignUpView.swift */,
+				399DA47026B29BE800C5DC1A /* UserView.swift */,
 				399DA47326B29BE800C5DC1A /* ReservationView.swift */,
 				399DA47426B29BE800C5DC1A /* Admin_ManageView.swift */,
-				399DA47126B29BE800C5DC1A /* AdminContentView.swift */,
+				399DA47126B29BE800C5DC1A /* AdminView.swift */,
 				399DA47A26B29CB400C5DC1A /* GoogleService-Info.plist */,
 				39AE758626B29B500010D1F4 /* Info.plist */,
 				39AE758026B29B500010D1F4 /* Preview Content */,
@@ -233,13 +236,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				39AE757926B29B4F0010D1F4 /* AppDelegate.swift in Sources */,
-				399DA47626B29BE800C5DC1A /* AdminContentView.swift in Sources */,
+				399DA47626B29BE800C5DC1A /* AdminView.swift in Sources */,
 				399DA47826B29BE800C5DC1A /* ReservationView.swift in Sources */,
-				399DA47526B29BE800C5DC1A /* UserContentView.swift in Sources */,
+				399DA47526B29BE800C5DC1A /* UserView.swift in Sources */,
 				39AE757B26B29B4F0010D1F4 /* SceneDelegate.swift in Sources */,
+				39FDAD2C26B7705300E99370 /* ContentView.swift in Sources */,
 				399DA47926B29BE800C5DC1A /* Admin_ManageView.swift in Sources */,
-				399DA47726B29BE800C5DC1A /* SignUpContentView.swift in Sources */,
-				39AE757D26B29B4F0010D1F4 /* ContentView.swift in Sources */,
+				399DA47726B29BE800C5DC1A /* SignUpView.swift in Sources */,
+				39AE757D26B29B4F0010D1F4 /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

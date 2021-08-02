@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserContentView: View {
+struct UserView: View {
     @State var state1 = "미사용"   // Washer No.1 state
     @State var state2 = "미사용"   // Washer No.2 state
     @State var btn1state = false    // Washer No.1 broken
@@ -95,8 +95,8 @@ struct UserContentView: View {
     }
 }
 
-struct UserContentView_Previews: PreviewProvider {
+struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserContentView()
+        UserView()
     }
 }
