@@ -36,11 +36,12 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
+//            SignInView()
             if viewModel.signedIn{
-//                UserView()
+                UserView()
             }
             else {
-                SignUpView()
+                SignInView()
             }
         }
         .onAppear {
