@@ -3,7 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1469098277608916" />
+=======
+        <entry key="..\:/Users/904lh/AndroidStudioProjects/haneul/HaneulBori/android-project/app/src/main/res/drawable/facebook_icon.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/904lh/AndroidStudioProjects/haneul/HaneulBori/android-project/app/src/main/res/drawable/google_icon.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/904lh/AndroidStudioProjects/haneul/HaneulBori/android-project/app/src/main/res/drawable/kakao_icon.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/904lh/AndroidStudioProjects/haneul/HaneulBori/android-project/app/src/main/res/drawable/kakao_login.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/904lh/AndroidStudioProjects/haneul/HaneulBori/android-project/app/src/main/res/drawable/naver_icon.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/904lh/AndroidStudioProjects/haneul/HaneulBori/android-project/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Users/904lh/AndroidStudioProjects/haneul/HaneulBori/android-project/app/src/main/res/layout/activity_main.xml" value="0.17300724637681159" />
+>>>>>>> ab087cc31ddd63de8fb2e77d63459d849420ff0a
       </map>
     </option>
   </component>
