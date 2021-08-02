@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignUpContentView: View {
+struct SignUpView: View {
     @State var id = ""  // Email
     @State var pw = ""  // Password
     @State var pwcheck = "" // Type password again
@@ -89,7 +89,7 @@ struct SignUpContentView: View {
                 }
                 .padding(.horizontal)
 //                .datePickerStyle(WheelDatePickerStyle())
-                NavigationLink(destination: ContentView()
+                NavigationLink(destination: SignInView()
                                 .navigationBarHidden(true)
                                 .navigationBarBackButtonHidden(true)){  // Complete signing up
                     Text("회원 가입")
@@ -104,8 +104,8 @@ struct SignUpContentView: View {
     }
 }
 
-struct SignUpContentView_Previews: PreviewProvider {
+struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpContentView()
+        SignUpView()
     }
 }

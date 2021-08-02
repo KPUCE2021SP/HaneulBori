@@ -8,21 +8,53 @@
 import SwiftUI
 import FirebaseAuth
 
-struct ContentView: View {
-    @State var id = ""  // Email
-    @State var pw = ""  // Password
-    @State var alertMessage = "Something went wrong"
+class AppViewModel: ObservableObject {
+    let auth = Auth.auth()
     
-    func login() {
-        Auth.auth().signIn(withEmail: id, password: pw) { result, error in
-            if error != nil {
-                self.alertMessage = error?.localizedDescription ?? ""
+    @Published var signedIn = false
+    
+    var isSignedIn: Bool {
+        return auth.currentUser != nil
+    }
+    
+    func signIn(email: String, password: String) {
+        auth.signIn(withEmail: email, password: password) { [weak self] result, error in
+            guard result != nil, error == nil
+            else{
+                return
             }
-//            else {
-//
-//            }
+            
+            DispatchQueue.main.async {
+                self?.signedIn = true    // Success
+            }
         }
     }
+}
+
+struct ContentView: View {
+    @EnvironmentObject var viewModel: AppViewModel
+    
+    var body: some View {
+        NavigationView{
+            if viewModel.signedIn{
+//                UserView()
+            }
+            else {
+                SignUpView()
+            }
+        }
+        .onAppear {
+            viewModel.signedIn = viewModel.isSignedIn
+        }
+    }
+}
+
+
+struct SignInView: View {
+    @State var id = ""  // Email
+    @State var pw = ""  // Password
+    
+    @EnvironmentObject var viewModel: AppViewModel
 
     var body: some View {
         NavigationView{
@@ -41,14 +73,29 @@ struct ContentView: View {
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                 HStack {
-                    Button(action: {login()}){  // User
+//                    NavigationLink(destination: UserView()
+//                                    .navigationBarHidden(true)
+//                                    .navigationBarBackButtonHidden(true)){  // User
+//                        Text("사용자 로그인")
+//                            .foregroundColor(Color.white)
+//                            .padding()
+//                            .border(Color.black)
+//                            .background(Color.black)
+//                    }
+                    Button(action: {
+                        guard !id.isEmpty, !pw.isEmpty
+                        else {
+                            return
+                        }
+                        viewModel.signIn(email: id, password: pw)
+                    }) {
                         Text("사용자 로그인")
                             .foregroundColor(Color.white)
                             .padding()
                             .border(Color.black)
                             .background(Color.black)
                     }
-                    NavigationLink(destination: AdminContentView()
+                    NavigationLink(destination: AdminView()
                                     .navigationBarHidden(true)
                                     .navigationBarBackButtonHidden(true)){  // Administrator
                         Text("관리자 로그인")
@@ -61,7 +108,7 @@ struct ContentView: View {
                 .padding()
                 HStack {
                     Text("계정이 없으십니까?")
-                    NavigationLink(destination: SignUpContentView()
+                    NavigationLink(destination: SignUpView()
                                     .navigationBarHidden(true)
                                     .navigationBarBackButtonHidden(true)){  // Sign up
                         Text("회원가입")
