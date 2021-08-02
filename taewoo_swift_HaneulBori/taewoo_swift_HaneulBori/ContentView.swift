@@ -12,10 +12,11 @@ class AppViewModel: ObservableObject {
     let auth = Auth.auth()
     
     @Published var signedIn = false
-    
     var isSignedIn: Bool {
         return auth.currentUser != nil
     }
+    var type = ""
+    var signedUp = false
     
     func signIn(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
@@ -29,6 +30,23 @@ class AppViewModel: ObservableObject {
             }
         }
     }
+    
+    func signUp(email: String, password: String) {
+        auth.createUser(withEmail: email, password: password) { result, error in
+            guard result != nil, error == nil
+            else{
+                return
+            }
+            DispatchQueue.main.async {
+                self.signedIn = true    // Success
+            }
+        }
+    }
+    
+    func signOut() {
+        try? auth.signOut()
+        self.signedIn = false
+    }
 }
 
 struct ContentView: View {
@@ -36,7 +54,11 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-            if viewModel.signedIn{
+
+            if viewModel.signedIn && viewModel.type == "A" {
+                AdminView()
+            }
+            else if viewModel.signedIn && viewModel.type == "U" {
                 UserView()
             }
             else {
@@ -87,6 +109,7 @@ struct SignInView: View {
                         else {
                             return
                         }
+                        viewModel.type = "U"
                         viewModel.signIn(email: id, password: pw)
                     }) {
                         Text("사용자 로그인")
@@ -95,15 +118,20 @@ struct SignInView: View {
                             .border(Color.black)
                             .background(Color.black)
                     }
-                    NavigationLink(destination: AdminView()
-                                    .navigationBarHidden(true)
-                                    .navigationBarBackButtonHidden(true)){  // Administrator
+                    Button(action: {
+                        guard !id.isEmpty, !pw.isEmpty
+                        else {
+                            return
+                        }
+                        viewModel.type = "A"
+                        viewModel.signIn(email: id, password: pw)
+                    }) {    // Administrator
                         Text("관리자 로그인")
                             .foregroundColor(Color.white)
                             .padding()
+                            .border(Color.black)
+                            .background(Color.black)
                     }
-                    .border(Color.black)
-                    .background(Color.black)
                 }
                 .padding()
                 HStack {

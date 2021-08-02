@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct UserView: View {
     @State var state1 = "미사용"   // Washer No.1 state
     @State var state2 = "미사용"   // Washer No.2 state
     @State var btn1state = false    // Washer No.1 broken
     @State var btn2state = false    // Washer No.2 broken
+    @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
         NavigationView{
@@ -69,7 +71,8 @@ struct UserView: View {
                 HStack {    // Buttons for washer No.2
                     NavigationLink(destination: ReservationView()
                                     .navigationBarHidden(true)
-                                    .navigationBarBackButtonHidden(true)){                        Text("2번 세탁기 예약")
+                                    .navigationBarBackButtonHidden(true)){
+                        Text("2번 세탁기 예약")
                             .foregroundColor(.black)
                             .padding()
                     }
@@ -90,6 +93,22 @@ struct UserView: View {
                     .border(Color.black)
                 }
                 Spacer()
+                HStack {
+                    Text("다른 계정을 사용하고 싶다면")
+//                    NavigationLink(destination: SignInView()
+//                                    .navigationBarHidden(true)
+//                                    .navigationBarBackButtonHidden(true)){  // Sign up
+//                        Text("로그아웃")
+//                            .padding()
+//                    }
+                    Button(action: {
+                        viewModel.signOut()
+//                        SignInView()
+                    }) {  // Sign out
+                        Text("로그아웃")
+                            .padding()
+                    }
+                }
             }
         }
     }

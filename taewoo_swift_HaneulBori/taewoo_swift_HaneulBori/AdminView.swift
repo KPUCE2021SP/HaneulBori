@@ -10,6 +10,7 @@ import SwiftUI
 struct AdminView: View {
     @State var btnPressed = false   // For $how me the money
     @State var money = 1000000  // Earned money
+    @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
         NavigationView{
@@ -62,6 +63,13 @@ struct AdminView: View {
 //                    Text("I earned $\(money)")
 //                }
 //                Spacer()
+                HStack {
+                    Text("다른 계정을 사용하고 싶다면")
+                    Button(action: {viewModel.signOut()}) {  // Sign out
+                        Text("로그아웃")
+                            .padding()
+                    }
+                }
             }
         }
     }
