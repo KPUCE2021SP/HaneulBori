@@ -48,7 +48,11 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/tabCancel">
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv"
+                    android:text="내가 예약한 세탁기 번호/시간 : "/>
             </LinearLayout>
         </FrameLayout>
 
