@@ -2,24 +2,44 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.ac.kpu.kpuce2021sp.haneulbori_and">
 
+    <!-- 인터넷 사용 권한 설정-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
+        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Haneulboriand">
+        //카카오 로그인
+        <meta-data android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="oauth"
+                    android:scheme="kakao25b159dd1fa96e427bdaa92a17d6029c" />
+            </intent-filter>
+        </activity>
+
         <activity
-            android:name=".LoginActivity"
-            android:exported="true">
+            android:name=".SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
