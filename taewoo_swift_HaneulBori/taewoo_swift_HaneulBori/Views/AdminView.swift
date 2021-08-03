@@ -18,7 +18,7 @@ struct AdminView: View {
                 VStack {
                     VStack {    // Washer No.1
                         Text("1번 세탁기")
-                        Text("(세탁기 상태)")
+                        Text("\(viewModel.state1)")
                     }
                     .foregroundColor(.green)
                     .multilineTextAlignment(.center)
@@ -26,7 +26,7 @@ struct AdminView: View {
                     .border(Color.black)
                     VStack {    // Washer No.2
                         Text("2번 세탁기")
-                        Text("(세탁기 상태)")
+                        Text("\(viewModel.state2)")
                     }
                     .foregroundColor(.blue)
                     .multilineTextAlignment(.center)

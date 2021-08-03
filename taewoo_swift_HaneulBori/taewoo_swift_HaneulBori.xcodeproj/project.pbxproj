@@ -23,6 +23,7 @@
 		39FDAD3426B7BBF800E99370 /* Admin_ManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FDAD3326B7BBF800E99370 /* Admin_ManageView.swift */; };
 		39FDAD3826B7DDAF00E99370 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FDAD3726B7DDAF00E99370 /* Launch Screen.storyboard */; };
 		39FDAD3E26B8B5AE00E99370 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FDAD3D26B8B5AE00E99370 /* User.swift */; };
+		39FDAD4126B8C93F00E99370 /* WashingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FDAD4026B8C93F00E99370 /* WashingMachine.swift */; };
 		DAF52866E5BDB3CF2081A7BF /* Pods_taewoo_swift_HaneulBoriTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6F1C586583AE3297D1815B /* Pods_taewoo_swift_HaneulBoriTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		39FDAD3326B7BBF800E99370 /* Admin_ManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin_ManageView.swift; sourceTree = "<group>"; };
 		39FDAD3726B7DDAF00E99370 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		39FDAD3D26B8B5AE00E99370 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		39FDAD4026B8C93F00E99370 /* WashingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashingMachine.swift; sourceTree = "<group>"; };
 		4815C7C2D88B576D4863F8CB /* Pods_taewoo_swift_HaneulBori.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taewoo_swift_HaneulBori.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEA0A7823AE32301FCDA742 /* Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig"; path = "Target Support Files/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests/Pods-taewoo_swift_HaneulBori-taewoo_swift_HaneulBoriUITests.release.xcconfig"; sourceTree = "<group>"; };
 		63D75C7A39C404DD6400F705 /* Pods-taewoo_swift_HaneulBori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taewoo_swift_HaneulBori.release.xcconfig"; path = "Target Support Files/Pods-taewoo_swift_HaneulBori/Pods-taewoo_swift_HaneulBori.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				39FDAD3D26B8B5AE00E99370 /* User.swift */,
+				39FDAD4026B8C93F00E99370 /* WashingMachine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				39E769D026A5289600A836A8 /* ContentView.swift in Sources */,
 				39E769CE26A5289600A836A8 /* taewoo_swift_HaneulBoriApp.swift in Sources */,
 				39C8C73426A8053000782217 /* UserView.swift in Sources */,
+				39FDAD4126B8C93F00E99370 /* WashingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
