@@ -26,7 +26,7 @@ struct Admin_ManageView: View {
                 .border(Color.black)
                 VStack {    // Washer No.2
                     Text("2번 세탁기")
-                    Text("\(viewModel.state1)")
+                    Text("\(viewModel.state2)")
                 }
                 .foregroundColor(.blue)
                 .multilineTextAlignment(.center)
@@ -34,7 +34,10 @@ struct Admin_ManageView: View {
                 .border(Color.black)
             }.padding()
             Spacer()
-            Button(action: {isFixed1.toggle()}) {
+            Button(action: {
+                isFixed1.toggle()
+                viewModel.state1 = "미사용"
+            }) {
                 HStack{
                     if isFixed1 {
                         Text("1번 세탁기 이상 없음")
@@ -53,7 +56,10 @@ struct Admin_ManageView: View {
                 }
             }
             .disabled(isFixed1)
-            Button(action: {isFixed2.toggle()}) {
+            Button(action: {
+                isFixed2.toggle()
+                viewModel.state2 = "미사용"
+            }) {
                 HStack{
                     if isFixed2 {
                         Text("2번 세탁기 이상 없음")
