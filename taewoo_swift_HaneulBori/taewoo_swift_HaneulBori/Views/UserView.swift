@@ -9,10 +9,10 @@ import SwiftUI
 import FirebaseAuth
 
 struct UserView: View {
-    @State var state1 = "미사용"   // Washer No.1 state
-    @State var state2 = "미사용"   // Washer No.2 state
-    @State var btn1state = false    // Washer No.1 broken
-    @State var btn2state = false    // Washer No.2 broken
+    @State var state1: String   // Washer No.1 state
+    @State var state2: String   // Washer No.2 state
+    @State var btn1state: Bool  // Washer No.1 broken
+    @State var btn2state: Bool  // Washer No.2 broken
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
@@ -57,8 +57,10 @@ struct UserView: View {
                     .border(Color.black)
                     .disabled(btn1state)
                     Button(action: {
-                        state1 = "고장"
-                        btn1state = true
+                        viewModel.state1 = "고장"
+                        viewModel.btn1state = true
+                        state1 = viewModel.state1
+                        btn1state = viewModel.btn1state
                     }){
                         Text("1번 세탁기 고장 신고")
                             .foregroundColor(.black)
@@ -81,8 +83,10 @@ struct UserView: View {
                     .border(Color.black)
                     .disabled(btn2state)
                     Button(action: {
-                        state2 = "고장"
-                        btn2state = true
+                        viewModel.state2 = "고장"
+                        viewModel.btn2state = true
+                        state2 = viewModel.state2
+                        btn2state = viewModel.btn2state
                     }){
                         Text("2번 세탁기 고장 신고")
                             .foregroundColor(.black)
@@ -116,6 +120,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView()
+        UserView(state1: "미사용", state2: "미사용", btn1state: false, btn2state: false)
     }
 }

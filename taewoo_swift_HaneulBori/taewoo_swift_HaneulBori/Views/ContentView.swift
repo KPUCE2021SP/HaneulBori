@@ -10,14 +10,16 @@ import FirebaseAuth
 
 class AppViewModel: ObservableObject {
     let auth = Auth.auth()
-    
     @Published var signedIn = false
     var isSignedIn: Bool {
         return auth.currentUser != nil
     }
     var type = ""
     var signedUp = false
-//    var signinFailed = false
+    var state1 = "미사용"   // Washer No.1 state
+    var state2 = "미사용"   // Washer No.2 state
+    var btn1state = false    // Washer No.1 broken
+    var btn2state = false    // Washer No.2 broken
     
     func signIn(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
@@ -60,7 +62,7 @@ struct ContentView: View {
                 AdminView()
             }
             else if viewModel.signedIn && viewModel.type == "U" {
-                UserView()
+                UserView(state1: viewModel.state1, state2: viewModel.state2, btn1state: viewModel.btn1state, btn2state: viewModel.btn2state)
             }
             else {
                 SignInView()
@@ -135,7 +137,6 @@ struct SignInView: View {
                     }
 //                    .alert(isPresented: $viewModel.signinFailed) {
 //                        Alert(title: Text("ERROR"), message: Text("Please enter a valid email or password."), dismissButton: .default(Text("CLOSE")))
-                    }
                 }
                 .padding()
                 HStack {
