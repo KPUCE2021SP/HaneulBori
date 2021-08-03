@@ -14,7 +14,7 @@ class AppViewModel: ObservableObject {
     var isSignedIn: Bool {
         return auth.currentUser != nil
     }
-    var type = "U"
+    var isAdmin = false
     var signedUp = false
     var state1 = "미사용"   // Washer No.1 state
     var state2 = "미사용"   // Washer No.2 state
@@ -59,11 +59,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
 
-            if viewModel.signedIn && viewModel.type == "A" {
-                AdminView()
-            }
-            else if viewModel.signedIn && viewModel.type == "U" {
-                UserView(state1: viewModel.state1, state2: viewModel.state2, btn1state: viewModel.btn1state, btn2state: viewModel.btn2state)
+            if viewModel.signedIn {
+                if viewModel.isAdmin {
+                    AdminView()
+                }
+                else {
+                    UserView(state1: viewModel.state1, state2: viewModel.state2, btn1state: viewModel.btn1state, btn2state: viewModel.btn2state)
+                }
             }
             else {
                 SignInView()
@@ -79,7 +81,8 @@ struct ContentView: View {
 struct SignInView: View {
     @State var id = ""  // Email
     @State var pw = ""  // Password
-    
+    @State var Tuser = true // User
+    @State var Tadmin = false   // Administrator
     @EnvironmentObject var viewModel: AppViewModel
 
     var body: some View {
@@ -113,7 +116,6 @@ struct SignInView: View {
                         else {
                             return
                         }
-                        viewModel.type = "U"
                         viewModel.signIn(email: id, password: pw)
                     }) {
                         Text("사용자 로그인")
@@ -127,7 +129,7 @@ struct SignInView: View {
                         else {
                             return
                         }
-                        viewModel.type = "A"
+                        viewModel.isAdmin = true
                         viewModel.signIn(email: id, password: pw)
                     }) {    // Administrator
                         Text("관리자 로그인")
