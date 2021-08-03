@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:970980545204:android:fb3c5463a832e420707de1",
+        "mobilesdk_app_id": "1:970980545204:android:e41f55be5ee7cd0e707de1",
         "android_client_info": {
           "package_name": "kr.ac.kpu.kpuce2021sp.haneulbori_and"
         }
@@ -29,6 +29,13 @@
             {
               "client_id": "970980545204-144rge9ababoidpr13jigf0nsoeaabh9.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "970980545204-1rv3torkqfrseali3rv5elvrtu7btc47.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mataewoos.HaneulBori-Swift"
+              }
             }
           ]
         }
