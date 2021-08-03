@@ -40,16 +40,16 @@ class LoginActivity : AppCompatActivity() {
                 }
                 else if (token != null) {
                     Log.i("TAG", "로그인 성공 ${token.accessToken}")
+                    var intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
                 }
             }
 
             // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
-            UserApiClient.instance.run {
-                if (isKakaoTalkLoginAvailable(this@LoginActivity)) {
-                    loginWithKakaoTalk(this@LoginActivity, callback = callback)
-                } else {
-                    loginWithKakaoAccount(this@LoginActivity, callback = callback)
-                }
+            if (UserApiClient.instance.isKakaoTalkLoginAvailable(applicationContext)) {
+                UserApiClient.instance.loginWithKakaoTalk(applicationContext, callback = callback)
+            } else {
+                UserApiClient.instance.loginWithKakaoAccount(applicationContext, callback = callback)
             }
         }
 
