@@ -44,7 +44,7 @@ struct AdminView: View {
                 .background(Color.black)
                 Button(action: {btnPressed.toggle()}) { // For money how much you earned
                     if btnPressed{
-                        Text("매출액 : \(money) (KRW)")
+                        Text("매출액 : \(viewModel.money) (KRW)")
                             .foregroundColor(Color.white)
                             .padding()
                     }

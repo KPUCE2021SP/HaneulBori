@@ -25,7 +25,10 @@ struct ReservationView: View {
                 .padding()
                 .frame(width: 380.0)
     //            .datePickerStyle(WheelDatePickerStyle())
-                Button(action: {isReserved = true}){    // Female
+                Button(action: {
+                    isReserved = true
+                    viewModel.money += 900
+                }){    // Reservation complete
                     if isReserved{
                         Text("예약하기")
                             .foregroundColor(Color.white)
