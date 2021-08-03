@@ -43,8 +43,8 @@ struct SignUpView: View {
             HStack {
                 Text("유형")
                     .frame(width: 30)
-                Button(action: {viewModel.type = "U"}) {    // Male
-                    if viewModel.type != "U" {
+                Button(action: {viewModel.isAdmin = false}) {    // Male
+                    if viewModel.isAdmin == false {
                         Text("사용자")
                             .foregroundColor(Color.white)
                             .padding()
@@ -62,8 +62,8 @@ struct SignUpView: View {
                             .background(Color.black)
                     }
                 }
-                Button(action: {viewModel.type = "A"}) {    // Female
-                    if viewModel.type != "A" {
+                Button(action: {viewModel.isAdmin = true}) {    // Female
+                    if viewModel.isAdmin != true {
                         Text("관리자")
                             .foregroundColor(Color.white)
                             .padding()
