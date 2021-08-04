@@ -26,20 +26,24 @@ struct SignUpView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
+                .cornerRadius(8)
             SecureField("비밀번호", text : $pw)   // Password
                 .padding(.horizontal)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
+                .cornerRadius(8)
             SecureField("비밀번호 확인", text : $pwcheck)  // Password checking
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
+                .cornerRadius(8)
             TextField("이름", text : $name)   // Name
                 .padding(.horizontal)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
+                .cornerRadius(8)
             HStack {
                 Text("유형")
                     .frame(width: 30)
@@ -52,6 +56,7 @@ struct SignUpView: View {
                             .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
+                            .cornerRadius(8)
                     }
                     else{
                         Text("사용자")
@@ -60,6 +65,7 @@ struct SignUpView: View {
                             .frame(width: 170)
                             .border(Color.black)
                             .background(Color.black)
+                            .cornerRadius(8)
                     }
                 }
                 Button(action: {viewModel.isAdmin = true}) {    // Female
@@ -71,6 +77,7 @@ struct SignUpView: View {
                             .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
+                            .cornerRadius(8)
                     }
                     else{
                         Text("관리자")
@@ -79,6 +86,7 @@ struct SignUpView: View {
                             .frame(width: 170)
                             .border(Color.black)
                             .background(Color.black)
+                            .cornerRadius(8)
                     }
                 }
             }
@@ -95,6 +103,7 @@ struct SignUpView: View {
                             .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
+                            .cornerRadius(8)
                     }
                     else{
                         Text("남성")
@@ -103,6 +112,7 @@ struct SignUpView: View {
                             .frame(width: 170)
                             .border(Color.black)
                             .background(Color.black)
+                            .cornerRadius(8)
                     }
                 }
                 Button(action: {sex = "F"}) {    // Female
@@ -114,6 +124,7 @@ struct SignUpView: View {
                             .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
+                            .cornerRadius(8)
                     }
                     else{
                         Text("여성")
@@ -122,6 +133,7 @@ struct SignUpView: View {
                             .frame(width: 170)
                             .border(Color.black)
                             .background(Color.black)
+                            .cornerRadius(8)
                     }
                 }
             }
@@ -140,6 +152,7 @@ struct SignUpView: View {
                     .padding()
                     .border(Color.black)
                     .background(Color.black)
+                    .cornerRadius(8)
             }
             NavigationLink(destination: SignInView()
                             .navigationBarHidden(true)

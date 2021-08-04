@@ -24,6 +24,7 @@ struct AdminView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                     .border(Color.black)
+                    .cornerRadius(8)
                     VStack {    // Washer No.2
                         Text("2번 세탁기")
                         Text("\(viewModel.state2)")
@@ -32,16 +33,18 @@ struct AdminView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                     .border(Color.black)
+                    .cornerRadius(8)
                 }.padding()
                 Spacer()
                 NavigationLink(destination: Admin_ManageView()){   // Manage Washers
                     Text("세탁기 관리")
                         .foregroundColor(Color.white)
                         .padding()
+                        .frame(width: 300)
+                        .border(Color.black)
+                        .background(Color.black)
+                        .cornerRadius(8)
                 }
-                .frame(width: 300)
-                .border(Color.black)
-                .background(Color.black)
                 Button(action: {btnPressed.toggle()}) { // For money how much you earned
                     if btnPressed{
                         Text("매출액 : \(viewModel.money) (KRW)")
@@ -58,6 +61,7 @@ struct AdminView: View {
                 .frame(width: 300)
                 .border(Color.black)
                 .background(Color.black)
+                .cornerRadius(8)
                 Spacer()
 //                if btnPressed{
 //                    Text("I earned $\(money)")

@@ -31,6 +31,7 @@ struct UserView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                     .border(Color.black)
+                    .cornerRadius(8)
                     VStack {    // Washer No.2
                         Text("2번 세탁기").foregroundColor(.blue)
                         if state2 == "고장"{
@@ -42,6 +43,7 @@ struct UserView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                     .border(Color.black)
+                    .cornerRadius(8)
                 }.padding()
                 Spacer()
                 HStack { // Buttons for washer No.1
@@ -51,10 +53,11 @@ struct UserView: View {
                         Text("1번 세탁기 예약")
                             .foregroundColor(.black)
                             .padding()
+                            .frame(width: 180)
+                            .background(Color.green.opacity(0.8))
+                            .border(Color.black)
+                            .cornerRadius(8)
                     }
-                    .frame(width: 180)
-                    .background(Color.green.opacity(0.8))
-                    .border(Color.black)
                     .disabled(btn1state)
                     Button(action: {
                         viewModel.state1 = "고장"
@@ -65,10 +68,11 @@ struct UserView: View {
                         Text("1번 세탁기 고장 신고")
                             .foregroundColor(.black)
                             .padding()
+                            .frame(width: 180)
+                            .background(Color.red.opacity(0.7))
+                            .border(Color.black)
+                            .cornerRadius(8)
                     }
-                    .frame(width: 180)
-                    .background(Color.red.opacity(0.7))
-                    .border(Color.black)
                 }
                 HStack {    // Buttons for washer No.2
                     NavigationLink(destination: ReservationView()
@@ -77,10 +81,11 @@ struct UserView: View {
                         Text("2번 세탁기 예약")
                             .foregroundColor(.black)
                             .padding()
+                            .frame(width: 180)
+                            .background(Color.blue.opacity(0.8))
+                            .border(Color.black)
+                            .cornerRadius(8)
                     }
-                    .frame(width: 180)
-                    .background(Color.blue.opacity(0.8))
-                    .border(Color.black)
                     .disabled(btn2state)
                     Button(action: {
                         viewModel.state2 = "고장"
@@ -91,10 +96,11 @@ struct UserView: View {
                         Text("2번 세탁기 고장 신고")
                             .foregroundColor(.black)
                             .padding()
+                            .frame(width: 180)
+                            .background(Color.red.opacity(0.7))
+                            .border(Color.black)
+                            .cornerRadius(8)
                     }
-                    .frame(width: 180)
-                    .background(Color.red.opacity(0.7))
-                    .border(Color.black)
                 }
                 Spacer()
                 HStack {

@@ -37,6 +37,7 @@ struct ReservationView: View {
                             .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
+                            .cornerRadius(8)
                     }
                     else{
                         Text("예약하기")
@@ -45,6 +46,7 @@ struct ReservationView: View {
                             .frame(width: 185)
                             .border(Color.black)
                             .background(Color.black)
+                            .cornerRadius(8)
                     }
                 }
                 .disabled(isReserved)
