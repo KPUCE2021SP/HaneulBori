@@ -34,14 +34,16 @@ struct AdminView: View {
                     .border(Color.black)
                 }.padding()
                 Spacer()
-                NavigationLink(destination: Admin_ManageView()){   // Manage Washers
+                NavigationLink(destination: Admin_ManageView(isFixed1: !viewModel.btn1state, isFixed2: !viewModel.btn2state)
+                                .navigationBarHidden(true)
+                                .navigationBarBackButtonHidden(true)){   // Manage Washers
                     Text("세탁기 관리")
                         .foregroundColor(Color.white)
                         .padding()
+                        .frame(width: 300)
+                        .background(Color.black)
+                        .border(Color.black)
                 }
-                .frame(width: 300)
-                .border(Color.black)
-                .background(Color.black)
                 Button(action: {btnPressed.toggle()}) { // For money how much you earned
                     if btnPressed{
                         Text("매출액 : \(viewModel.money) (KRW)")
@@ -56,8 +58,8 @@ struct AdminView: View {
 
                 }
                 .frame(width: 300)
-                .border(Color.black)
                 .background(Color.black)
+                .border(Color.black)
                 Spacer()
 //                if btnPressed{
 //                    Text("I earned $\(money)")

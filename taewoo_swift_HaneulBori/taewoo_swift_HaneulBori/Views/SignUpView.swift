@@ -49,17 +49,17 @@ struct SignUpView: View {
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
+                            .border(Color.black)
                     }
                     else{
                         Text("사용자")
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
+                            .border(Color.black)
                     }
                 }
                 Button(action: {viewModel.isAdmin = true}) {    // Female
@@ -68,17 +68,17 @@ struct SignUpView: View {
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
+                            .border(Color.black)
                     }
                     else{
                         Text("관리자")
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
+                            .border(Color.black)
                     }
                 }
             }
@@ -92,17 +92,17 @@ struct SignUpView: View {
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
+                            .border(Color.black)
                     }
                     else{
                         Text("남성")
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
+                            .border(Color.black)
                     }
                 }
                 Button(action: {sex = "F"}) {    // Female
@@ -111,17 +111,17 @@ struct SignUpView: View {
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
+                            .border(Color.black)
                     }
                     else{
                         Text("여성")
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
+                            .border(Color.black)
                     }
                 }
             }
@@ -138,8 +138,8 @@ struct SignUpView: View {
                 Text("회원 가입")
                     .foregroundColor(Color.white)
                     .padding()
-                    .border(Color.black)
                     .background(Color.black)
+                    .border(Color.black)
             }
             NavigationLink(destination: SignInView()
                             .navigationBarHidden(true)

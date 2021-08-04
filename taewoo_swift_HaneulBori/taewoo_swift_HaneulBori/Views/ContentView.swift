@@ -121,8 +121,8 @@ struct SignInView: View {
                         Text("사용자 로그인")
                             .foregroundColor(Color.white)
                             .padding()
-                            .border(Color.black)
                             .background(Color.black)
+                            .border(Color.black)
                     }
                     Button(action: {
                         guard !id.isEmpty, !pw.isEmpty
@@ -135,8 +135,8 @@ struct SignInView: View {
                         Text("관리자 로그인")
                             .foregroundColor(Color.white)
                             .padding()
-                            .border(Color.black)
                             .background(Color.black)
+                            .border(Color.black)
                     }
 //                    .alert(isPresented: $viewModel.signinFailed) {
 //                        Alert(title: Text("ERROR"), message: Text("Please enter a valid email or password."), dismissButton: .default(Text("CLOSE")))
