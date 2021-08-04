@@ -31,7 +31,6 @@ struct UserView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                     .border(Color.black)
-                    .cornerRadius(8)
                     VStack {    // Washer No.2
                         Text("2번 세탁기").foregroundColor(.blue)
                         if state2 == "고장"{
@@ -39,11 +38,11 @@ struct UserView: View {
                         }
                         else{
                             Text("\(state2)").foregroundColor(.blue)
-                        }                }
+                        }
+                    }
                     .multilineTextAlignment(.center)
                     .padding()
                     .border(Color.black)
-                    .cornerRadius(8)
                 }.padding()
                 Spacer()
                 HStack { // Buttons for washer No.1
@@ -56,7 +55,6 @@ struct UserView: View {
                             .frame(width: 180)
                             .background(Color.green.opacity(0.8))
                             .border(Color.black)
-                            .cornerRadius(8)
                     }
                     .disabled(btn1state)
                     Button(action: {
@@ -71,7 +69,6 @@ struct UserView: View {
                             .frame(width: 180)
                             .background(Color.red.opacity(0.7))
                             .border(Color.black)
-                            .cornerRadius(8)
                     }
                 }
                 HStack {    // Buttons for washer No.2
@@ -84,7 +81,6 @@ struct UserView: View {
                             .frame(width: 180)
                             .background(Color.blue.opacity(0.8))
                             .border(Color.black)
-                            .cornerRadius(8)
                     }
                     .disabled(btn2state)
                     Button(action: {
@@ -99,7 +95,6 @@ struct UserView: View {
                             .frame(width: 180)
                             .background(Color.red.opacity(0.7))
                             .border(Color.black)
-                            .cornerRadius(8)
                     }
                 }
                 Spacer()

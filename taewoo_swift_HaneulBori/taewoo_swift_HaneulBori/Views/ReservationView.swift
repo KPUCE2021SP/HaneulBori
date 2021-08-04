@@ -34,19 +34,17 @@ struct ReservationView: View {
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 185)
-                            .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                     else{
                         Text("예약하기")
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 185)
-                            .border(Color.black)
                             .background(Color.black)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                 }
                 .disabled(isReserved)

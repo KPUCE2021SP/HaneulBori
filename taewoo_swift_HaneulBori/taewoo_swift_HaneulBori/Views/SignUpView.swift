@@ -26,24 +26,20 @@ struct SignUpView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .cornerRadius(8)
             SecureField("비밀번호", text : $pw)   // Password
                 .padding(.horizontal)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .cornerRadius(8)
             SecureField("비밀번호 확인", text : $pwcheck)  // Password checking
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .cornerRadius(8)
             TextField("이름", text : $name)   // Name
                 .padding(.horizontal)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
-                .cornerRadius(8)
             HStack {
                 Text("유형")
                     .frame(width: 30)
@@ -53,19 +49,17 @@ struct SignUpView: View {
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                     else{
                         Text("사용자")
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                 }
                 Button(action: {viewModel.isAdmin = true}) {    // Female
@@ -74,19 +68,17 @@ struct SignUpView: View {
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                     else{
                         Text("관리자")
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                 }
             }
@@ -100,19 +92,17 @@ struct SignUpView: View {
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                     else{
                         Text("남성")
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                 }
                 Button(action: {sex = "F"}) {    // Female
@@ -121,19 +111,17 @@ struct SignUpView: View {
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
                             .opacity(0.5)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                     else{
                         Text("여성")
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(width: 170)
-                            .border(Color.black)
                             .background(Color.black)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                 }
             }
@@ -150,9 +138,8 @@ struct SignUpView: View {
                 Text("회원 가입")
                     .foregroundColor(Color.white)
                     .padding()
-                    .border(Color.black)
                     .background(Color.black)
-                    .cornerRadius(8)
+                    .border(Color.black)
             }
             NavigationLink(destination: SignInView()
                             .navigationBarHidden(true)

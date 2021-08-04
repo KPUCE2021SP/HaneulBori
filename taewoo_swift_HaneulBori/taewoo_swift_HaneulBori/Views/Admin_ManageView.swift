@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct Admin_ManageView: View {
-    @State var isFixed1 = false
-    @State var isFixed2 = false
+    @State var isFixed1: Bool
+    @State var isFixed2: Bool
     @EnvironmentObject var viewModel: AppViewModel
 
     
@@ -24,7 +24,6 @@ struct Admin_ManageView: View {
                 .multilineTextAlignment(.center)
                 .padding()
                 .border(Color.black)
-                .cornerRadius(8)
                 VStack {    // Washer No.2
                     Text("2번 세탁기")
                     Text("\(viewModel.state2)")
@@ -33,7 +32,6 @@ struct Admin_ManageView: View {
                 .multilineTextAlignment(.center)
                 .padding()
                 .border(Color.black)
-                .cornerRadius(8)
             }.padding()
             Spacer()
             Button(action: {
@@ -46,16 +44,14 @@ struct Admin_ManageView: View {
                             .padding()
                             .frame(width: 300)
                             .border(Color.black)
-                            .cornerRadius(8)
                     }
                     else {
                         Text("1번 세탁기 수리 필요")
                             .foregroundColor(Color.black)
                             .padding()
                             .frame(width: 300)
-                            .border(Color.black)
                             .background(Color.red)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                 }
             }
@@ -70,16 +66,14 @@ struct Admin_ManageView: View {
                             .padding()
                             .frame(width: 300)
                             .border(Color.black)
-                            .cornerRadius(8)
                     }
                     else {
                         Text("2번 세탁기 수리 필요")
                             .foregroundColor(Color.black)
                             .padding()
                             .frame(width: 300)
-                            .border(Color.black)
                             .background(Color.red)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                 }
             }
@@ -91,6 +85,6 @@ struct Admin_ManageView: View {
 
 struct Admin_ManageView_Previews: PreviewProvider {
     static var previews: some View {
-        Admin_ManageView()
+        Admin_ManageView(isFixed1: true, isFixed2: true)
     }
 }

@@ -96,13 +96,11 @@ struct SignInView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                    .cornerRadius(8)
                 SecureField("비밀번호", text : $pw)   // Type password
                     .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                    .cornerRadius(8)
                 HStack {
 //                    NavigationLink(destination: UserView()
 //                                    .navigationBarHidden(true)
@@ -123,9 +121,8 @@ struct SignInView: View {
                         Text("사용자 로그인")
                             .foregroundColor(Color.white)
                             .padding()
-                            .border(Color.black)
                             .background(Color.black)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
                     Button(action: {
                         guard !id.isEmpty, !pw.isEmpty
@@ -138,9 +135,8 @@ struct SignInView: View {
                         Text("관리자 로그인")
                             .foregroundColor(Color.white)
                             .padding()
-                            .border(Color.black)
                             .background(Color.black)
-                            .cornerRadius(8)
+                            .border(Color.black)
                     }
 //                    .alert(isPresented: $viewModel.signinFailed) {
 //                        Alert(title: Text("ERROR"), message: Text("Please enter a valid email or password."), dismissButton: .default(Text("CLOSE")))
