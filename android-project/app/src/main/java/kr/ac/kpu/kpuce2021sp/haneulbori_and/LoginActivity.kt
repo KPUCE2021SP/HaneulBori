@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
 import android.widget.Button
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -61,8 +62,20 @@ class LoginActivity : AppCompatActivity()
 
 
         signInBtn.setOnClickListener {
-            var intent= Intent(applicationContext,MainActivity::class.java)
-            startActivity(intent)
+
+            if(idEditText.text.toString()=="manager")
+            {
+                var intent= Intent(applicationContext,ManagerActivity::class.java)
+                startActivity(intent)
+            }
+            else if(idEditText.text.toString()=="user")
+            {
+                var intent= Intent(applicationContext,MainActivity::class.java)
+                startActivity(intent)
+            }
+
+
+
         }
 
     }
