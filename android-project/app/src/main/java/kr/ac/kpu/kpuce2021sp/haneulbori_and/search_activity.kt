@@ -1,6 +1,8 @@
 package kr.ac.kpu.kpuce2021sp.haneulbori_and
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -32,16 +34,19 @@ class search_activity : AppCompatActivity() {
                     laundries.add(doc.id.toString())
                 }
                 laundryList.adapter = MyCustomAdapter(this, laundries)
-                laundryList.setOnClickListener {
-
+                laundryList.setOnItemClickListener { parent, view, position, id ->
+                    startActivity(
+                        Intent(this, ChooseActivity::class.java)
+                    )
                 }
+
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Log.w("MainActivity", "Error getting documents: ")
             }
     }
 
-    private class MyCustomAdapter(context: Context, data: List<String>): BaseAdapter(){
+    class MyCustomAdapter(context: Context, data: List<String>): BaseAdapter(){
         private val mContext: Context = context
         private val mdata = data
 
@@ -58,6 +63,7 @@ class search_activity : AppCompatActivity() {
             return position.toLong()
         }
 
+        @SuppressLint("ViewHolder", "SetTextI18n")
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val layoutInflater = LayoutInflater.from(mContext)
             val rowMain = layoutInflater.inflate(R.layout.laundry_iteam, parent, false)

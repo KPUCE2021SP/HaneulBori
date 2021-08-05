@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Haneulboriand">
         <activity
+            android:name=".ChooseActivity"
+            android:exported="true" />
+        <activity
             android:name=".search_activity"
             android:exported="true" />
         <activity
