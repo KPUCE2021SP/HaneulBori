@@ -9,11 +9,17 @@ import com.kakao.sdk.auth.model.OAuthToken
 import kotlinx.android.synthetic.main.activity_login.*
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
+import android.widget.Button
+import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+class LoginActivity : AppCompatActivity()
+{
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
 
         //카카오 키 해시
         var keyHash = Utility.getKeyHash(this)
@@ -51,6 +57,12 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 UserApiClient.instance.loginWithKakaoAccount(applicationContext, callback = callback)
             }
+        }
+
+
+        signInBtn.setOnClickListener {
+            var intent= Intent(applicationContext,MainActivity::class.java)
+            startActivity(intent)
         }
 
     }

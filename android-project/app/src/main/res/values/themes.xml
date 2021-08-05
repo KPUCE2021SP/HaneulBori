@@ -1,7 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+
     <style name="Theme.Haneulboriand" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- 타이틀 바 뺀 뒤 화면 어두워짐 방지 -->
+
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
