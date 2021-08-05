@@ -1,10 +1,13 @@
 package kr.ac.kpu.kpuce2021sp.haneulbori_and
 
+
 import android.app.AlertDialog
 import android.app.TabActivity
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+
+
 
 class MainActivity : TabActivity()
 {
@@ -19,6 +22,7 @@ class MainActivity : TabActivity()
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
 
         var tabHost=this.tabHost
@@ -84,9 +88,5 @@ class MainActivity : TabActivity()
             }
             dlg.show()
         }
-
-
-
-
     }
 }
