@@ -20,7 +20,7 @@ class AppViewModel: ObservableObject {
     var state2 = "미사용"   // Washer No.2 state
     var btn1state = false    // Washer No.1 broken
     var btn2state = false    // Washer No.2 broken
-    var money = 1000000 // Earned money
+    var money = 0 // Earned money
     
     func signIn(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
