@@ -45,56 +45,44 @@ struct UserView: View {
                     .border(Color.black)
                 }.padding()
                 Spacer()
-                HStack { // Buttons for washer No.1
+                HStack { // Button for reservation
                     NavigationLink(destination: ReservationView()
                                     .navigationBarHidden(true)
                                     .navigationBarBackButtonHidden(true)){
-                        Text("1번 세탁기 예약")
-                            .foregroundColor(.black)
+                        Text("세탁기 예약")
+                            .foregroundColor(.white)
                             .padding()
-                            .frame(width: 180)
-                            .background(Color.green.opacity(0.8))
+                            .frame(width: 180, height: 100)
+                            .background(Color.black.opacity(0.8))
                             .border(Color.black)
                     }
-                    .disabled(btn1state)
-                    Button(action: {
-                        viewModel.state1 = "고장"
-                        viewModel.btn1state = true
-                        state1 = viewModel.state1
-                        btn1state = viewModel.btn1state
-                    }){
-                        Text("1번 세탁기 고장 신고")
-                            .foregroundColor(.black)
-                            .padding()
-                            .frame(width: 180)
-                            .background(Color.red.opacity(0.7))
-                            .border(Color.black)
-                    }
-                }
-                HStack {    // Buttons for washer No.2
-                    NavigationLink(destination: ReservationView()
-                                    .navigationBarHidden(true)
-                                    .navigationBarBackButtonHidden(true)){
-                        Text("2번 세탁기 예약")
-                            .foregroundColor(.black)
-                            .padding()
-                            .frame(width: 180)
-                            .background(Color.blue.opacity(0.8))
-                            .border(Color.black)
-                    }
-                    .disabled(btn2state)
-                    Button(action: {
-                        viewModel.state2 = "고장"
-                        viewModel.btn2state = true
-                        state2 = viewModel.state2
-                        btn2state = viewModel.btn2state
-                    }){
-                        Text("2번 세탁기 고장 신고")
-                            .foregroundColor(.black)
-                            .padding()
-                            .frame(width: 180)
-                            .background(Color.red.opacity(0.7))
-                            .border(Color.black)
+                    VStack {    // Buttons for error
+                        Button(action: {
+                            viewModel.state1 = "고장"
+                            viewModel.btn1state = true
+                            state1 = viewModel.state1
+                            btn1state = viewModel.btn1state
+                        }){
+                            Text("1번 세탁기 고장 신고")
+                                .foregroundColor(.black)
+                                .padding()
+                                .frame(width: 180, height: 46)
+                                .background(Color.red.opacity(0.7))
+                                .border(Color.black)
+                        }
+                        Button(action: {
+                            viewModel.state2 = "고장"
+                            viewModel.btn2state = true
+                            state2 = viewModel.state2
+                            btn2state = viewModel.btn2state
+                        }){
+                            Text("2번 세탁기 고장 신고")
+                                .foregroundColor(.black)
+                                .padding()
+                                .frame(width: 180, height: 46)
+                                .background(Color.red.opacity(0.7))
+                                .border(Color.black)
+                        }
                     }
                 }
                 Spacer()
