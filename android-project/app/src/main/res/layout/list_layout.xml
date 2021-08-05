@@ -14,31 +14,31 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/tvBirth"
-            android:tet="1"/>
+            android:text="1"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/tvEmail"
-            android:tet="2"/>
+            android:text="2"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/tvName"
-            android:tet="3"/>
+            android:text="3"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/tvNumber"
-            android:tet="4"/>
+            android:text="4"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/tvSex"
-            android:tet="5"/>
+            android:text="5"/>
 
     </LinearLayout>
 

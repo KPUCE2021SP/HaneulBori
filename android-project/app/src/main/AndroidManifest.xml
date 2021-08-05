@@ -17,7 +17,6 @@
         <activity
             android:name=".ManagerActivity"
             android:exported="true" />
-        <activity android:name=".LoginActivity">
 
         //카카오 로그인
         <meta-data android:name="com.kakao.sdk.AppKey"
