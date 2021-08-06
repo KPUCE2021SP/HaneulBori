@@ -110,7 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/naver_icon"
+        android:background="@drawable/naver_circle_icon"
         android:contentDescription="naver"
         app:layout_constraintEnd_toStartOf="@+id/googleBtn"
         app:layout_constraintHorizontal_bias="0.5"

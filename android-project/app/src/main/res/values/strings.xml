@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">haneulbori-and</string>
     <string name="kakao_app_key">25b159dd1fa96e427bdaa92a17d6029c</string>
+    <string name="facebook_app_id">4151790374942447</string>
+    <string name="fb_login_protocol_scheme">fb4151790374942447</string>
+    <string name="naver_client_id">i4O1a1ptnzwpCXPMShyu</string>
+    <string name="naver_client_secret">ww3tFybfNk</string>
+    <string name="naver_client_name">HaneulBori</string>
+
 </resources>
