@@ -3,7 +3,6 @@ package kr.ac.kpu.kpuce2021sp.haneulbori_and
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,10 +10,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_search.*
+
+data class machine (
+    val reason: String,
+    val state: Boolean,
+    val type: String,
+    val book: Array<Any>
+        )
 
 class search_activity : AppCompatActivity() {
 
@@ -75,6 +82,10 @@ class search_activity : AppCompatActivity() {
 
             return rowMain
         }
+
+
+
+
 
     }
 

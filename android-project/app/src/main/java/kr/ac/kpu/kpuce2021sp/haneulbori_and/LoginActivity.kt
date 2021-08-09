@@ -25,6 +25,8 @@ import com.facebook.AccessToken
 import com.nhn.android.naverlogin.OAuthLogin
 import java.util.*
 import android.widget.Toast
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.nhn.android.naverlogin.OAuthLogin.mOAuthLoginHandler
 
 import com.nhn.android.naverlogin.OAuthLoginHandler
@@ -43,15 +45,33 @@ class LoginActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+            /* if (Firebase.auth.currentUser != null){
+            startActivity(
+                Intent(this, MainActivity::class.java)
+            )
+            finish()
+        } */
 
         //카카오 키 해시
         var keyHash = Utility.getKeyHash(this)
         Log.d("KEY_HASH", keyHash)
         
-        //로그인 버튼 (나중에 DB 구축해서 정보가 맞을 시 mainActivity로)
+        //로그인 버튼
         signInBtn.setOnClickListener {
-            var intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
+            Firebase.auth.signInWithEmailAndPassword(idEditText.text.toString(), passwordEditText.text.toString())
+                .addOnCompleteListener {
+                    if (it.isSuccessful){
+                        startActivity(
+                            Intent(this, MainActivity::class.java)
+                        )
+                        finish()
+                    } else {
+                        Toast.makeText(this, "loginFailed", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            
+            
+
         }
 
         //회원가입 텍스트
