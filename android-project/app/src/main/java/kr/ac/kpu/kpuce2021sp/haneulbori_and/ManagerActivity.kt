@@ -10,6 +10,7 @@ import android.view.View
 import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.res.ColorStateListInflaterCompat.inflate
 import androidx.core.content.res.ComplexColorCompat.inflate
 import androidx.core.graphics.drawable.DrawableCompat.inflate
@@ -31,27 +32,24 @@ class ManagerActivity : AppCompatActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var binding = ActivityManager.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(R.layout.activity_manager)
 
-        binding.rvList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.rvList.adapter = adapter
+        rv_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_list.adapter = adapter
 
-        binding.btnRead.setOnClickListener {
+        btnRead.setOnClickListener {
             db.collection("User")
                 .get()
                 .addOnSuccessListener { result ->
-
                     itemList.clear()
                     for (document in result) {
-                        val item = ListLayout(document["name"] as String, document["number"] as String)
+                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String)
                         itemList.add(item)
                     }
                     adapter.notifyDataSetChanged()
                 }
                 .addOnFailureListener { exception ->
-
+                    Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
                     Log.w("MainActivity", "Error getting documents: $exception")
                 }
         }

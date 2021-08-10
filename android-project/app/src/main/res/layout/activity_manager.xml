@@ -8,10 +8,11 @@
     tools:context=".ManagerActivity">
 
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="manager"/>
+        android:text="읽기"
+        android:id="@+id/btnRead"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

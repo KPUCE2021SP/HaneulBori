@@ -8,39 +8,37 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="5dp">
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/tvBirth"
+            android:layout_weight="1"
+            android:id="@+id/tvName"
             android:text="1"/>
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
             android:id="@+id/tvEmail"
-            android:text="2"/>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="2" />
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/tvName"
+            android:layout_weight="3"
+            android:id="@+id/tvNumber"
             android:text="3"/>
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:id="@+id/tvNumber"
+            android:id="@+id/tvBirth"
             android:text="4"/>
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvSex"
             android:text="5"/>
 
     </LinearLayout>
-
-
 </LinearLayout>
