@@ -48,14 +48,13 @@ class ManagerActivity : AppCompatActivity()
                 .addOnSuccessListener { result ->
                     itemList.clear()
                     for (document in result) {
-                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as Array<String>)
+                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as ArrayList<String>)
                         itemList.add(item)
                     }
                     adapter.notifyDataSetChanged()
                 }
                 .addOnFailureListener { exception ->
                     Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
-                    //Log.w("MainActivity", "Error getting documents: $exception")
                 }
         }
         btnReadM.setOnClickListener {
@@ -64,7 +63,7 @@ class ManagerActivity : AppCompatActivity()
                 .addOnSuccessListener { result ->
                     itemList.clear()
                     for (document in result) {
-                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as Array<String>)
+                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as ArrayList<String>)
                         if(item.sex=="M")
                             itemList.add(item)
                     }
@@ -80,10 +79,10 @@ class ManagerActivity : AppCompatActivity()
                 .addOnSuccessListener { result ->
                     itemList.clear()
                     for (document in result) {
-                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as Array<String>)
+                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as ArrayList<String>)
                         for(i in item.bookList.indices)
                         {
-                            if(item.bookList[i]==date.toString())
+                            if(item.bookList[i].contains(date.toString()))
                                 itemList.add(item)
                         }
 
@@ -95,6 +94,4 @@ class ManagerActivity : AppCompatActivity()
                 }
         }
     }
-
-
 }

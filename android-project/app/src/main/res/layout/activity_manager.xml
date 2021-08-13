@@ -22,7 +22,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="남자만 읽기"
+            android:text="남자 사용자 출력"
             android:id="@+id/btnReadM"/>
         <Button
             android:layout_width="0dp"
