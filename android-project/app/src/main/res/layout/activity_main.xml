@@ -22,26 +22,11 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/tabReserve">
-                <Button
+
+                <ListView
+                    android:id="@+id/laundryList"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="세탁기 1번"
-                    android:id="@+id/laundry1"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="세탁기 2번"
-                    android:id="@+id/laundry2"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="세탁기 3번"
-                    android:id="@+id/laundry3"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="세탁기 4번"
-                    android:id="@+id/laundry4"/>
+                    android:layout_height="match_parent" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
