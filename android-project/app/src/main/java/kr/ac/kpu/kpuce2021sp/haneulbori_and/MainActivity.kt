@@ -1,13 +1,9 @@
 package kr.ac.kpu.kpuce2021sp.haneulbori_and
 
-
 import android.app.AlertDialog
 import android.app.TabActivity
-
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
-
-
 
 class MainActivity : TabActivity()
 {
@@ -22,7 +18,6 @@ class MainActivity : TabActivity()
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
 
         var tabHost=this.tabHost
@@ -40,7 +35,7 @@ class MainActivity : TabActivity()
 
 
         laundry1.setOnClickListener {
-            var dlg=AlertDialog.Builder(this@MainActivity)
+            var dlg= AlertDialog.Builder(this@MainActivity)
             dlg.setTitle("예약 시간")
             dlg.setMessage("예약 시간들 리스트로 출력")
             dlg.setIcon(R.mipmap.ic_launcher)
@@ -88,5 +83,9 @@ class MainActivity : TabActivity()
             }
             dlg.show()
         }
+
+
+
+
     }
 }
