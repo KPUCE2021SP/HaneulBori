@@ -4,16 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.google.android.gms.common.api.Api
 import com.kakao.sdk.auth.model.OAuthToken
 import kotlinx.android.synthetic.main.activity_login.*
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
-import android.widget.Button
 import com.facebook.CallbackManager
-import kotlinx.android.synthetic.main.activity_login.*
-import com.facebook.FacebookSdk
-import com.facebook.appevents.AppEventsConstants
 import com.facebook.FacebookException
 
 import com.facebook.login.LoginResult
@@ -25,12 +20,16 @@ import com.facebook.AccessToken
 import com.nhn.android.naverlogin.OAuthLogin
 import java.util.*
 import android.widget.Toast
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import com.nhn.android.naverlogin.OAuthLogin.mOAuthLoginHandler
 
 import com.nhn.android.naverlogin.OAuthLoginHandler
-
-
-
 
 
 class LoginActivity : AppCompatActivity()
@@ -38,11 +37,28 @@ class LoginActivity : AppCompatActivity()
     var callbackManager = CallbackManager.Factory.create()
     var mOAuthLoginModule: OAuthLogin = OAuthLogin.getInstance()
 
+    private val RC_SIGN_IN = 9001
+    //firebase Auth
+    private lateinit var firebaseAuth: FirebaseAuth
+    //google client
+    private lateinit var googleSignInClient: GoogleSignInClient
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        //Google 로그인 옵션 구성. requestIdToken 및 Email 요청
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            //'R.string.default_web_client_id' 에는 본인의 클라이언트 아이디를 넣어주시면 됩니다.
+            //저는 스트링을 따로 빼서 저렇게 사용했지만 스트링을 통째로 넣으셔도 됩니다.
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+        //firebase auth 객체
+        firebaseAuth = FirebaseAuth.getInstance()
 
         //카카오 키 해시
         var keyHash = Utility.getKeyHash(this)
@@ -128,8 +144,8 @@ class LoginActivity : AppCompatActivity()
             }
         }
 
+        // 네이버 로그인
         naverBtn.setOnClickListener {
-            // 네이버 로그인
             mOAuthLoginModule.init(
                 this@LoginActivity
                 ,getString(R.string.naver_client_id)
@@ -139,11 +155,48 @@ class LoginActivity : AppCompatActivity()
             mOAuthLoginModule.startOauthLoginActivity(this, mOAuthLoginHandler)
         }
 
+        // 구글 로그인
+        googleBtn.setOnClickListener {
+            signIn()
+        }
+
     }
 
-    // 로그인 결과를 callbackManager를 통해 LoginManager에 전달
+    //google login 함수
+    private fun signIn() {
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
+        // 구글 로그인
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try { //구글 로그인 성공 -> firebase에 저장
+                Log.d("TAG","hello")
+                val account = task.getResult(ApiException::class.java)!!
+                Log.d("TAG", "firebaseAuthWithGoogle:" + account.id)
+                firebaseAuthWithGoogle(account.idToken!!)
+            } catch (e: ApiException) { //구글 로그인 실패
+                Log.w("TAG", "Google sign in failed", e)
+            }
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Log.d("TAG", "signInWithCredential:success")
+                    val user = firebaseAuth.currentUser
+                    var intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Log.w("TAG", "signInWithCredential:failure", task.exception)
+                }
+            }
     }
 }
