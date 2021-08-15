@@ -36,7 +36,6 @@ android {
 
 dependencies {
 
-    implementation 'com.google.android.gms:play-services-auth:19.0.0'
     implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.6'
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)' // facebook sdk
     implementation "com.kakao.sdk:v2-user:2.5.2" // 카카오 로그인
@@ -60,6 +59,8 @@ dependencies {
 // Declare the dependencies for the Crashlytics and Analytics libraries
 // When using the BoM, you don't specify versions in Firebase library dependencies
 
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
 }

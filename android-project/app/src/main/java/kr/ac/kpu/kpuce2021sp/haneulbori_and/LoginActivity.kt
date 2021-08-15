@@ -4,11 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.google.android.gms.common.api.Api
 import com.kakao.sdk.auth.model.OAuthToken
 import kotlinx.android.synthetic.main.activity_login.*
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
+import android.widget.Button
 import com.facebook.CallbackManager
+import kotlinx.android.synthetic.main.activity_login.*
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsConstants
 import com.facebook.FacebookException
 
 import com.facebook.login.LoginResult
@@ -27,9 +32,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.nhn.android.naverlogin.OAuthLogin.mOAuthLoginHandler
 
 import com.nhn.android.naverlogin.OAuthLoginHandler
+
+
+
 
 
 class LoginActivity : AppCompatActivity()
@@ -59,6 +69,12 @@ class LoginActivity : AppCompatActivity()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         //firebase auth 객체
         firebaseAuth = FirebaseAuth.getInstance()
+            /* if (Firebase.auth.currentUser != null){
+            startActivity(
+                Intent(this, MainActivity::class.java)
+            )
+            finish()
+        } */
 
         //카카오 키 해시
         var keyHash = Utility.getKeyHash(this)
@@ -66,9 +82,30 @@ class LoginActivity : AppCompatActivity()
         
         //로그인 버튼 (나중에 DB 구축해서 정보가 맞을 시 mainActivity로)
         signInBtn.setOnClickListener {
-            var intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
+
+            if (idEditText.text.toString() == "manager") {
+                var intent = Intent(applicationContext, ManagerActivity::class.java)
+                startActivity(intent)
+            } else if (idEditText.text.toString() == "user") {
+                var intent = Intent(applicationContext, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
+
+        //로그인 버튼 - email 로그인 (김형환)
+        /*signInBtn.setOnClickListener {
+            Firebase.auth.signInWithEmailAndPassword(idEditText.text.toString(), passwordEditText.text.toString())
+                .addOnCompleteListener {
+                    if (it.isSuccessful){
+                        startActivity(
+                            Intent(this, MainActivity::class.java)
+                        )
+                        finish()
+                    } else {
+                        Toast.makeText(this, "loginFailed", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }*/
 
         //회원가입 텍스트
         signUpText.setOnClickListener {
@@ -92,15 +129,22 @@ class LoginActivity : AppCompatActivity()
 
             // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
             if (UserApiClient.instance.isKakaoTalkLoginAvailable(applicationContext)) {
-                UserApiClient.instance.loginWithKakaoTalk(applicationContext, callback = callback)
+                UserApiClient.instance.loginWithKakaoTalk(
+                    applicationContext,
+                    callback = callback
+                )
             } else {
-                UserApiClient.instance.loginWithKakaoAccount(applicationContext, callback = callback)
+                UserApiClient.instance.loginWithKakaoAccount(
+                    applicationContext,
+                    callback = callback
+                )
             }
         }
 
         //페이스북 로그인
         facebookBtn.setOnClickListener {
-            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "public_profile"))
+            LoginManager.getInstance()
+                .logInWithReadPermissions(this, Arrays.asList("email", "public_profile"))
             // 페이스북 로그인 콜백
             LoginManager.getInstance().registerCallback(callbackManager,
                 object : FacebookCallback<LoginResult?> {
@@ -120,32 +164,32 @@ class LoginActivity : AppCompatActivity()
                 })
         }
 
-        // 사용자가 이미 페이스북에 로그인 했는지 확인(아직 미사용) -> 처리문 작성 필요
-        //val accessToken: AccessToken = AccessToken.getCurrentAccessToken()
-        //val isLoggedIn: Boolean = accessToken != null && !accessToken.isExpired
+            // 사용자가 이미 페이스북에 로그인 했는지 확인(아직 미사용) -> 처리문 작성 필요
+            //val accessToken: AccessToken = AccessToken.getCurrentAccessToken()
+            //val isLoggedIn: Boolean = accessToken != null && !accessToken.isExpired
 
-        val mOAuthLoginHandler: OAuthLoginHandler = object : OAuthLoginHandler() {
-            override fun run(success: Boolean) {
-                if (success) {
-                    val accessToken = mOAuthLoginModule.getAccessToken(this@LoginActivity)
-                    val refreshToken = mOAuthLoginModule.getRefreshToken(this@LoginActivity)
-                    val expiresAt = mOAuthLoginModule.getExpiresAt(this@LoginActivity)
-                    val tokenType = mOAuthLoginModule.getTokenType(this@LoginActivity)
-                    var intent = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    val errorCode = mOAuthLoginModule.getLastErrorCode(this@LoginActivity).code
-                    val errorDesc = mOAuthLoginModule.getLastErrorDesc(this@LoginActivity)
-                    Toast.makeText(
-                        this@LoginActivity, "errorCode:" + errorCode
-                                + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT
-                    ).show()
+            val mOAuthLoginHandler: OAuthLoginHandler = object : OAuthLoginHandler() {
+                override fun run(success: Boolean) {
+                    if (success) {
+                        val accessToken = mOAuthLoginModule.getAccessToken(this@LoginActivity)
+                        val refreshToken = mOAuthLoginModule.getRefreshToken(this@LoginActivity)
+                        val expiresAt = mOAuthLoginModule.getExpiresAt(this@LoginActivity)
+                        val tokenType = mOAuthLoginModule.getTokenType(this@LoginActivity)
+                        var intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        val errorCode = mOAuthLoginModule.getLastErrorCode(this@LoginActivity).code
+                        val errorDesc = mOAuthLoginModule.getLastErrorDesc(this@LoginActivity)
+                        Toast.makeText(
+                            this@LoginActivity, "errorCode:" + errorCode
+                                    + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
-        }
 
-        // 네이버 로그인
         naverBtn.setOnClickListener {
+            // 네이버 로그인
             mOAuthLoginModule.init(
                 this@LoginActivity
                 ,getString(R.string.naver_client_id)
