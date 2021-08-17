@@ -15,11 +15,8 @@ import kotlinx.android.synthetic.main.activity_login.*
 import com.facebook.FacebookSdk
 import com.facebook.appevents.AppEventsConstants
 import com.facebook.FacebookException
-
 import com.facebook.login.LoginResult
-
 import com.facebook.FacebookCallback
-
 import com.facebook.login.LoginManager
 import com.facebook.AccessToken
 import com.nhn.android.naverlogin.OAuthLogin
@@ -35,10 +32,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.nhn.android.naverlogin.OAuthLogin.mOAuthLoginHandler
-
 import com.nhn.android.naverlogin.OAuthLoginHandler
-
-
 
 
 
