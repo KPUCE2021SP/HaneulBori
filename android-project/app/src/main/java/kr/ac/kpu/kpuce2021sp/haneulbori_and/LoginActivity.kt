@@ -81,19 +81,10 @@ class LoginActivity : AppCompatActivity()
         Log.d("KEY_HASH", keyHash)
         
         //로그인 버튼 (나중에 DB 구축해서 정보가 맞을 시 mainActivity로)
-        signInBtn.setOnClickListener {
 
-            if (idEditText.text.toString() == "manager") {
-                var intent = Intent(applicationContext, ManagerActivity::class.java)
-                startActivity(intent)
-            } else if (idEditText.text.toString() == "user") {
-                var intent = Intent(applicationContext, MainActivity::class.java)
-                startActivity(intent)
-            }
-        }
 
         //로그인 버튼 - email 로그인 (김형환)
-        /*signInBtn.setOnClickListener {
+        signInBtn.setOnClickListener {
             Firebase.auth.signInWithEmailAndPassword(idEditText.text.toString(), passwordEditText.text.toString())
                 .addOnCompleteListener {
                     if (it.isSuccessful){
@@ -105,7 +96,7 @@ class LoginActivity : AppCompatActivity()
                         Toast.makeText(this, "loginFailed", Toast.LENGTH_SHORT).show()
                     }
                 }
-        }*/
+        }
 
         //회원가입 텍스트
         signUpText.setOnClickListener {
