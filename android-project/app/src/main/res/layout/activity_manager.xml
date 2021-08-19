@@ -31,6 +31,30 @@
             android:text="금일 사용자 출력"
             android:id="@+id/btnToday"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="기기 상태 조회"
+            android:id="@+id/btnSearchMachine"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="세탁기 추가"
+            android:id="@+id/btnAddWasher"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="탈수기 추가"
+            android:id="@+id/btnAddDrier"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

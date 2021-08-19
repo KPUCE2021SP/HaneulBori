@@ -26,6 +26,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_manager.*
 import java.time.LocalDate
+import kotlin.collections.hashMapOf as hashMapOf
 
 class ManagerActivity : AppCompatActivity()
 {
@@ -42,6 +43,7 @@ class ManagerActivity : AppCompatActivity()
         rv_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_list.adapter = adapter
 
+        //전체 사용자 출력
         btnReadAll.setOnClickListener {
             db.collection("User")
                 .get()
@@ -57,6 +59,8 @@ class ManagerActivity : AppCompatActivity()
                     Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
                 }
         }
+
+        //남자 사용자 출력
         btnReadM.setOnClickListener {
             db.collection("User")
                 .get()
@@ -73,6 +77,8 @@ class ManagerActivity : AppCompatActivity()
                     Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
                 }
         }
+
+        //금일 사용자 출력
         btnToday.setOnClickListener {
             db.collection("User")
                 .get()
@@ -91,6 +97,65 @@ class ManagerActivity : AppCompatActivity()
                 }
                 .addOnFailureListener { exception ->
                     Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
+                }
+        }
+
+        //세탁기 추가
+        btnAddWasher.setOnClickListener {
+            val data= hashMapOf(
+                "book" to ArrayList<String>(),
+                "reason" to "normal",
+                "state" to true,
+                "type" to "washer"
+            )
+            db.collection("laundry").document("12floor").collection("machine")
+                .add(data)
+                .addOnSuccessListener {
+                    Toast.makeText(applicationContext,"세탁기 추가 완료",Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(applicationContext,"세탁기 추가 실패",Toast.LENGTH_SHORT).show()
+                }
+        }
+
+        //탈수기 추가
+        btnAddDrier.setOnClickListener {
+            val data= hashMapOf(
+                "book" to ArrayList<String>(),
+                "reason" to "normal",
+                "state" to true,
+                "type" to "drier"
+            )
+            db.collection("laundry").document("12floor").collection("machine")
+                .add(data)
+                .addOnSuccessListener {
+                    Toast.makeText(applicationContext,"탈수기 추가 완료",Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(applicationContext,"탈수기 추가 실패",Toast.LENGTH_SHORT).show()
+                }
+        }
+
+        //기기 상태 조회
+        btnSearchMachine.setOnClickListener {
+            db.collection("laundry").document("12floor").collection("machine")
+                .get()
+                .addOnSuccessListener { result ->
+                    itemList.clear()
+                    for (document in result) {
+                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as ArrayList<String>)
+                        var state = document["reason"] as String
+                        for(i in item.bookList.indices)
+                        {
+                            if(item.bookList[i].contains(date.toString()))
+                                itemList.add(item)
+                        }
+
+                    }
+                    adapter.notifyDataSetChanged()
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(applicationContext,"조회 실패",Toast.LENGTH_SHORT).show()
                 }
         }
     }
