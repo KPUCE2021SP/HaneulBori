@@ -21,6 +21,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.time_interver_layout.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -39,6 +40,7 @@ class MainActivity : TabActivity()
     var depth: Int = 0
     var bookTime: String = ""
     var bookDate: String = ""
+    var bookInterver: String = ""
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -67,9 +69,26 @@ class MainActivity : TabActivity()
         refreshButton.setOnClickListener {
             refreshLaundry()
         }
+
+        setInterverButton.setOnClickListener {
+
+            val dlg = AlertDialog.Builder(this)
+            val dlgView = layoutInflater.inflate(R.layout.time_interver_layout, null)
+            val dlgText = dlgView.interverInput
+
+            dlg.setView(dlgView)
+
+            dlg.setPositiveButton("확인") { dialog, _ ->
+                bookInterver = dlgText.text.toString()
+            }
+            dlg.setNegativeButton("취소", null)
+            dlg.show()
+        }
+
         refresh.setOnClickListener {
             refreshUserBookList()
         }
+
         setTimeButton.setOnClickListener {
             val cal = Calendar.getInstance()
 
@@ -134,8 +153,28 @@ class MainActivity : TabActivity()
                             dlg.setTitle("예약 취소")
                             dlg.setMessage("다음 시간의 예약을 취소하시겠습니까?\n${books[position]}")
                             dlg.setPositiveButton("확인") { _, _ ->
-                                books.removeAt(position)
-                                userCollectionRef.document(user.uid).update("bookList", books)
+                                DB.runTransaction {
+                                    val bookData: List<String> = books[position].split("//")
+
+                                    books.removeAt(position)
+                                    userCollectionRef.document(user.uid).update("bookList", books)
+                                    refreshUserBookList()
+                                    // Toast.makeText(this, bookData[2], Toast.LENGTH_SHORT).show()
+                                    laundryCollectionRef.document(bookData[1]).collection("machine")
+                                        .document(bookData[2]).get()
+                                        .addOnSuccessListener {
+                                            val item = it["book"] as ArrayList<String>
+                                            for (doc in item) {
+                                                if (doc == bookData[0]) {
+                                                    item.remove(doc)
+                                                    break
+                                                }
+                                            }
+                                            laundryCollectionRef.document(bookData[1])
+                                                .collection("machine")
+                                                .document(bookData[2]).update("book", item)
+                                        }
+                                }
                                 refreshUserBookList()
                             }
                             dlg.setNegativeButton("취소", null)
@@ -216,6 +255,11 @@ class MainActivity : TabActivity()
                                 dlg.setMessage("사유: ${it["reason"].toString()}")
                                 Toast.makeText(this, "test", Toast.LENGTH_SHORT).show()
                                 dlg.setPositiveButton("확인", null)
+                            } else if (bookDate == "" || bookTime == ""){
+                                dlg.setTitle("예약 할 수 없습니다.")
+                                dlg.setMessage("예약 시간을 정확히 입력해 주세요")
+                                Toast.makeText(this, "test", Toast.LENGTH_SHORT).show()
+                                dlg.setPositiveButton("확인", null)
                             } else {
                                 val temp = it["book"] as ArrayList<*>
                                 if (temp.size == 0){
@@ -227,11 +271,11 @@ class MainActivity : TabActivity()
                                             userCollectionRef.document(user.uid).get()
                                                 .addOnSuccessListener {
                                                     if (it["bookList"] == null){
-                                                        Toast.makeText(this, "faild to access database", Toast.LENGTH_SHORT).show()
+                                                        Toast.makeText(this, "failed to access database", Toast.LENGTH_SHORT).show()
                                                     } else {
                                                         val item = it["bookList"] as ArrayList<String>
 
-                                                        item.add("$bookDate $bookTime")
+                                                        item.add("$bookDate $bookTime//$nowLaundry//${machines[po]}")
                                                         DB.runTransaction {
                                                             userCollectionRef.document(user.uid).update("bookList", item)
                                                             laundryCollectionRef.document(nowLaundry).collection("machine")
@@ -243,6 +287,7 @@ class MainActivity : TabActivity()
                                                                         .document(machines[po])
                                                                         .update("book", bookList)
                                                                 }
+                                                            refreshUserBookList()
                                                         }
 
                                                     }
