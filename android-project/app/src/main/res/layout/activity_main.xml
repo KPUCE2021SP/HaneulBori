@@ -26,18 +26,58 @@
                 <ListView
                     android:id="@+id/laundryList"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="403dp" />
+
+                <Button
+                    android:id="@+id/refreshButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="refresh" />
+
+                <Button
+                    android:id="@+id/setTimeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="set time" />
+
+                <Button
+                    android:id="@+id/setDateButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="set date" />
+
+                <Button
+                    android:id="@+id/setInterverButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="set interver" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/tabCancel">
+
+                <ListView
+                    android:id="@+id/bookList"
+                    android:layout_width="match_parent"
+                    android:layout_height="549dp">
+
+                </ListView>
+
+                <Button
+                    android:id="@+id/refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="refresh" />
+
                 <TextView
+                    android:id="@+id/tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv"
-                    android:text="내가 예약한 세탁기 번호/시간 : "/>
+                    android:text="내가 예약한 세탁기 번호/시간 : " />
+
+
             </LinearLayout>
         </FrameLayout>
 
