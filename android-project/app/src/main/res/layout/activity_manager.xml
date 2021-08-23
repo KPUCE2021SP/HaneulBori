@@ -45,15 +45,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="세탁기 추가"
-            android:id="@+id/btnAddWasher"/>
+            android:text="기기 추가"
+            android:id="@+id/btnAddMachine"/>
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="탈수기 추가"
-            android:id="@+id/btnAddDrier"/>
-
+            android:text="기기 제거"
+            android:id="@+id/btnDeleteMachine"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="고장 접수 확인"
+            android:id="@+id/btnCheckError"/>
     </LinearLayout>
 
     <LinearLayout
