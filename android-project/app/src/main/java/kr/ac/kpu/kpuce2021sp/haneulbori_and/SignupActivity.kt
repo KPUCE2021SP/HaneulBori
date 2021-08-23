@@ -1,5 +1,6 @@
 package kr.ac.kpu.kpuce2021sp.haneulbori_and
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -9,6 +10,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_signup.*
 import java.util.*
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,5 +99,51 @@ class SignupActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
+
+        //전화번호 양식 확인
+        phoneET.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                var pattern : Pattern = Pattern.compile("010[0-9]{8}")
+                var matcher : Matcher = pattern.matcher(phoneET.text.toString())
+                if (matcher.find() && phoneET.text.length == 11) {
+                    phoneCheckTextView.visibility = android.view.View.INVISIBLE
+                } else {
+                    phoneCheckTextView.visibility = android.view.View.VISIBLE
+                }
+            }
+
+        })
+
+        //회원가입 버튼
+        signupBtn.setOnClickListener {
+            if (!signUpButtonEnable()) {
+                var dlg = AlertDialog.Builder(this@SignupActivity)
+                dlg.setTitle("가입 실패")
+                dlg.setMessage("작성이 완료되지 않았습니다.")
+                dlg.setIcon(R.mipmap.ic_launcher)
+                dlg.setPositiveButton("확인", null)
+                dlg.show()
+            } else {
+                finish()
+            }
+        }
+
+    }
+
+    fun signUpButtonEnable() : Boolean {
+        if (idET.text.isEmpty() || idCheckTextView.visibility == View.VISIBLE ||
+            pwET.text.isEmpty() || pwCheckET.text.isEmpty() || pwCheckTextView.visibility == View.VISIBLE ||
+            nameET.text.isEmpty() || (!manBtn.isChecked && !womanBtn.isChecked) ||
+            yearSpinner.selectedItemPosition == 0 || monthSpinner.selectedItemPosition == 0 || daySpinner.selectedItemPosition == 0 ||
+            phoneCheckTextView.visibility == View.VISIBLE ) {
+            return false
+        }
+        return true
     }
 }
