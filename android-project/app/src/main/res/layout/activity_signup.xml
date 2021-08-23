@@ -6,12 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".SignupActivity">
 
+    <TextView
+        android:id="@+id/signupText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="회원가입"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/idET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="아이디(이메일 주소)"
@@ -19,7 +30,19 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/signupText" />
+
+    <TextView
+        android:id="@+id/idCheckTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="이미 존재하는 아이디입니다."
+        android:textColor="#ff0000"
+        android:textSize="15sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idET" />
 
     <EditText
         android:id="@+id/pwET"
@@ -33,10 +56,10 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idET" />
+        app:layout_constraintTop_toBottomOf="@+id/idCheckTextView" />
 
     <EditText
-        android:id="@+id/pwConfirmET"
+        android:id="@+id/pwCheckET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -49,28 +72,69 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pwET" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
+
+    <TextView
+        android:id="@+id/pwCheckTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="비밀번호가 일치하지 않습니다."
+        android:textColor="#ff0000"
+        android:textSize="15sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwCheckET" />
+
+    <TextView
+        android:id="@+id/birthdayText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="생년월일"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwCheckTextView" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/birthdayText">
 
-        <RadioButton
-            android:id="@+id/manBtn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="남" />
+        <Spinner
+            android:id="@+id/yearSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/edge_line"
+            android:hint="  년"
+            android:layout_marginLeft="16dp"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-        <RadioButton
-            android:id="@+id/womanBtn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="여" />
-    </RadioGroup>
+        <Spinner
+            android:id="@+id/monthSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/edge_line"
+            android:hint="  월"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <Spinner
+            android:id="@+id/daySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/edge_line"
+            android:layout_marginRight="16dp"
+            android:hint="  일"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
