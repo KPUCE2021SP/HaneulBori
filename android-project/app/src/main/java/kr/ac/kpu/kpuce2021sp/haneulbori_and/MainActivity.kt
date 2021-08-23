@@ -12,7 +12,6 @@ import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.AdapterView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.google.firebase.auth.ktx.auth
@@ -22,8 +21,6 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.time_interver_layout.view.*
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 
 class MainActivity : TabActivity()
@@ -38,9 +35,12 @@ class MainActivity : TabActivity()
     var nowLaundry: String = ""
     val user = Firebase.auth.currentUser
     var depth: Int = 0
-    var bookTime: String = ""
-    var bookDate: String = ""
     var bookInterver: String = ""
+    var startTime: String = ""
+    var startDate: String = ""
+    var endTime: String = ""
+    var endDate: String = ""
+    var nowMachine: String = ""
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -96,7 +96,7 @@ class MainActivity : TabActivity()
                 cal.set(Calendar.HOUR_OF_DAY, hour)
                 cal.set(Calendar.MINUTE, minute)
 
-                bookTime = SimpleDateFormat("HH:mm").format(cal.time)
+                startTime = SimpleDateFormat("HH:mm").format(cal.time)
 
             }
             TimePickerDialog(this, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
@@ -110,7 +110,7 @@ class MainActivity : TabActivity()
                 cal.set(Calendar.MONTH, month)
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-                bookDate = SimpleDateFormat("yyyy-MM-dd").format(cal.time)
+                startDate = SimpleDateFormat("yyyy-MM-dd").format(cal.time)
             }
             DatePickerDialog(this, dateSetListener, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
         }
@@ -126,8 +126,14 @@ class MainActivity : TabActivity()
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun refreshLaundry() {
-        depth = 0
-        showLaundry()
+
+        if (depth == 1){
+            depth = 0
+            showLaundry()
+        } else if (depth == 2){
+            depth = 1
+            showMachine()
+        }
     }
 
     fun refreshUserBookList() {
@@ -204,15 +210,10 @@ class MainActivity : TabActivity()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun convertDateNow() : String{
-        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
     fun showLaundry(){
         depth += 1
         laundries.clear()
+        nowLaundry = ""
         laundryCollectionRef.get()
             .addOnSuccessListener {
                 for (doc in it) {
@@ -220,7 +221,8 @@ class MainActivity : TabActivity()
                 }
                 laundryList.adapter = search_activity.MyCustomAdapter(this, laundries)
                 laundryList.setOnItemClickListener { parent, view, position, id ->
-                    showMachine(parent, position)
+                    nowLaundry = parent.getItemAtPosition(position) as String
+                    showMachine()
                 }
             }
             .addOnFailureListener {
@@ -230,15 +232,14 @@ class MainActivity : TabActivity()
 
     @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.O)
-    fun showMachine(parent: AdapterView<*>, position: Int){
+    fun showMachine(){
         machines.clear()
         depth += 1
-        nowLaundry = parent.getItemAtPosition(position) as String
         laundryCollectionRef.document(nowLaundry)
             .collection("machine").get()
             .addOnSuccessListener {
                 for (doc in it){
-                    machines.add(doc.id.toString())
+                    machines.add(doc.id)
                 }
                 laundryList.adapter = search_activity.MyCustomAdapter(this, machines)
                 laundryList.setOnItemClickListener { pa, v, po, i ->
@@ -255,15 +256,40 @@ class MainActivity : TabActivity()
                                 dlg.setMessage("사유: ${it["reason"].toString()}")
                                 Toast.makeText(this, "test", Toast.LENGTH_SHORT).show()
                                 dlg.setPositiveButton("확인", null)
-                            } else if (bookDate == "" || bookTime == ""){
+                            } else if (startDate == "" || startTime == "" || bookInterver == ""){
                                 dlg.setTitle("예약 할 수 없습니다.")
                                 dlg.setMessage("예약 시간을 정확히 입력해 주세요")
                                 Toast.makeText(this, "test", Toast.LENGTH_SHORT).show()
                                 dlg.setPositiveButton("확인", null)
                             } else {
-                                val temp = it["book"] as ArrayList<*>
-                                if (temp.size == 0){
-                                    dlg.setTitle("예약 가능 시간")
+                                addTimeDate(startTime, startDate, bookInterver)
+                                val temp = it["book"] as ArrayList<String>
+                                var canBook = true
+
+                                if (!(temp.size == 0)) {
+                                    for (tempTime in temp) {
+                                        val tempTotal = tempTime.split("//")
+
+                                        val tempStart = tempTotal[0]
+                                        val tempEnd = tempTotal[1]
+
+                                        val tempStartDateTime = tempTotal[0].split(" ")
+                                        val tempStartDate = tempStartDateTime[0]
+                                        val tempStartTime = tempStartDateTime[1]
+
+                                        val tempEndDateTime = tempTotal[1].split(" ")
+                                        val tempEndDate = tempEndDateTime[0]
+                                        val tempEndTime = tempEndDateTime[1]
+
+                                        canBook =
+                                            !(tempStart <= "$startDate $startTime" && "$startDate $startTime" <= tempEnd)
+                                    }
+                                } else {
+                                    canBook = true
+                                }
+
+                                if (canBook){
+                                    dlg.setTitle("예약")
                                     dlg.setMessage("예약 내역이 없습니다. 예약하시겠습니까?")
                                     dlg.setNegativeButton("취소",null)
                                     dlg.setPositiveButton("확인") { dialog, which ->
@@ -275,14 +301,14 @@ class MainActivity : TabActivity()
                                                     } else {
                                                         val item = it["bookList"] as ArrayList<String>
 
-                                                        item.add("$bookDate $bookTime//$nowLaundry//${machines[po]}")
+                                                        item.add("$startDate $startTime//$endDate $endTime//$nowLaundry//${machines[po]}")
                                                         DB.runTransaction {
                                                             userCollectionRef.document(user.uid).update("bookList", item)
                                                             laundryCollectionRef.document(nowLaundry).collection("machine")
                                                                 .document(machines[po]).get()
                                                                 .addOnSuccessListener {
                                                                     val bookList = it["book"] as ArrayList<String>
-                                                                    bookList.add("$bookDate $bookTime")
+                                                                    bookList.add("$startDate $startTime//$endDate $endTime")
                                                                     laundryCollectionRef.document(nowLaundry).collection("machine")
                                                                         .document(machines[po])
                                                                         .update("book", bookList)
@@ -292,6 +318,8 @@ class MainActivity : TabActivity()
 
                                                     }
                                                 }
+                                        } else {
+                                            Toast.makeText(this, "Login failed. try again", Toast.LENGTH_SHORT).show()
                                         }
 
                                         tv.text = "예약 ${it.id}"
@@ -320,6 +348,92 @@ class MainActivity : TabActivity()
                         }
                 }
             }
+    }
+
+    fun addTimeDate(time: String, date: String, interver: String) {
+
+        endDate = ""
+        endTime = ""
+
+        val ttime = time.split(":").toMutableList()
+        val tdate = date.split("-").toMutableList()
+        val tinterver = interver.toInt() + ttime[1].toInt()
+
+        ttime[1] = tinterver.toString()
+
+        while (tinterver > 60) {
+            ttime[1] = (ttime[1].toInt() - 60).toString()
+            ttime[0] = (ttime[0].toInt() + 1).toString()
+        }
+
+        if (ttime[0].toInt() > 24){
+            tdate[2] = (tdate[2].toInt() + 1).toString()
+        }
+
+        if (tdate[2].toInt() > 28){
+            when (tdate[1].toInt()){
+                1, 3, 5, 7, 8, 10, 12 -> {
+                    if (tdate[2].toInt() > 31){
+                        tdate[1] = (tdate[1].toInt() + 1).toString()
+                        if (tdate[1] == "13"){
+                            tdate[1] = "1"
+                            tdate[0] = (tdate[0].toInt() + 1).toString()
+                        }
+                        tdate[2] = "1"
+                    }
+                }
+
+                4, 6, 9, 11 -> {
+                    if (tdate[2].toInt() > 30){
+                        tdate[1] = (tdate[1].toInt() + 1).toString()
+                        tdate[2] = "1"
+                    }
+                }
+
+                2 -> {
+                    val temp = tdate[0].toInt()
+                    var yun = false
+                    var tempdate = 28
+
+                    if (temp % 4 == 0){
+                        yun = true
+                        if (temp % 100 == 0){
+                            yun = false
+                            if (temp % 400 == 0){
+                                yun = true
+                            }
+                        }
+                    } else {
+                        yun = false
+                    }
+
+                    if (yun){
+                        tempdate = 29
+                    }
+
+                    if (tdate[2].toInt() > tempdate){
+                        tdate[1] = (tdate[1].toInt() + 1).toString()
+                        tdate[2] = "1"
+                    }
+                }
+            }
+        }
+        if ((tdate[2].toInt() < 10) && (tdate[2].length < 2)){
+            tdate[2] = "0" + tdate[2]
+        }
+        if (tdate[1].toInt() < 10 && (tdate[1].length < 2)){
+            tdate[1] = "0" + tdate[1]
+        }
+        if (ttime[0].toInt() < 10 && (ttime[1].length < 2)){
+            ttime[0] = "0" + ttime[0]
+        }
+        if (ttime[1].toInt() < 10 && (ttime[1].length < 2)){
+            ttime[1] = "0" + ttime[1]
+        }
+
+        endDate = tdate[0] + "-" + tdate[1] + "-" + tdate[2]
+        endTime = ttime[0] + ":" + ttime[1]
+
     }
 
 
