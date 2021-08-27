@@ -26,21 +26,21 @@ import kotlinx.android.synthetic.main.time_interver_layout.view.*
 class MainActivity : TabActivity()
 {
 
-    val DB: FirebaseFirestore = Firebase.firestore
-    val laundryCollectionRef = DB.collection("laundry")
-    val userCollectionRef = DB.collection("User")
-    val laundries = arrayListOf<String>()
-    val machines = arrayListOf<String>()
-    val books = arrayListOf<String>()
-    var nowLaundry: String = ""
-    val user = Firebase.auth.currentUser
-    var depth: Int = 0
-    var bookInterver: String = ""
-    var startTime: String = ""
-    var startDate: String = ""
-    var endTime: String = ""
-    var endDate: String = ""
-    var nowMachine: String = ""
+    val DB: FirebaseFirestore = Firebase.firestore // 데이터베이스 레퍼런스
+    val laundryCollectionRef = DB.collection("laundry") // 세탁소 레퍼런스
+    val userCollectionRef = DB.collection("User") // 유저 레퍼런스
+    val laundries = arrayListOf<String>() // 세탁소 임시 저장 문자열 (리스트용)
+    val machines = arrayListOf<String>() // 세탁기 임시 저장 문자열 (리스트용)
+    val books = arrayListOf<String>() // 사용자 예약 내역 임시 저장 문자열 (리스트용)
+    var nowLaundry: String = "" // 현재 세탁소 저장용
+    val user = Firebase.auth.currentUser // 사용자 정보
+    var depth: Int = 0 // 리스트 깊이
+    var bookInterver: String = "" // 세탁기 사용 시간
+    var startTime: String = "" // 세탁기 사용 시작 시간
+    var startDate: String = "" // 세탁기 사용 시작 일자
+    var endTime: String = "" // 세탁기 사용 종료 시간
+    var endDate: String = "" // 세탁기 사용 종료 일자
+
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -50,7 +50,7 @@ class MainActivity : TabActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        // 탭 호스트 및 설정
         val tabHost=this.tabHost
 
         val tabSpecReserve=tabHost.newTabSpec("예약하기").setIndicator("예약하기")
@@ -62,14 +62,19 @@ class MainActivity : TabActivity()
         tabHost.addTab(tabSpecCancel)
 
         tabHost.currentTab=0
-
+        
+        // 리스트 시작
         showLaundry()
         usersBookList()
-
+        
+        // 각 버튼 리스너
+        
+        // 새로고침 (세탁기 및 세탁소)
         refreshButton.setOnClickListener {
             refreshLaundry()
         }
-
+        
+        // 사용 시간 버튼
         setInterverButton.setOnClickListener {
 
             val dlg = AlertDialog.Builder(this)
@@ -84,11 +89,13 @@ class MainActivity : TabActivity()
             dlg.setNegativeButton("취소", null)
             dlg.show()
         }
-
+        
+        // 새로고침 버튼 (유저 예약 정보)
         refresh.setOnClickListener {
             refreshUserBookList()
         }
-
+        
+        // 시간 설정 버튼
         setTimeButton.setOnClickListener {
             val cal = Calendar.getInstance()
 
@@ -101,7 +108,8 @@ class MainActivity : TabActivity()
             }
             TimePickerDialog(this, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
         }
-
+        
+        // 일자 설정 버튼
         setDateButton.setOnClickListener {
             val cal = Calendar.getInstance()
 
@@ -116,82 +124,102 @@ class MainActivity : TabActivity()
         }
 
     }
-
+    
+    // 전체 새로고침
     @RequiresApi(Build.VERSION_CODES.O)
     fun refreshAll() {
         depth = 0
         showLaundry()
         usersBookList()
     }
-
+    
+    // 세탁소 및 세탁기 새로고침 함수
     @RequiresApi(Build.VERSION_CODES.O)
     fun refreshLaundry() {
 
         if (depth == 1){
             depth = 0
+            Toast.makeText(this, "refresh laundry", Toast.LENGTH_SHORT).show()
             showLaundry()
         } else if (depth == 2){
             depth = 1
+            Toast.makeText(this, "refresh machine", Toast.LENGTH_SHORT).show()
             showMachine()
         }
     }
-
+    
+    // 유저 리스트 새로고침 함수
     fun refreshUserBookList() {
         usersBookList()
     }
-
+    
+    // 사용자 예약 정보 출력
     fun usersBookList() {
-        books.clear()
+        
+        // 사용자 예약 내역 출력
         if (user != null) {
+            books.clear()
             userCollectionRef.document(user.uid).get()
                 .addOnSuccessListener {
                     val temp = it["bookList"] as ArrayList<String>
-
                     if (temp.size != 0) {
-                        for (doc in temp){
+                        for (doc in temp) {
                             books.add(doc)
                         }
-
                         bookList.adapter = search_activity.MyCustomAdapter(this, books)
-                        bookList.setOnItemClickListener { parent, view, position, id ->
-                            val dlg = AlertDialog.Builder(this@MainActivity)
-                            dlg.setIcon(R.mipmap.ic_launcher)
-                            dlg.setTitle("예약 취소")
-                            dlg.setMessage("다음 시간의 예약을 취소하시겠습니까?\n${books[position]}")
-                            dlg.setPositiveButton("확인") { _, _ ->
-                                DB.runTransaction {
-                                    val bookData: List<String> = books[position].split("//")
-
-                                    books.removeAt(position)
-                                    userCollectionRef.document(user.uid).update("bookList", books)
-                                    refreshUserBookList()
-                                    // Toast.makeText(this, bookData[2], Toast.LENGTH_SHORT).show()
-                                    laundryCollectionRef.document(bookData[1]).collection("machine")
-                                        .document(bookData[2]).get()
-                                        .addOnSuccessListener {
-                                            val item = it["book"] as ArrayList<String>
-                                            for (doc in item) {
-                                                if (doc == bookData[0]) {
-                                                    item.remove(doc)
-                                                    break
-                                                }
-                                            }
-                                            laundryCollectionRef.document(bookData[1])
-                                                .collection("machine")
-                                                .document(bookData[2]).update("book", item)
-                                        }
-                                }
-                                refreshUserBookList()
-                            }
-                            dlg.setNegativeButton("취소", null)
-                            dlg.show()
-                        }
                     }
                 }
+                .addOnFailureListener {
+                    Toast.makeText(this, "fail to access", Toast.LENGTH_SHORT).show()
+                }
+            
+            // 각 리스트 아이템의 리스너
+            bookList.setOnItemClickListener { parent, view, position, id ->
+                val dlg = AlertDialog.Builder(this@MainActivity)
+                dlg.setIcon(R.mipmap.ic_launcher)
+                dlg.setTitle("예약 취소")
+                dlg.setMessage("다음 시간의 예약을 취소하시겠습니까?\n${books[position]}")
+                dlg.setPositiveButton("확인") { _, _ ->
+                    var item: ArrayList<String> = ArrayList()
+
+                    val bookData: List<String> = books[position].split("//")
+                    val userSnapshot = userCollectionRef.document(user.uid)
+                    val laundrySnapshot = laundryCollectionRef.document(bookData[2]).collection("machine")
+                        .document(bookData[3])
+
+                    books.removeAt(position)
+                    laundryCollectionRef.document(bookData[2]).collection("machine")
+                        .document(bookData[3]).get()
+                        .addOnSuccessListener {
+                            item = it["book"] as ArrayList<String>
+                            for (doc in item) {
+                                if (doc == (bookData[0] + "//" + bookData[1])) {
+                                    item.remove(doc)
+                                    break
+                                }
+                            }
+                        }
+                    // 실제 DB에 반영되는 트랜젝션
+                    DB.runTransaction { Transaction ->
+                        Transaction.update(userSnapshot, "bookList", books)
+                        Transaction.update(laundrySnapshot, "book", item)
+                    }
+                        .addOnSuccessListener {
+                            // 성공시 새로고침
+                            refreshUserBookList()
+                        }
+
+                }
+                dlg.setNegativeButton("취소", null)
+                dlg.show()
+            }
+
+
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
+    // 뒤로가기 버튼 눌렀을 시
     override fun onBackPressed() {
         when(depth){
             0 -> startActivity(
@@ -208,19 +236,28 @@ class MainActivity : TabActivity()
             }
         }
     }
-
+    
+    // 세탁소 출력 함수
     @RequiresApi(Build.VERSION_CODES.O)
     fun showLaundry(){
+        // 깊이 측적용 변수
         depth += 1
+        
+        // 임시 데이터 삭제
         laundries.clear()
         nowLaundry = ""
+        
+        // 레퍼런스에서 데이터 가져와 리스트에 출력
         laundryCollectionRef.get()
             .addOnSuccessListener {
                 for (doc in it) {
                     laundries.add(doc.id.toString())
                 }
                 laundryList.adapter = search_activity.MyCustomAdapter(this, laundries)
+                
+                // 아이템 리스너
                 laundryList.setOnItemClickListener { parent, view, position, id ->
+                    // 세탁기 리스트 출력
                     nowLaundry = parent.getItemAtPosition(position) as String
                     showMachine()
                 }
@@ -233,8 +270,11 @@ class MainActivity : TabActivity()
     @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.O)
     fun showMachine(){
+        // 깊이 및 리스트 초기화
         machines.clear()
         depth += 1
+        
+        // 세탁기 DB 접근
         laundryCollectionRef.document(nowLaundry)
             .collection("machine").get()
             .addOnSuccessListener {
@@ -243,7 +283,8 @@ class MainActivity : TabActivity()
                 }
                 laundryList.adapter = search_activity.MyCustomAdapter(this, machines)
                 laundryList.setOnItemClickListener { pa, v, po, i ->
-
+                    
+                    // 세탁기 선택 후 예약 여부 확인 및 예약
                     laundryCollectionRef.document(nowLaundry)
                         .collection("machine")
                         .document(machines[po]).get()
@@ -265,8 +306,9 @@ class MainActivity : TabActivity()
                                 addTimeDate(startTime, startDate, bookInterver)
                                 val temp = it["book"] as ArrayList<String>
                                 var canBook = true
-
-                                if (!(temp.size == 0)) {
+                                
+                                // 해당 시간에 예약이 가능한지 확인
+                                if (temp.size != 0) {
                                     for (tempTime in temp) {
                                         val tempTotal = tempTime.split("//")
 
@@ -287,7 +329,8 @@ class MainActivity : TabActivity()
                                 } else {
                                     canBook = true
                                 }
-
+                                
+                                // 예약이 가능한 경우 예약 진행
                                 if (canBook){
                                     dlg.setTitle("예약")
                                     dlg.setMessage("예약 내역이 없습니다. 예약하시겠습니까?")
@@ -303,7 +346,7 @@ class MainActivity : TabActivity()
 
                                                         item.add("$startDate $startTime//$endDate $endTime//$nowLaundry//${machines[po]}")
                                                         DB.runTransaction {
-                                                            userCollectionRef.document(user.uid).update("bookList", item)
+                                                            userCollectionRef.document(user.getUid()).update("bookList", item)
                                                             laundryCollectionRef.document(nowLaundry).collection("machine")
                                                                 .document(machines[po]).get()
                                                                 .addOnSuccessListener {
@@ -322,9 +365,9 @@ class MainActivity : TabActivity()
                                             Toast.makeText(this, "Login failed. try again", Toast.LENGTH_SHORT).show()
                                         }
 
-                                        tv.text = "예약 ${it.id}"
                                     }
                                 } else {
+                                    // 예약이 불가능한 경우 메세지 출력
                                     var massage: String = ""
 
                                     for (time in temp){
@@ -349,7 +392,8 @@ class MainActivity : TabActivity()
                 }
             }
     }
-
+    
+    // 시간 데이터를 포멧에 맞게 변경 및 더하기
     fun addTimeDate(time: String, date: String, interver: String) {
 
         endDate = ""
@@ -357,13 +401,14 @@ class MainActivity : TabActivity()
 
         val ttime = time.split(":").toMutableList()
         val tdate = date.split("-").toMutableList()
-        val tinterver = interver.toInt() + ttime[1].toInt()
+        var tinterver = interver.toInt() + ttime[1].toInt()
 
         ttime[1] = tinterver.toString()
 
-        while (tinterver > 60) {
+        while (tinterver >= 60) {
             ttime[1] = (ttime[1].toInt() - 60).toString()
             ttime[0] = (ttime[0].toInt() + 1).toString()
+            tinterver -= 60
         }
 
         if (ttime[0].toInt() > 24){
