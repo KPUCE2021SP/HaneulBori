@@ -16,12 +16,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_search.*
 
-data class machine (
-    val reason: String,
-    val state: Boolean,
-    val type: String,
-    val book: Array<Any>
-        )
 
 class search_activity : AppCompatActivity() {
 
