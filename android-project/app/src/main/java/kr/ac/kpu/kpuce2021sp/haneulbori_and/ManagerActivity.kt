@@ -360,7 +360,6 @@ class ManagerActivity : AppCompatActivity()
     }
 }
 
-
 class MachineList(var num:Long, var type:String)
 class StatusList(var num:Long, var reason:String, var state:Boolean, var type:String)
 class ErrorList(var num:Long, var message:String, var type:String)

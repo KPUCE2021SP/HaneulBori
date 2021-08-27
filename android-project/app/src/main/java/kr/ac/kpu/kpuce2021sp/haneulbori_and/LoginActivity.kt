@@ -194,7 +194,6 @@ class LoginActivity : AppCompatActivity()
         googleBtn.setOnClickListener {
             signIn()
         }
-
     }
 
     //google login 함수

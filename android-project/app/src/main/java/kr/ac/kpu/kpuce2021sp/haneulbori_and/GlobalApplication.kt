@@ -15,7 +15,5 @@ class GlobalApplication : Application() {
         KakaoSdk.init(this, getString(R.string.kakao_app_key))
         FacebookSdk.sdkInitialize(applicationContext)
         AppEventsLogger.activateApp(this)
-
     }
-
 }

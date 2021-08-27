@@ -13,7 +13,8 @@ import java.util.*
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-class SignupActivity : AppCompatActivity() {
+class SignupActivity : AppCompatActivity()
+{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)

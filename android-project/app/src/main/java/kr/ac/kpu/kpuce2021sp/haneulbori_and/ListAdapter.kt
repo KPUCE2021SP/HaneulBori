@@ -12,11 +12,9 @@ class ListAdapter(val itemList: ArrayList<ListLayout>): RecyclerView.Adapter<Lis
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_layout, parent, false)
         return ViewHolder(view)
     }
-
     override fun getItemCount(): Int {
         return itemList.size
     }
-
     override fun onBindViewHolder(holder: ListAdapter.ViewHolder, position: Int) {
         holder.name.text = itemList[position].name
         holder.number.text = itemList[position].number
@@ -24,7 +22,6 @@ class ListAdapter(val itemList: ArrayList<ListLayout>): RecyclerView.Adapter<Lis
         holder.email.text = itemList[position].email
         holder.sex.text = itemList[position].sex
     }
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.tvName)
         val number: TextView = itemView.findViewById(R.id.tvNumber)
