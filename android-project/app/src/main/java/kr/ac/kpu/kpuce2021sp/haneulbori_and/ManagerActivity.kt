@@ -137,11 +137,11 @@ class ManagerActivity : AppCompatActivity()
                 }
         }
 
-        //기기 추가 - 건조기 추가는 바로 되지만 세탁기 추가가 바로 안됨(건조기 한번 클릭하고 세탁기 클릭해야 추가됨)
+        //기기 추가
         btnAddMachine.setOnClickListener {
             var choiceMachine = arrayOf<String>("세탁기","건조기")
             var dlg=AlertDialog.Builder(this@ManagerActivity)
-            var choiceItem=""
+            var choiceItem="세탁기"
             dlg.setTitle("추가할 기기를 선택하세요")
             dlg.setSingleChoiceItems(choiceMachine,0){ dialog, which->
                 choiceItem=choiceMachine[which]
