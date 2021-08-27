@@ -69,13 +69,13 @@ class LoginActivity : AppCompatActivity()
             )
             finish()
         } */
-
-        //카카오 키 해시
-        var keyHash = Utility.getKeyHash(this)
-        Log.d("KEY_HASH", keyHash)
-        
         //로그인 버튼 (나중에 DB 구축해서 정보가 맞을 시 mainActivity로)
         signInBtn.setOnClickListener {
+
+            //카카오 키 해시
+            var keyHash = Utility.getKeyHash(this)
+            Log.d("KEY_HASH", keyHash)
+
 
             if (idEditText.text.toString() == "manager") {
                 var intent = Intent(applicationContext, ManagerActivity::class.java)
