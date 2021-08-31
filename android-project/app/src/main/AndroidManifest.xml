@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.ac.kpu.kpuce2021sp.haneulbori_and">
-    <!-- 인터넷 사용 권한 설정 -->
+
     <application
         android:name=".GlobalApplication"
         android:allowBackup="true"
@@ -10,6 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Haneulboriand">
+        <activity
+            android:name=".InputDataActivity"
+            android:exported="true" />
         <activity
             android:name=".CheckError"
             android:exported="true" />
@@ -20,7 +23,6 @@
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
-
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
@@ -48,7 +50,6 @@
         <activity
             android:name=".SignupActivity"
             android:exported="true" />
-
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,6 +58,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />

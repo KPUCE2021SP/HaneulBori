@@ -17,6 +17,8 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.util.Utility
@@ -68,7 +70,7 @@ class LoginActivity : AppCompatActivity()
             var keyHash = Utility.getKeyHash(this)
             Log.d("KEY_HASH", keyHash)
 
-            signInBtn.setOnClickListener {
+            /* signInBtn.setOnClickListener {
                 if (idEditText.text.toString() == "manager") {
                     var intent = Intent(applicationContext, ManagerActivity::class.java)
                     startActivity(intent)
@@ -76,26 +78,62 @@ class LoginActivity : AppCompatActivity()
                     var intent = Intent(applicationContext, MainActivity::class.java)
                     startActivity(intent)
                 }
-            }
+            } */
 
 
 
 
         //로그인 버튼 - email 로그인 (김형환)
-        /* signInBtn.setOnClickListener {
-            Firebase.auth.signInWithEmailAndPassword(idEditText.text.toString(), passwordEditText.text.toString())
-                .addOnCompleteListener {
-                    if (it.isSuccessful){
-                        startActivity(
-                            Intent(this, MainActivity::class.java)
-                        )
-                        finish()
-                    } else {
-                        Toast.makeText(this, "loginFailed", Toast.LENGTH_SHORT).show()
-                    }
-                }
+        signInBtn.setOnClickListener {
 
-        } */
+            val ID = idEditText.text.toString()
+            val PW = passwordEditText.text.toString()
+
+            var canGo = true
+
+            if (ID.isEmpty()){
+                Toast.makeText(this, "ID를 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                canGo = false
+            } else if (PW.isEmpty()){
+                Toast.makeText(this, "비밀번호를 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                canGo = false
+            }
+
+            if (canGo) {
+                Firebase.auth.signInWithEmailAndPassword(ID, PW)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            val DB: FirebaseFirestore = Firebase.firestore
+                            val userCollectionRef = DB.collection("User")
+                            val user = Firebase.auth.currentUser
+
+                            if (user != null) {
+                                userCollectionRef.document(user.uid).get()
+                                    .addOnSuccessListener {
+                                        if (it.exists()){
+                                            if (it["UserType"] as Boolean) {
+                                                startActivity(
+                                                    Intent(this, MainActivity::class.java)
+                                                )
+                                            } else {
+                                                startActivity(
+                                                    Intent(this, ManagerActivity::class.java)
+                                                )
+                                            }
+                                        } else {
+                                            startActivity(
+                                                Intent(this, InputDataActivity::class.java)
+                                            )
+                                        }
+                                    }
+                            }
+                        } else {
+                            Toast.makeText(this, "loginFailed", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
+
+        }
 
 
         //회원가입 텍스트
