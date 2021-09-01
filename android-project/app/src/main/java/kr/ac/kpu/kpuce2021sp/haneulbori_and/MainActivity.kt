@@ -180,34 +180,39 @@ class MainActivity : TabActivity()
                 dlg.setTitle("예약 취소")
                 dlg.setMessage("다음 시간의 예약을 취소하시겠습니까?\n${books[position]}")
                 dlg.setPositiveButton("확인") { _, _ ->
-                    var item: ArrayList<String> = ArrayList()
-
+                    var item: ArrayList<String>
                     val bookData: List<String> = books[position].split("//")
                     val userSnapshot = userCollectionRef.document(user.uid)
                     val laundrySnapshot = laundryCollectionRef.document(bookData[2]).collection("machine")
                         .document(bookData[3])
 
                     books.removeAt(position)
-                    laundryCollectionRef.document(bookData[2]).collection("machine")
-                        .document(bookData[3]).get()
+                    laundrySnapshot.get()
                         .addOnSuccessListener {
                             item = it["book"] as ArrayList<String>
+
                             for (doc in item) {
+
                                 if (doc == (bookData[0] + "//" + bookData[1])) {
                                     item.remove(doc)
+                                    Toast.makeText(this, item.size.toString(), Toast.LENGTH_SHORT).show()
+                                    // 실제 DB에 반영되는 트랜젝션
+                                    DB.runTransaction { Transaction ->
+                                        Transaction.update(userSnapshot, "bookList", books)
+                                        Transaction.update(laundrySnapshot, "book", item)
+                                    }
+                                        .addOnSuccessListener {
+                                            // 성공시 새로고침
+                                            refreshUserBookList()
+                                        }
                                     break
                                 }
                             }
                         }
-                    // 실제 DB에 반영되는 트랜젝션
-                    DB.runTransaction { Transaction ->
-                        Transaction.update(userSnapshot, "bookList", books)
-                        Transaction.update(laundrySnapshot, "book", item)
-                    }
-                        .addOnSuccessListener {
-                            // 성공시 새로고침
-                            refreshUserBookList()
-                        }
+
+
+
+
 
                 }
                 dlg.setNegativeButton("취소", null)
@@ -343,7 +348,7 @@ class MainActivity : TabActivity()
                                                         Toast.makeText(this, "failed to access database", Toast.LENGTH_SHORT).show()
                                                     } else {
                                                         val item = it["bookList"] as ArrayList<String>
-
+                                                        val phoneNumber = it["PhoneNumber"]
                                                         item.add("$startDate $startTime//$endDate $endTime//$nowLaundry//${machines[po]}")
                                                         DB.runTransaction {
                                                             userCollectionRef.document(user.getUid()).update("bookList", item)
@@ -351,7 +356,7 @@ class MainActivity : TabActivity()
                                                                 .document(machines[po]).get()
                                                                 .addOnSuccessListener {
                                                                     val bookList = it["book"] as ArrayList<String>
-                                                                    bookList.add("$startDate $startTime//$endDate $endTime")
+                                                                    bookList.add("$startDate $startTime//$endDate $endTime//$phoneNumber")
                                                                     laundryCollectionRef.document(nowLaundry).collection("machine")
                                                                         .document(machines[po])
                                                                         .update("book", bookList)
