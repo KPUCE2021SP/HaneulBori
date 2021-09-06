@@ -11,32 +11,21 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:id="@+id/tvName"
             android:text="1"/>
         <TextView
-            android:id="@+id/tvEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="2" />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:id="@+id/tvNumber"
+            android:layout_weight="2"
+            android:id="@+id/tvNum"
             android:text="3"/>
         <TextView
+            android:id="@+id/tvBook"
             android:layout_width="0dp"
-            android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:id="@+id/tvBirth"
-            android:text="4"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvSex"
-            android:text="5"/>
+            android:layout_weight="6"
+            android:text="2" />
     </LinearLayout>
 
 

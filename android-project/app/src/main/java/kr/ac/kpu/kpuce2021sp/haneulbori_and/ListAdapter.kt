@@ -17,16 +17,16 @@ class ListAdapter(val itemList: ArrayList<ListLayout>): RecyclerView.Adapter<Lis
     }
     override fun onBindViewHolder(holder: ListAdapter.ViewHolder, position: Int) {
         holder.name.text = itemList[position].name
-        holder.number.text = itemList[position].number
-        holder.birth.text = itemList[position].birthday
-        holder.email.text = itemList[position].email
-        holder.sex.text = itemList[position].sex
+        holder.book.text = itemList[position].bookList.toString()
+        //holder.finishTime.text = itemList[position].finishTime
+        //holder.type.text = itemList[position].type
+        holder.num.text = itemList[position].number
     }
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.tvName)
-        val number: TextView = itemView.findViewById(R.id.tvNumber)
-        val email: TextView = itemView.findViewById(R.id.tvEmail)
-        val birth: TextView = itemView.findViewById(R.id.tvBirth)
-        val sex: TextView = itemView.findViewById(R.id.tvSex)
+        val book: TextView = itemView.findViewById(R.id.tvBook)
+        //val finishTime: TextView = itemView.findViewById(R.id.tvFinishTime)
+        //val type: TextView = itemView.findViewById(R.id.tvType)
+        val num: TextView = itemView.findViewById(R.id.tvNum)
     }
 }

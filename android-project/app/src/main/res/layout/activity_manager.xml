@@ -12,24 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="전체 사용자 출력"
-            android:id="@+id/btnReadAll"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="남자 사용자 출력"
-            android:id="@+id/btnReadM"/>
+
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="금일 사용자 출력"
             android:id="@+id/btnToday"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="기기별 사용자 출력"
+            android:id="@+id/btnCheckUser"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,6 +55,36 @@
             android:text="고장 접수 확인"
             android:id="@+id/btnCheckError"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1번 세탁기 사용자 조회"
+            android:id="@+id/btnCheckUserWasher1"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2번 세탁기 사용자 조회"
+            android:id="@+id/btnCheckUserWasher2"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2번 건조기 사용자 조회"
+            android:id="@+id/btnCheckUserDrier1"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2번 세탁기 사용자 조회"
+            android:id="@+id/btnCheckUserDrier2"/>
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,28 +93,18 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:text="이름"/>
         <TextView
-            android:id="@+id/tvEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="E-mail" />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:text="전화번호"/>
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_weight="6"
             android:layout_height="wrap_content"
-            android:text="생년월일"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="성별"/>
+            android:text="이용한 시간"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
