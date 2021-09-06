@@ -17,7 +17,7 @@
    > 4. 세탁기의 세부 상태 조회 -> 오늘의 사용 시간 등 세부적인 정보 조회
  ## 개발 환경
   > kotlin w. Android Studio <br>
-  > Swfit w. Xcode <br>
+  > Swfit w. Xcode (restrain) <br>
   > Google Firebase <br>
 ## 구성원 및 연락처
 > 권태우 kwontaewoo0901@gmail.com  
