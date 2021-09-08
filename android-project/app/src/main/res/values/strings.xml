@@ -6,5 +6,7 @@
     <string name="naver_client_id">i4O1a1ptnzwpCXPMShyu</string>
     <string name="naver_client_secret">ww3tFybfNk</string>
     <string name="naver_client_name">HaneulBori</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
