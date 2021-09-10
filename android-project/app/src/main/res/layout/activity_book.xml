@@ -6,65 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".BookActivity">
 
-    <DatePicker
-
-        android:id="@+id/datepicker"
-
-        android:layout_width="0dp"
-
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="4dp"
-
-        android:calendarViewShown="false"
-
-        android:datePickerMode="spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
     <TimePicker
 
         android:id="@+id/timepicker"
 
-        android:layout_width="0dp"
+        android:layout_width="347dp"
 
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
 
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="8dp"
 
         android:calendarViewShown="false"
-
         android:timePickerMode="spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/bookButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="조회"
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/timepicker"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/timeSet50Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="50분"
+        app:layout_constraintEnd_toStartOf="@+id/timeSet80Button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timepicker" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/timeSet80Button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
-        android:layout_marginBottom="130dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="80분"
+        app:layout_constraintEnd_toStartOf="@+id/timeSetFreeButton"
+        app:layout_constraintStart_toEndOf="@+id/timeSet50Button"
+        app:layout_constraintTop_toBottomOf="@+id/timepicker" />
+
+    <Button
+        android:id="@+id/timeSetFreeButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="자유시간"
+        app:layout_constraintStart_toEndOf="@+id/timeSet80Button"
+        app:layout_constraintTop_toBottomOf="@+id/timepicker" />
+
+    <Button
+        android:id="@+id/acceptButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="설정"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookButton" />
+        app:layout_constraintStart_toEndOf="@+id/timeSetFreeButton"
+        app:layout_constraintTop_toBottomOf="@+id/timepicker" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

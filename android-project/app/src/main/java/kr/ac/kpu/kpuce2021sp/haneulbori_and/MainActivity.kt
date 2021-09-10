@@ -3,24 +3,24 @@ package kr.ac.kpu.kpuce2021sp.haneulbori_and
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.DatePickerDialog
 import android.app.TabActivity
-import android.app.TimePickerDialog
 import android.content.Intent
 import android.icu.text.SimpleDateFormat
-import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_book.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.time_interver_layout.view.*
+import java.util.*
 
 
 class MainActivity : TabActivity()
@@ -74,7 +74,7 @@ class MainActivity : TabActivity()
             refreshLaundry()
         }
         
-        // 사용 시간 버튼
+
         setInterverButton.setOnClickListener {
 
             val dlg = AlertDialog.Builder(this)
@@ -94,34 +94,56 @@ class MainActivity : TabActivity()
         refresh.setOnClickListener {
             refreshUserBookList()
         }
-        
-        // 시간 설정 버튼
-        setTimeButton.setOnClickListener {
-            val cal = Calendar.getInstance()
 
-            val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
-                cal.set(Calendar.HOUR_OF_DAY, hour)
-                cal.set(Calendar.MINUTE, minute)
+        // 시간 설정 시트 버튼
+        setTimeButton.setOnClickListener{
+            val bottomSheet = BottomSheetDialog(this)
+
+            bottomSheet.setContentView(R.layout.activity_book)
+
+            bottomSheet.acceptButton.setOnClickListener {
+
+                val cal = Calendar.getInstance()
+
+                startDate = SimpleDateFormat("yyyy-MM-dd").format(cal.time)
 
                 startTime = SimpleDateFormat("HH:mm").format(cal.time)
 
+                bottomSheet.closeOptionsMenu()
+
             }
-            TimePickerDialog(this, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+
+            bottomSheet.timeSet50Button.setOnClickListener {
+                bookInterver = "50"
+            }
+
+            bottomSheet.timeSet80Button.setOnClickListener {
+                bookInterver = "80"
+            }
+
+            bottomSheet.timeSetFreeButton.setOnClickListener {
+                val dlg = AlertDialog.Builder(this)
+                val dlgView = layoutInflater.inflate(R.layout.time_interver_layout, null)
+                val dlgText = dlgView.interverInput
+
+                dlg.setView(dlgView)
+
+                dlg.setPositiveButton("확인") { dialog, _ ->
+                    if (dlgText.text == null){
+                        Toast.makeText(this, "올바른 시간을 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        bookInterver = dlgText.text.toString()
+                    }
+                }
+                dlg.setNegativeButton("취소", null)
+                dlg.show()
+            }
+
+            bottomSheet.show()
         }
+
         
-        // 일자 설정 버튼
-        setDateButton.setOnClickListener {
-            val cal = Calendar.getInstance()
 
-            val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                cal.set(Calendar.YEAR, year)
-                cal.set(Calendar.MONTH, month)
-                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-
-                startDate = SimpleDateFormat("yyyy-MM-dd").format(cal.time)
-            }
-            DatePickerDialog(this, dateSetListener, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
-        }
 
     }
     
@@ -176,12 +198,13 @@ class MainActivity : TabActivity()
             // 각 리스트 아이템의 리스너
             bookList.setOnItemClickListener { parent, view, position, id ->
                 val dlg = AlertDialog.Builder(this@MainActivity)
+                val bookData: List<String> = books[position].split("//")
                 dlg.setIcon(R.mipmap.ic_launcher)
                 dlg.setTitle("예약 취소")
-                dlg.setMessage("다음 시간의 예약을 취소하시겠습니까?\n${books[position]}")
+                dlg.setMessage("다음 시간의 예약을 취소하시겠습니까?\n${bookData[0]}\n${bookData[1]}\n${bookData[2]}\n${bookData[3]}")
                 dlg.setPositiveButton("확인") { _, _ ->
                     var item: ArrayList<String>
-                    val bookData: List<String> = books[position].split("//")
+
                     val userSnapshot = userCollectionRef.document(user.uid)
                     val laundrySnapshot = laundryCollectionRef.document(bookData[2]).collection("machine")
                         .document(bookData[3])
@@ -192,8 +215,8 @@ class MainActivity : TabActivity()
                             item = it["book"] as ArrayList<String>
 
                             for (doc in item) {
-
-                                if (doc == (bookData[0] + "//" + bookData[1])) {
+                                var tempDoc = doc.split("//")
+                                if ((tempDoc[0] + "//" + tempDoc[1]) == (bookData[0] + "//" + bookData[1])) {
                                     item.remove(doc)
                                     Toast.makeText(this, item.size.toString(), Toast.LENGTH_SHORT).show()
                                     // 실제 DB에 반영되는 트랜젝션
@@ -204,6 +227,9 @@ class MainActivity : TabActivity()
                                         .addOnSuccessListener {
                                             // 성공시 새로고침
                                             refreshUserBookList()
+                                        }
+                                        .addOnFailureListener {
+                                            Toast.makeText(this, "failed to cancel.", Toast.LENGTH_SHORT).show()
                                         }
                                     break
                                 }

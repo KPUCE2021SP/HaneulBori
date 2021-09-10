@@ -1,13 +1,20 @@
 package kr.ac.kpu.kpuce2021sp.haneulbori_and
 
 import android.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_input_data.*
 import kotlinx.android.synthetic.main.activity_signup.*
 import java.util.*
 import java.util.regex.Matcher
@@ -130,7 +137,61 @@ class SignupActivity : AppCompatActivity() {
                 dlg.setPositiveButton("확인", null)
                 dlg.show()
             } else {
-                finish()
+                val DB: FirebaseFirestore = Firebase.firestore // 데이터베이스 레퍼런스
+                val userCollectionRef = DB.collection("User") // 유저 레퍼런스
+
+                var gender = "M"
+                when(radioGroup.checkedRadioButtonId){
+                    R.id.manBtn -> gender = "M"
+                    R.id.womanBtn -> gender = "W"
+                }
+
+                var mon = ""
+                var d = ""
+
+                if (monthSpinner.selectedItem.toString().toInt() < 10) {
+                    mon = "0${monthSpinner.selectedItem}"
+                } else {
+                    mon = "${monthSpinner.selectedItem}"
+                }
+
+                if (daySpinner.selectedItem.toString().toInt() < 10){
+                    d = "0${daySpinner.selectedItem}"
+                } else {
+                    d = "${daySpinner.selectedItem}"
+                }
+                val birthday = "${yearSpinner.selectedItem}" + mon + d
+
+
+                val data = hashMapOf(
+                    "Birthday" to birthday,
+                    "Name" to nameET.text.toString(),
+                    "Sex" to gender,
+                    "PhoneNumber" to phoneET.text.toString(),
+                    "bookList" to ArrayList<String>(),
+                    "Email" to idET.text.toString(),
+                    "UserType" to true
+                )
+
+
+
+
+                Firebase.auth.createUserWithEmailAndPassword(idET.text.toString(), pwET.text.toString())
+                    .addOnFailureListener {
+                        Toast.makeText(this, "회원가입에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnCompleteListener {
+                        Firebase.auth.signInWithEmailAndPassword(idET.text.toString(), pwET.text.toString())
+                            .addOnSuccessListener {
+                                userCollectionRef.document(Firebase.auth.currentUser?.uid.toString()).set(data)
+                                startActivity(
+                                    Intent(this, MainActivity::class.java)
+                                )
+                            }
+                    }
+
+
+
             }
         }
 
