@@ -251,6 +251,7 @@ class MainActivity : TabActivity()
         // 임시 데이터 삭제
         laundries.clear()
         nowLaundry = ""
+        laundryText.text = "세탁소 선택"
         
         // 레퍼런스에서 데이터 가져와 리스트에 출력
         laundryCollectionRef.get()
@@ -265,6 +266,7 @@ class MainActivity : TabActivity()
                     // 세탁기 리스트 출력
                     nowLaundry = parent.getItemAtPosition(position) as String
                     showMachine()
+                    laundryText.text = nowLaundry
                 }
             }
             .addOnFailureListener {

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -14,6 +15,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
@@ -34,6 +36,7 @@ class LoginActivity : AppCompatActivity()
 {
     var callbackManager = CallbackManager.Factory.create()
     var mOAuthLoginModule: OAuthLogin = OAuthLogin.getInstance()
+    val auth = Firebase.auth
 
     private val RC_SIGN_IN = 9001
     //firebase Auth
@@ -179,8 +182,11 @@ class LoginActivity : AppCompatActivity()
                 object : FacebookCallback<LoginResult?> {
                     override fun onSuccess(loginResult: LoginResult?) {
                         Log.d("facebookLogin", "Success")
-                        var intent = Intent(applicationContext, MainActivity::class.java)
-                        startActivity(intent)
+                        if (loginResult != null) {
+                            handleFacebookAccessToken(loginResult.accessToken)
+                            var intent = Intent(applicationContext, MainActivity::class.java)
+                            startActivity(intent)
+                        }
                     }
 
                     override fun onCancel() {
@@ -248,7 +254,6 @@ class LoginActivity : AppCompatActivity()
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try { //구글 로그인 성공 -> firebase에 저장
-                Log.d("TAG","hello")
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d("TAG", "firebaseAuthWithGoogle:" + account.id)
                 firebaseAuthWithGoogle(account.idToken!!)
@@ -272,4 +277,27 @@ class LoginActivity : AppCompatActivity()
                 }
             }
     }
+
+    //페이스북 firebase 연동
+    private fun handleFacebookAccessToken(token: AccessToken) {
+        Log.d("TAG", "handleFacebookAccessToken:$token")
+
+        val credential = FacebookAuthProvider.getCredential(token.token)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d("TAG", "signInWithCredential:success")
+                    val user = auth.currentUser
+                    //updateUI(user)
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w("TAG", "signInWithCredential:failure", task.exception)
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+                    //updateUI(null)
+                }
+            }
+    }
+
 }
