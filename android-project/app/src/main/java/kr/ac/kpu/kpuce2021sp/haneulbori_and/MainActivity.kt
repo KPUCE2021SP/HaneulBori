@@ -198,12 +198,13 @@ class MainActivity : TabActivity()
             // 각 리스트 아이템의 리스너
             bookList.setOnItemClickListener { parent, view, position, id ->
                 val dlg = AlertDialog.Builder(this@MainActivity)
+                val bookData: List<String> = books[position].split("//")
                 dlg.setIcon(R.mipmap.ic_launcher)
                 dlg.setTitle("예약 취소")
-                dlg.setMessage("다음 시간의 예약을 취소하시겠습니까?\n${books[position]}")
+                dlg.setMessage("다음 시간의 예약을 취소하시겠습니까?\n${bookData[0]}\n${bookData[1]}\n${bookData[2]}\n${bookData[3]}")
                 dlg.setPositiveButton("확인") { _, _ ->
                     var item: ArrayList<String>
-                    val bookData: List<String> = books[position].split("//")
+
                     val userSnapshot = userCollectionRef.document(user.uid)
                     val laundrySnapshot = laundryCollectionRef.document(bookData[2]).collection("machine")
                         .document(bookData[3])
@@ -214,8 +215,8 @@ class MainActivity : TabActivity()
                             item = it["book"] as ArrayList<String>
 
                             for (doc in item) {
-
-                                if (doc == (bookData[0] + "//" + bookData[1])) {
+                                var tempDoc = doc.split("//")
+                                if ((tempDoc[0] + "//" + tempDoc[1]) == (bookData[0] + "//" + bookData[1])) {
                                     item.remove(doc)
                                     Toast.makeText(this, item.size.toString(), Toast.LENGTH_SHORT).show()
                                     // 실제 DB에 반영되는 트랜젝션
@@ -226,6 +227,9 @@ class MainActivity : TabActivity()
                                         .addOnSuccessListener {
                                             // 성공시 새로고침
                                             refreshUserBookList()
+                                        }
+                                        .addOnFailureListener {
+                                            Toast.makeText(this, "failed to cancel.", Toast.LENGTH_SHORT).show()
                                         }
                                     break
                                 }
