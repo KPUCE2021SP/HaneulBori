@@ -1,35 +1,16 @@
 package kr.ac.kpu.kpuce2021sp.haneulbori_and
 
-import android.app.Activity
-import android.app.ActivityManager
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.View.inflate
-import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.res.ColorStateListInflaterCompat.inflate
-import androidx.core.content.res.ComplexColorCompat.inflate
-import androidx.core.graphics.drawable.DrawableCompat.inflate
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_manager.*
-import java.nio.file.Files.size
 import java.time.LocalDate
-import kotlin.properties.Delegates
 import kotlin.collections.hashMapOf as hashMapOf
 
 class ManagerActivity : AppCompatActivity() {
@@ -43,13 +24,6 @@ class ManagerActivity : AppCompatActivity() {
     var date = LocalDate.now()
     var errorList = arrayListOf<ErrorList>()
     var realList = arrayListOf<String>()
-    var checkUser = arrayListOf<AllMachineUser>()
-    var washer1User = arrayListOf<MachineUser>()
-    var washer2User = arrayListOf<MachineUser>()
-    var drier1User = arrayListOf<MachineUser>()
-    var drier2User = arrayListOf<MachineUser>()
-
-    //var todayUser=arrayListOf<MachineUser>()
     var todayUser = arrayListOf<String>()
     var washerCnt = 0
     var drierCnt = 0
@@ -83,55 +57,14 @@ class ManagerActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Fail", Toast.LENGTH_SHORT).show()
             }
 
-        //전체 사용자 출력
-        /*
-        btnReadAll.setOnClickListener {
-            db.collection("User")
-                .get()
-                .addOnSuccessListener { result ->
-                    itemList.clear()
-                    for (document in result)
-                    {
-                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as ArrayList<String>)
-                        itemList.add(item)
-                    }
-                    adapter.notifyDataSetChanged()
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
-                }
-        }
-
-        //남자 사용자 출력
-        btnReadM.setOnClickListener {
-            db.collection("User")
-                .get()
-                .addOnSuccessListener { result ->
-                    itemList.clear()
-                    for (document in result)
-                    {
-                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as ArrayList<String>)
-                        if(item.sex=="M")
-                            itemList.add(item)
-                    }
-                    adapter.notifyDataSetChanged()
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
-                }
-        }
-        */
-
-
         //금일 사용자 출력
-        /*
         btnToday.setOnClickListener {
             db.collection("User")
                 .get()
                 .addOnSuccessListener { result ->
                     itemList.clear()
                     for (document in result) {
-                        val item = ListLayout(document["Name"] as String, document["bookList"] as ArrayList<String>)
+                        val item = ListLayout(document["Name"] as String, document["PhoneNumber"] as String, document["bookList"] as ArrayList<String>)
                         //val items=ListLayout(document)
                         for(i in item.bookList.indices)
                         {
@@ -145,7 +78,7 @@ class ManagerActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
                 }
         }
-        */
+
 
         //기기 추가
         btnAddMachine.setOnClickListener {
@@ -390,214 +323,10 @@ class ManagerActivity : AppCompatActivity() {
                 }
         }
 
-        /*
-        // 1번 세탁기 사용자 조회 - 
-        btnCheckUserWasher1.setOnClickListener {
-            db.collection("laundry").document("12floor").collection("machine").document("w1")
-                .get()
-                .addOnSuccessListener { result ->
-                    todayUser.clear()
-                    //val item = result["book"] as ArrayList<String>
-                    todayUser=result["book"] as ArrayList<String>
-
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
-                }
-            db.collection("User")
-                .get()
-                .addOnSuccessListener { result ->
-                    itemList.clear()
-                    for (document in result)
-                    {
-                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as ArrayList<String>)
-                        for(i in todayUser.indices)
-                        {
-                            if(todayUser[i].contains(item.number))
-                                itemList.add(item)
-                        }
-                    }
-                    adapter.notifyDataSetChanged()
-                }
-        }
-
-        // 2번 세탁기 사용자 조회
-        btnCheckUserWasher2.setOnClickListener {
-            db.collection("laundry").document("12floor").collection("machine").document("w1")
-                .get()
-                .addOnSuccessListener { result ->
-                    todayUser.clear()
-                    //val item = result["book"] as ArrayList<String>
-                    todayUser=result["book"] as ArrayList<String>
-
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
-                }
-            db.collection("User")
-                .get()
-                .addOnSuccessListener { result ->
-                    itemList.clear()
-                    for (document in result)
-                    {
-                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as ArrayList<String>)
-                        for(i in todayUser.indices)
-                        {
-                            if(todayUser[i].contains(item.number))
-                                itemList.add(item)
-                        }
-                    }
-                    adapter.notifyDataSetChanged()
-                }
-        }
-
-        // 1번 건조기 사용자 조회
-        btnCheckUserDrier1.setOnClickListener {
-            db.collection("laundry").document("12floor").collection("machine").document("w1")
-                .get()
-                .addOnSuccessListener { result ->
-                    todayUser.clear()
-                    //val item = result["book"] as ArrayList<String>
-                    todayUser=result["book"] as ArrayList<String>
-
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
-                }
-            db.collection("User")
-                .get()
-                .addOnSuccessListener { result ->
-                    itemList.clear()
-                    for (document in result)
-                    {
-                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as ArrayList<String>)
-                        for(i in todayUser.indices)
-                        {
-                            if(todayUser[i].contains(item.number))
-                                itemList.add(item)
-                        }
-                    }
-                    adapter.notifyDataSetChanged()
-                }
-        }
-
-        // 2번 건조기 사용자 조회
-        btnCheckUserDrier2.setOnClickListener {
-            db.collection("laundry").document("12floor").collection("machine").document("w1")
-                .get()
-                .addOnSuccessListener { result ->
-                    todayUser.clear()
-                    //val item = result["book"] as ArrayList<String>
-                    todayUser=result["book"] as ArrayList<String>
-
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
-                }
-            db.collection("User")
-                .get()
-                .addOnSuccessListener { result ->
-                    itemList.clear()
-                    for (document in result)
-                    {
-                        val item = ListLayout(document["Birthday"] as String, document["Email"] as String, document["Name"] as String, document["PhoneNumber"] as String, document["Sex"] as String, document["bookList"] as ArrayList<String>)
-                        for(i in todayUser.indices)
-                        {
-                            if(todayUser[i].contains(item.number))
-                                itemList.add(item)
-                        }
-                    }
-                    adapter.notifyDataSetChanged()
-                }
-        }
-        */
-
+        // 기기별 사용자 출력
         btnCheckUser.setOnClickListener {
-            db.collection("laundry").document("12floor").collection("machine")
-                .get()
-                .addOnSuccessListener { result ->
-                    var tmpList = arrayOf<String>(
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -"
-                    )
-                    checkUser.clear()
-                    for (document in result)
-                    {
-                        val item = AllMachineUser(document["book"] as ArrayList<String>,document["num"] as Long,document["type"] as String)
-                        checkUser.add(item)
-                    }
-                    for (i in checkUser.indices)
-                    {
-                        if (checkUser[i].type == "washer")
-                        {
-                            tmpList[i] = checkUser[i].num.toString() + "번 세탁기"
-                        }
-                        else if (checkUser[i].type == "drier")
-                        {
-                            tmpList[i] = checkUser[i].num.toString() + "번 건조기"
-                        }
-                    }
-                    var dlg = AlertDialog.Builder(this@ManagerActivity)
-                    var sMachine = "1번 건조기"
-                    dlg.setTitle("조회할 기기 목록입니다")
-                    dlg.setSingleChoiceItems(tmpList, 0) { dialog, which ->
-                        sMachine = tmpList[which]
-                    }
-                    dlg.setPositiveButton("확인") { dialog, which ->
-                        var tmp = ""
-                        if (sMachine.contains("세탁기"))
-                        {
-                            tmp = "w" + sMachine[0].toString()
-                        } else if (sMachine.contains("건조기"))
-                        {
-                            tmp = "d" + sMachine[0].toString()
-                        }
-                        db.collection("laundry").document("12floor").collection("machine")
-                            .document("" + tmp)
-                            .get()
-                            .addOnSuccessListener { result ->
-                                todayUser.clear()
-                                todayUser = result["book"] as ArrayList<String>
-                            }
-                            .addOnFailureListener { exception ->
-                                Toast.makeText(applicationContext, "Fail", Toast.LENGTH_SHORT)
-                                    .show()
-                            }
-                        db.collection("User")
-                            .get()
-                            .addOnSuccessListener { result ->
-                                itemList.clear()
-                                for (document in result) {
-                                    val item = ListLayout(
-                                        document["Name"] as String,
-                                        document["PhoneNumber"] as String,
-                                        document["bookList"] as ArrayList<String>
-                                    )
-                                    for (i in todayUser.indices)
-                                    {
-                                        if (todayUser[i].contains(item.number))
-                                        {
-                                            for(j in item.bookList.indices)
-                                            {
-                                                if(item.bookList[j].contains(tmp[0]))
-                                                    itemList.add(item)
-                                            }
-                                        }
-                                    }
-                                }
-                                adapter.notifyDataSetChanged()
-                            }
-
-                    }
-                    dlg.setNegativeButton("취소",null)
-                    dlg.show()
-                }
+            var intent= Intent(applicationContext,ShowUser::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -55,35 +55,6 @@
             android:text="고장 접수 확인"
             android:id="@+id/btnCheckError"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1번 세탁기 사용자 조회"
-            android:id="@+id/btnCheckUserWasher1"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2번 세탁기 사용자 조회"
-            android:id="@+id/btnCheckUserWasher2"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2번 건조기 사용자 조회"
-            android:id="@+id/btnCheckUserDrier1"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2번 세탁기 사용자 조회"
-            android:id="@+id/btnCheckUserDrier2"/>
-    </LinearLayout>
 
 
     <LinearLayout
