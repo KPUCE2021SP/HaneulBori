@@ -106,30 +106,7 @@ class LoginActivity : AppCompatActivity()
                 Firebase.auth.signInWithEmailAndPassword(ID, PW)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val DB: FirebaseFirestore = Firebase.firestore
-                            val userCollectionRef = DB.collection("User")
-                            val user = Firebase.auth.currentUser
-
-                            if (user != null) {
-                                userCollectionRef.document(user.uid).get()
-                                    .addOnSuccessListener {
-                                        if (it.exists()){
-                                            if (it["UserType"] as Boolean) {
-                                                startActivity(
-                                                    Intent(this, MainActivity::class.java)
-                                                )
-                                            } else {
-                                                startActivity(
-                                                    Intent(this, ManagerActivity::class.java)
-                                                )
-                                            }
-                                        } else {
-                                            startActivity(
-                                                Intent(this, InputDataActivity::class.java)
-                                            )
-                                        }
-                                    }
-                            }
+                            afterLogin()
                         } else {
                             Toast.makeText(this, "loginFailed", Toast.LENGTH_SHORT).show()
                         }
@@ -184,8 +161,7 @@ class LoginActivity : AppCompatActivity()
                         Log.d("facebookLogin", "Success")
                         if (loginResult != null) {
                             handleFacebookAccessToken(loginResult.accessToken)
-                            var intent = Intent(applicationContext, MainActivity::class.java)
-                            startActivity(intent)
+                            afterLogin()
                         }
                     }
 
@@ -210,8 +186,7 @@ class LoginActivity : AppCompatActivity()
                         val refreshToken = mOAuthLoginModule.getRefreshToken(this@LoginActivity)
                         val expiresAt = mOAuthLoginModule.getExpiresAt(this@LoginActivity)
                         val tokenType = mOAuthLoginModule.getTokenType(this@LoginActivity)
-                        var intent = Intent(applicationContext, MainActivity::class.java)
-                        startActivity(intent)
+                        afterLogin()
                     } else {
                         val errorCode = mOAuthLoginModule.getLastErrorCode(this@LoginActivity).code
                         val errorDesc = mOAuthLoginModule.getLastErrorDesc(this@LoginActivity)
@@ -244,12 +219,14 @@ class LoginActivity : AppCompatActivity()
     //google login 함수
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
+
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
+
         // 구글 로그인
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
@@ -257,6 +234,7 @@ class LoginActivity : AppCompatActivity()
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d("TAG", "firebaseAuthWithGoogle:" + account.id)
                 firebaseAuthWithGoogle(account.idToken!!)
+
             } catch (e: ApiException) { //구글 로그인 실패
                 Log.w("TAG", "Google sign in failed", e)
             }
@@ -264,14 +242,14 @@ class LoginActivity : AppCompatActivity()
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {
+
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d("TAG", "signInWithCredential:success")
                     val user = firebaseAuth.currentUser
-                    var intent = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(intent)
+                    afterLogin()
                 } else {
                     Log.w("TAG", "signInWithCredential:failure", task.exception)
                 }
@@ -298,6 +276,37 @@ class LoginActivity : AppCompatActivity()
                     //updateUI(null)
                 }
             }
+    }
+
+    private fun afterLogin() {
+
+        Toast.makeText(this, "afterLogin 집입", Toast.LENGTH_SHORT).show()
+
+        val DB: FirebaseFirestore = Firebase.firestore
+        val userCollectionRef = DB.collection("User")
+        val user = Firebase.auth.currentUser
+
+        if (user != null) {
+            userCollectionRef.document(user.uid).get()
+                .addOnSuccessListener {
+                    if (it.exists()){
+                        if (it["UserType"] as Boolean) {
+                            startActivity(
+                                Intent(this, MainActivity::class.java)
+                            )
+                        } else {
+                            startActivity(
+                                Intent(this, ManagerActivity::class.java)
+                            )
+                        }
+                    } else {
+                        startActivity(
+                            Intent(this, InputDataActivity::class.java)
+                        )
+                    }
+                }
+        }
+
     }
 
 }
