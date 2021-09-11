@@ -32,8 +32,7 @@ class ManagerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manager)
 
-        rv_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        rv_list.adapter = adapter
+
 
         db.collection("laundry").document("12floor").collection("machine")
             .get()
@@ -59,26 +58,17 @@ class ManagerActivity : AppCompatActivity() {
 
         //금일 사용자 출력
         btnToday.setOnClickListener {
-            db.collection("User")
-                .get()
-                .addOnSuccessListener { result ->
-                    itemList.clear()
-                    for (document in result) {
-                        val item = ListLayout(document["Name"] as String, document["PhoneNumber"] as String, document["bookList"] as ArrayList<String>)
-                        //val items=ListLayout(document)
-                        for(i in item.bookList.indices)
-                        {
-                            if(item.bookList[i].contains(date.toString()))
-                                itemList.add(item)
-                        }
-                    }
-                    adapter.notifyDataSetChanged()
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(applicationContext,"Fail",Toast.LENGTH_SHORT).show()
-                }
+            var intent= Intent(applicationContext,ShowUser::class.java)
+            intent.putExtra("key","a")
+            startActivity(intent)
         }
 
+        // 기기별 사용자 출력
+        btnCheckUser.setOnClickListener {
+            var intent= Intent(applicationContext,ShowUser::class.java)
+            intent.putExtra("key","b")
+            startActivity(intent)
+        }
 
         //기기 추가
         btnAddMachine.setOnClickListener {
@@ -90,43 +80,32 @@ class ManagerActivity : AppCompatActivity() {
                 choiceItem = choiceMachine[which]
             }
             dlg.setPositiveButton("추가") { dialog, which ->
-                if (choiceItem.equals("세탁기")) {
+                if (choiceItem.equals("세탁기"))
+                {
                     val data = hashMapOf(
-                        "book" to ArrayList<String>(),
-                        "reason" to "normal",
-                        "state" to true,
-                        "type" to "washer",
-                        "num" to (++washerCnt)
-                    )
+                        "book" to ArrayList<String>(), "reason" to "normal", "state" to true, "type" to "washer", "num" to (++washerCnt))
                     var tmp = "w" + (washerCnt).toString()
                     db.collection("laundry").document("12floor").collection("machine").document(tmp)
                         .set(data)
                         .addOnSuccessListener {
-                            Toast.makeText(applicationContext, "세탁기 추가 완료", Toast.LENGTH_SHORT)
-                                .show()
+                            Toast.makeText(applicationContext, "세탁기 추가 완료", Toast.LENGTH_SHORT).show()
                         }
                         .addOnFailureListener {
-                            Toast.makeText(applicationContext, "세탁기 추가 실패", Toast.LENGTH_SHORT)
-                                .show()
+                            Toast.makeText(applicationContext, "세탁기 추가 실패", Toast.LENGTH_SHORT).show()
                         }
-                } else if (choiceItem.equals("건조기")) {
+                }
+                else if (choiceItem.equals("건조기"))
+                {
                     val data = hashMapOf(
-                        "book" to ArrayList<String>(),
-                        "reason" to "normal",
-                        "state" to true,
-                        "type" to "drier",
-                        "num" to (++drierCnt)
-                    )
+                        "book" to ArrayList<String>(), "reason" to "normal", "state" to true, "type" to "drier", "num" to (++drierCnt))
                     var tmp = "d" + (drierCnt).toString()
                     db.collection("laundry").document("12floor").collection("machine").document(tmp)
                         .set(data)
                         .addOnSuccessListener {
-                            Toast.makeText(applicationContext, "건조기 추가 완료", Toast.LENGTH_SHORT)
-                                .show()
+                            Toast.makeText(applicationContext, "건조기 추가 완료", Toast.LENGTH_SHORT).show()
                         }
                         .addOnFailureListener {
-                            Toast.makeText(applicationContext, "건조기 추가 실패", Toast.LENGTH_SHORT)
-                                .show()
+                            Toast.makeText(applicationContext, "건조기 추가 실패", Toast.LENGTH_SHORT).show()
                         }
                 }
             }
@@ -148,30 +127,25 @@ class ManagerActivity : AppCompatActivity() {
                     }
                     var selectMachine = ""
                     var deleteMachine = arrayOf<String>(
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -"
-                    )
+                        "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -",
+                        "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -")
                     var washerMachine = arrayListOf<MachineList>()
                     var drierMachine = arrayListOf<MachineList>()
                     var dlg = AlertDialog.Builder(this@ManagerActivity)
                     dlg.setTitle("제거할 기기를 선택하세요")
 
-                    for (i in machineList.indices) {
-                        if (machineList[i].type == "washer") {
+                    for (i in machineList.indices)
+                    {
+                        if (machineList[i].type == "washer")
+                        {
                             washerMachine.add(machineList[i])
                             deleteMachine[i] = machineList[i].num.toString() + "번 세탁기"
-                        } else {
+                        } else
+                        {
                             drierMachine.add(machineList[i])
                             deleteMachine[i] = machineList[i].num.toString() + "번 건조기"
                         }
                     }
-
                     dlg.setSingleChoiceItems(deleteMachine, 0) { dialog, which ->
                         selectMachine = deleteMachine[which]
                     }
@@ -192,7 +166,6 @@ class ManagerActivity : AppCompatActivity() {
                             selectMachine + "을 제거했습니다",
                             Toast.LENGTH_SHORT
                         ).show()
-
                     }
                     dlg.setNegativeButton("취소") { dialog, which ->
                         Toast.makeText(applicationContext, "취소했습니다", Toast.LENGTH_SHORT).show()
@@ -211,28 +184,21 @@ class ManagerActivity : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { result ->
                     var tmpList = arrayOf<String>(
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -"
-                    )
+                        "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -",
+                        "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -")
+
                     statusList.clear()
-                    for (document in result) {
-                        val item = StatusList(
-                            document["num"] as Long,
-                            document["reason"] as String,
-                            document["state"] as Boolean,
-                            document["type"] as String
-                        )
+                    for (document in result)
+                    {
+                        val item = StatusList(document["num"] as Long, document["reason"] as String, document["state"] as Boolean, document["type"] as String)
                         statusList.add(item)
                     }
-                    for (i in statusList.indices) {
-                        if (statusList[i].type == "washer") {
-                            if (statusList[i].state == true) {
+                    for (i in statusList.indices)
+                    {
+                        if (statusList[i].type == "washer")
+                        {
+                            if (statusList[i].state == true)
+                            {
                                 if (statusList[i].reason == "working")
                                     tmpList[i] =
                                         statusList[i].num.toString() + "번 세탁기 / 상태 - 이상없음 / 작동중"
@@ -240,21 +206,24 @@ class ManagerActivity : AppCompatActivity() {
                                     tmpList[i] =
                                         statusList[i].num.toString() + "번 세탁기 / 상태 - 이상없음 / 작동중 X"
 
-                            } else if (statusList[i].state == false) {
-                                tmpList[i] =
-                                    statusList[i].num.toString() + "번 세탁기 / 상태 - 고장(" + statusList[i].reason + ")"
                             }
-                        } else if (statusList[i].type == "drier") {
-                            if (statusList[i].state == true) {
+                            else if (statusList[i].state == false)
+                            {
+                                tmpList[i] = statusList[i].num.toString() + "번 세탁기 / 상태 - 고장(" + statusList[i].reason + ")"
+                            }
+                        }
+                        else if (statusList[i].type == "drier")
+                        {
+                            if (statusList[i].state == true)
+                            {
                                 if (statusList[i].reason == "working")
-                                    tmpList[i] =
-                                        statusList[i].num.toString() + "번 건조기 / 상태 - 이상없음 / 작동중"
+                                    tmpList[i] = statusList[i].num.toString() + "번 건조기 / 상태 - 이상없음 / 작동중"
                                 else
-                                    tmpList[i] =
-                                        statusList[i].num.toString() + "번 건조기 / 상태 - 이상없음 / 작동중 X"
-                            } else if (statusList[i].state == false) {
-                                tmpList[i] =
-                                    statusList[i].num.toString() + "번 건조기 / 상태 - 고장(" + statusList[i].reason + ")"
+                                    tmpList[i] = statusList[i].num.toString() + "번 건조기 / 상태 - 이상없음 / 작동중 X"
+                            }
+                            else if (statusList[i].state == false)
+                            {
+                                tmpList[i] = statusList[i].num.toString() + "번 건조기 / 상태 - 고장(" + statusList[i].reason + ")"
                             }
                         }
                     }
@@ -278,35 +247,30 @@ class ManagerActivity : AppCompatActivity() {
                 .addOnSuccessListener { result ->
                     errorList.clear()
                     var tmpList = arrayOf<String>(
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -",
-                        "-     -     -     -     -"
-                    )
-                    for (document in result) {
-                        var item = ErrorList(
-                            document["num"] as Long,
-                            document["message"] as String,
-                            document["type"] as String
-                        )
+                        "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -",
+                        "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -", "-     -     -     -     -")
+
+                    for (document in result)
+                    {
+                        var item = ErrorList(document["num"] as Long, document["message"] as String, document["type"] as String)
                         errorList.add(item)
                     }
-                    if (errorList.isEmpty()) {
+                    if (errorList.isEmpty())
+                    {
                         tmpList[0] = "신고된 고장이 없습니다"
                         for (i in 1..7)
                             tmpList[i] = ""
-                    } else {
-                        for (i in errorList.indices) {
-                            if (errorList[i].type == "washer") {
-                                tmpList[i] =
-                                    errorList[i].num.toString() + "번 세탁기 고장 메세지 : " + errorList[i].message
-                            } else if (errorList[i].type == "drier") {
-                                tmpList[i] =
-                                    errorList[i].num.toString() + "번 건조기 고장 메세지 : " + errorList[i].message
+                    } else
+                    {
+                        for (i in errorList.indices)
+                        {
+                            if (errorList[i].type == "washer")
+                            {
+                                tmpList[i] = errorList[i].num.toString() + "번 세탁기 고장 메세지 : " + errorList[i].message
+                            }
+                            else if (errorList[i].type == "drier")
+                            {
+                                tmpList[i] = errorList[i].num.toString() + "번 건조기 고장 메세지 : " + errorList[i].message
                             }
                         }
                     }
@@ -322,15 +286,8 @@ class ManagerActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Fail", Toast.LENGTH_SHORT).show()
                 }
         }
-
-        // 기기별 사용자 출력
-        btnCheckUser.setOnClickListener {
-            var intent= Intent(applicationContext,ShowUser::class.java)
-            startActivity(intent)
-        }
     }
 }
-
 
 
 class MachineList(var num:Long, var type:String)

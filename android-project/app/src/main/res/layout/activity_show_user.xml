@@ -11,6 +11,11 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="다른 기간별 사용자 조회"
+        android:id="@+id/btnSearchOtherDay"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="다른 기기 사용자 조회"
         android:id="@+id/btnSearchOtherUser"/>
     <LinearLayout
