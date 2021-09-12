@@ -34,19 +34,13 @@ class ChooseActivity : AppCompatActivity() {
                     dlg.setIcon(R.mipmap.ic_launcher)
                     dlg.setNegativeButton("취소",null)
                     dlg.setPositiveButton("확인"){dialog,which->
-
                         tv.text="내가 예약한 세탁기 번호 : 1번 / "+"시간 : "
-
                     }
                     dlg.show()
                 }
-
-
             }
             .addOnFailureListener {
                 Log.w("MainActivity", "Error getting documents: ")
             }
-
-
     }
 }

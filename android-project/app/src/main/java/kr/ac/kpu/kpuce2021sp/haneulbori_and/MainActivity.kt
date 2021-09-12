@@ -513,6 +513,4 @@ class MainActivity : TabActivity()
         endTime = ttime[0] + ":" + ttime[1]
 
     }
-
-
 }

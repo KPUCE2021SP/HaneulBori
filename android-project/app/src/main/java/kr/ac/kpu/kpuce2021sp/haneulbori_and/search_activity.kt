@@ -76,12 +76,6 @@ class search_activity : AppCompatActivity() {
 
             return rowMain
         }
-
-
-
-
-
     }
-
 }
 

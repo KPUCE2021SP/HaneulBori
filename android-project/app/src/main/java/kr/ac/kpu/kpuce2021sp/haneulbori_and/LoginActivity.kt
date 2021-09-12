@@ -218,7 +218,6 @@ class LoginActivity : AppCompatActivity()
         googleBtn.setOnClickListener {
             signIn()
         }
-
     }
 
     //google login 함수
@@ -285,8 +284,6 @@ class LoginActivity : AppCompatActivity()
 
     private fun afterLogin() {
 
-        Toast.makeText(this, "afterLogin 집입", Toast.LENGTH_SHORT).show()
-
         val DB: FirebaseFirestore = Firebase.firestore
         val userCollectionRef = DB.collection("User")
         val user = Firebase.auth.currentUser
@@ -313,5 +310,7 @@ class LoginActivity : AppCompatActivity()
         }
 
     }
+
+    
 
 }
