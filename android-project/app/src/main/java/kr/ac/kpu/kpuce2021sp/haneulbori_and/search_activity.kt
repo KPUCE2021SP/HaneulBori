@@ -3,12 +3,14 @@ package kr.ac.kpu.kpuce2021sp.haneulbori_and
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
@@ -34,6 +36,7 @@ class search_activity : AppCompatActivity() {
                 for (doc in it){
                     laundries.add(doc.id.toString())
                 }
+                //-------------------------soon add--------------------------
                 laundryList.adapter = MyCustomAdapter(this, laundries)
                 laundryList.setOnItemClickListener { parent, view, position, id ->
                     startActivity(
@@ -47,9 +50,10 @@ class search_activity : AppCompatActivity() {
             }
     }
 
-    class MyCustomAdapter(context: Context, data: List<String>): BaseAdapter(){
+    class MyCustomAdapter(context: Context, data: List<String>, imageData: List<Drawable>? = null): BaseAdapter(){
         private val mContext: Context = context
         private val mdata = data
+        private val mImageData = imageData
 
         override fun getCount(): Int {
             return mdata.size
@@ -73,6 +77,8 @@ class search_activity : AppCompatActivity() {
             nameTextView.text = mdata.get(position)
             val positionTextView = rowMain.findViewById<TextView>(R.id.laundryInfo)
             positionTextView.text = "순서: " + position
+            val machineImage = rowMain.findViewById<ImageView>(R.id.listImage)
+            machineImage.setImageDrawable(mImageData?.get(position))
 
             return rowMain
         }

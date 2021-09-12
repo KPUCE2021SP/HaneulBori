@@ -27,7 +27,7 @@
                     android:id="@+id/laundryText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="40dp"
                     android:text="세탁소 선택"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:gravity="center"/>
@@ -49,18 +49,6 @@
                     android:layout_height="wrap_content"
                     android:text="set time" />
 
-                <Button
-                    android:id="@+id/setDateButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="set date" />
-
-                <Button
-                    android:id="@+id/setInterverButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="set interver"
-                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
