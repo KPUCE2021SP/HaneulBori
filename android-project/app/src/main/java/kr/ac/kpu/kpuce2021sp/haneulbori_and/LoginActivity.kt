@@ -23,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.kakao.sdk.auth.model.OAuthToken
+import com.kakao.sdk.common.KakaoSdk
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
 import com.nhn.android.naverlogin.OAuthLogin
@@ -125,24 +126,28 @@ class LoginActivity : AppCompatActivity()
         //kakao sns 로그인
         kakaoBtn.setOnClickListener {
             // 로그인 공통 callback 구성
+
+            KakaoSdk.init(this, "eabb64de648e0378b367d221640f3567")
+
             val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
                 if (error != null) {
                     Log.e("TAG", "로그인 실패", error)
                 }
                 else if (token != null) {
                     Log.i("TAG", "로그인 성공 ${token.accessToken}")
-                    var intent = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(intent)
+                    afterLogin()
                 }
             }
 
             // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
             if (UserApiClient.instance.isKakaoTalkLoginAvailable(applicationContext)) {
+                Log.d("TAG", "로그인 중")
                 UserApiClient.instance.loginWithKakaoTalk(
                     applicationContext,
                     callback = callback
                 )
             } else {
+                Log.d("TAG", "로그인 중")
                 UserApiClient.instance.loginWithKakaoAccount(
                     applicationContext,
                     callback = callback
