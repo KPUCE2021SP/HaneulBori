@@ -7,7 +7,6 @@ import android.app.TabActivity
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.icu.text.SimpleDateFormat
-import android.media.Image
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -38,6 +37,7 @@ class MainActivity : TabActivity()
     val machines = arrayListOf<String>() // 세탁기 임시 저장 문자열 (리스트용)
     val iconImages = arrayListOf<Drawable>() // 임시 저장 이미지 (리스트용)
     val books = arrayListOf<String>() // 사용자 예약 내역 임시 저장 문자열 (리스트용)
+    val tempBooks = arrayListOf<String>() // 사용자 예약 내역 임시 저장 문자열 (리스트용)
     var nowLaundry: String = "" // 현재 세탁소 저장용
     val user = Firebase.auth.currentUser // 사용자 정보
     var depth: Int = 0 // 리스트 깊이
@@ -102,8 +102,9 @@ class MainActivity : TabActivity()
 
                 startTime = SimpleDateFormat("HH:mm").format(cal.time)
 
-                bottomSheet.closeOptionsMenu()
+                Toast.makeText(this, "$startDate ${startTime}에 ${bookInterver}분 사용 예약 되었습니다.", Toast.LENGTH_SHORT). show()
 
+                bottomSheet.dismiss()
             }
 
             bottomSheet.timeSet50Button.setOnClickListener {
@@ -174,14 +175,16 @@ class MainActivity : TabActivity()
         // 사용자 예약 내역 출력
         if (user != null) {
             books.clear()
+            tempBooks.clear()
             userCollectionRef.document(user.uid).get()
                 .addOnSuccessListener {
                     val temp = it["bookList"] as ArrayList<String>
                     if (temp.size != 0) {
                         for (doc in temp) {
                             books.add(doc)
+                            tempBooks.add(BookStringToword(doc))
                         }
-                        bookList.adapter = search_activity.MyCustomAdapter(this, books)
+                        bookList.adapter = search_activity.MyCustomAdapter(this, tempBooks)
                     }
                 }
                 .addOnFailureListener {
@@ -203,6 +206,7 @@ class MainActivity : TabActivity()
                         .document(bookData[3])
 
                     books.removeAt(position)
+                    tempBooks.removeAt(position)
                     laundrySnapshot.get()
                         .addOnSuccessListener {
                             item = it["book"] as ArrayList<String>
@@ -383,7 +387,7 @@ class MainActivity : TabActivity()
                                                     } else {
                                                         val item = it["bookList"] as ArrayList<String>
                                                         val phoneNumber = it["PhoneNumber"]
-                                                        item.add("시작: $startDate $startTime\n만료: $endDate $endTime\n세탁소: $nowLaundry 세탁기: ${machines[po]}")
+                                                        item.add("$startDate $startTime//$endDate $endTime//$nowLaundry//${machines[po]}")
                                                         DB.runTransaction {
                                                             userCollectionRef.document(user.getUid()).update("bookList", item)
                                                             laundryCollectionRef.document(nowLaundry).collection("machine")
@@ -418,7 +422,7 @@ class MainActivity : TabActivity()
                                         }
                                     }
                                     dlg.setTitle("예약 가능 시간")
-                                    dlg.setMessage("해당 시간에 예약이 있습니다\n${massage}")
+                                    dlg.setMessage("해당 시간에 예약이 있습니다\n${BookStirngToword2(massage)}")
                                     dlg.setPositiveButton("확인", null)
                                 }
                                 Toast.makeText(this, it["reason"].toString(), Toast.LENGTH_SHORT).show()
@@ -519,4 +523,19 @@ class MainActivity : TabActivity()
         endTime = ttime[0] + ":" + ttime[1]
 
     }
+
+    private fun BookStringToword(inputData : String) : String {
+
+        val temp = inputData.split("//")
+
+        return "시작: ${temp[0]}\n만료: ${temp[1]}\n세탁소: ${temp[2]}\n기기: ${temp[3]}"
+
+    }
+
+    private fun BookStirngToword2(inputData : String) : String {
+        val temp = inputData.split("//")
+
+        return "시작: ${temp[0]}\n만료: ${temp[1]}"
+    }
+
 }
