@@ -11,11 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Haneulboriand">
         <activity
+
             android:name=".InputDataActivity"
             android:exported="true" />
         <activity
-            android:name=".CheckError"
+            android:name=".ShowUser"
+
             android:exported="true" />
+
         <activity
             android:name=".ManagerActivity"
             android:exported="true" /> <!-- 페이스북 로그인 -->
