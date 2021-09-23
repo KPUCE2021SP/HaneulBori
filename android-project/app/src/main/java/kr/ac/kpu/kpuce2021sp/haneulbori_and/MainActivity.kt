@@ -11,6 +11,8 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
@@ -22,7 +24,10 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_book.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.laundry_iteam.*
+import kotlinx.android.synthetic.main.report_view.*
+import kotlinx.android.synthetic.main.report_view.view.*
 import kotlinx.android.synthetic.main.time_interver_layout.view.*
 import java.util.*
 
@@ -134,6 +139,90 @@ class MainActivity : TabActivity()
             }
 
             bottomSheet.show()
+        }
+
+        reportButton.setOnClickListener {
+            val templist = mutableListOf<String>()
+
+            val dlg = AlertDialog.Builder(this)
+            val dlgView = layoutInflater.inflate(R.layout.report_view, null)
+
+            var ts = ""
+
+            templist.add("세탁소 ▼")
+
+            laundryCollectionRef
+                .document(nowLaundry)
+                .collection("machine")
+                .get()
+                .addOnSuccessListener {
+                    for (doc in it){
+                        templist.add(doc.id)
+                    }
+                }
+
+            dlgView.nowLaundry.text = nowLaundry
+
+            val machineSpinnerList = templist
+            val machineAdapter = ArrayAdapter<String>(this, R.layout.signup_spinner_text, machineSpinnerList)
+            dlgView.machineSpinner.adapter = machineAdapter
+
+            dlg.setPositiveButton("신고하기") { _, _ ->
+                if ((ts == "") || (dlgView.reportReasonText.text.toString() == "")){
+                    val refuseDlg = AlertDialog.Builder(this)
+                    refuseDlg.setTitle("오류")
+                    refuseDlg.setMessage("세탁기 지정이 잘못되었습니다.")
+                    refuseDlg.setPositiveButton("확인", null)
+                    refuseDlg.show()
+                } else {
+                    if (user != null) {
+                        val itemMap = hashMapOf(
+                            "user" to user.uid,
+                            "reason" to dlgView.reportReasonText.text.toString()
+                        )
+                        DB.collection("Report").document("${user.uid}_${nowLaundry}_$ts")
+                            .set(itemMap)
+                    }
+                }
+            }
+
+            dlg.setNegativeButton("취소",null)
+
+            dlgView.machineSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener,
+                AdapterView.OnItemClickListener {
+
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long,
+                ){
+                    ts = templist[position]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+
+                override fun onItemClick(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                }
+
+
+            }
+
+
+
+                dlg.setView(dlgView)
+            dlg.setTitle("고장신고")
+
+            dlg.show()
+
         }
 
 
@@ -277,6 +366,7 @@ class MainActivity : TabActivity()
         nowLaundry = ""
         laundryText.text = "세탁소 선택"
         refreshButton.visibility = android.view.View.GONE
+        reportButton.visibility = android.view.View.GONE
         setTimeButton.visibility = View.GONE
 
         // 레퍼런스에서 데이터 가져와 리스트에 출력
@@ -295,6 +385,7 @@ class MainActivity : TabActivity()
                     showMachine()
                     laundryText.text = nowLaundry
                     refreshButton.visibility = View.VISIBLE
+                    reportButton.visibility = View.VISIBLE
                     setTimeButton.visibility = View.VISIBLE
                 }
             }

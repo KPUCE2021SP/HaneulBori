@@ -23,25 +23,45 @@
                 android:orientation="vertical"
                 android:id="@+id/tabReserve">
 
-                <TextView
-                    android:id="@+id/laundryText"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:text="세탁소 선택"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:gravity="center"/>
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/reportButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:text="고장신고" />
+
+                    <TextView
+                        android:id="@+id/laundryText"
+                        android:layout_width="127dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center|top"
+                        android:text="세탁소 선택"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    <Button
+                        android:id="@+id/refreshButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1"
+                        android:text="refresh" />
+
+                </LinearLayout>
 
                 <ListView
                     android:id="@+id/laundryList"
                     android:layout_width="match_parent"
-                    android:layout_height="390dp" />
-
-                <Button
-                    android:id="@+id/refreshButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="refresh" />
+                    android:layout_height="463dp" />
 
                 <Button
                     android:id="@+id/setTimeButton"

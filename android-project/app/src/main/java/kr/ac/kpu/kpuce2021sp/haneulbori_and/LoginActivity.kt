@@ -38,6 +38,7 @@ class LoginActivity : AppCompatActivity()
     var callbackManager = CallbackManager.Factory.create()
     var mOAuthLoginModule: OAuthLogin = OAuthLogin.getInstance()
     val auth = Firebase.auth
+    var endCount = 0
 
     private val RC_SIGN_IN = 9001
     //firebase Auth
@@ -283,7 +284,7 @@ class LoginActivity : AppCompatActivity()
     }
 
     private fun afterLogin() {
-
+        endCount = 0
         val DB: FirebaseFirestore = Firebase.firestore
         val userCollectionRef = DB.collection("User")
         val user = Firebase.auth.currentUser
@@ -309,6 +310,20 @@ class LoginActivity : AppCompatActivity()
                 }
         }
 
+    }
+
+    override fun onBackPressed() {
+        when (endCount){
+            0 -> {
+                endCount += 1
+                Toast.makeText(this, "한번 더 눌러 종료하세요", Toast.LENGTH_SHORT).show()
+            }
+
+            1 -> {
+                finish()
+            }
+
+        }
     }
 
     
