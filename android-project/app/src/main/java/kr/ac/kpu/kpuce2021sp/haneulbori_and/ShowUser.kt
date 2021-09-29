@@ -1,5 +1,6 @@
 package kr.ac.kpu.kpuce2021sp.haneulbori_and
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Build
@@ -12,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_manager.*
 import kotlinx.android.synthetic.main.activity_show_user.*
 import kotlinx.android.synthetic.main.activity_show_user.rv_list
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
@@ -28,6 +30,7 @@ class ShowUser : AppCompatActivity()
     var checkUser = arrayListOf<AllMachineUser>()
     var todayUser = arrayListOf<String>()
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -151,7 +154,7 @@ class ShowUser : AppCompatActivity()
                 .addOnSuccessListener { result ->
                     var dateArray=arrayOf("1주일","한 달","두 달")
                     var dlg=AlertDialog.Builder(this@ShowUser)
-                    var choice=""
+                    var choice="1주일"
                     dlg.setTitle("기간을 설정하세요")
                     dlg.setSingleChoiceItems(dateArray,0){dialog,which->
                         choice=dateArray[which]
@@ -162,7 +165,7 @@ class ShowUser : AppCompatActivity()
                         {
                             var cal=Calendar.getInstance()
                             cal.time=Date()
-                            var df=SimpleDateFormat("yyyy-MM-dd")
+                            var df : DateFormat=SimpleDateFormat("yyyy-MM-dd")
                             cal.add(Calendar.DATE,-7)
                             var beforeDateString=(df.format(cal.time)).toString()
                             var beforeDate=(beforeDateString[5].toString()+beforeDateString[6].toString()+beforeDateString[8].toString()+beforeDateString[9].toString()).toInt()
@@ -177,14 +180,14 @@ class ShowUser : AppCompatActivity()
                                     if(tmp>=beforeDate)
                                         itemList.add(item)
                                 }
+                                adapter.notifyDataSetChanged()
                             }
                         }
                         else if(choice=="한 달")
                         {
-
                             var cal=Calendar.getInstance()
                             cal.time=Date()
-                            var df=SimpleDateFormat("yyyy-MM-dd")
+                            var df : DateFormat=SimpleDateFormat("yyyy-MM-dd")
                             cal.add(Calendar.MONTH,-1)
                             var beforeDateString=(df.format(cal.time)).toString()
                             var beforeDate=(beforeDateString[5].toString()+beforeDateString[6].toString()+beforeDateString[8].toString()+beforeDateString[9].toString()).toInt()
@@ -199,13 +202,14 @@ class ShowUser : AppCompatActivity()
                                     if(tmp>=beforeDate)
                                         itemList.add(item)
                                 }
+                                adapter.notifyDataSetChanged()
                             }
                         }
                         else if(choice=="두 달")
                         {
                             var cal=Calendar.getInstance()
                             cal.time=Date()
-                            var df=SimpleDateFormat("yyyy-MM-dd")
+                            var df : DateFormat=SimpleDateFormat("yyyy-MM-dd")
                             cal.add(Calendar.MONTH,-2)
                             var beforeDateString=(df.format(cal.time)).toString()
                             var beforeDate=(beforeDateString[5].toString()+beforeDateString[6].toString()+beforeDateString[8].toString()+beforeDateString[9].toString()).toInt()
@@ -220,6 +224,7 @@ class ShowUser : AppCompatActivity()
                                     if(tmp>=beforeDate)
                                         itemList.add(item)
                                 }
+                                adapter.notifyDataSetChanged()
                             }
                         }
                     }

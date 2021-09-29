@@ -200,11 +200,9 @@ class ManagerActivity : AppCompatActivity() {
                             if (statusList[i].state == true)
                             {
                                 if (statusList[i].reason == "working")
-                                    tmpList[i] =
-                                        statusList[i].num.toString() + "번 세탁기 / 상태 - 이상없음 / 작동중"
+                                    tmpList[i] = statusList[i].num.toString() + "번 세탁기 / 상태 - 이상없음 / 작동중"
                                 else
-                                    tmpList[i] =
-                                        statusList[i].num.toString() + "번 세탁기 / 상태 - 이상없음 / 작동중 X"
+                                    tmpList[i] = statusList[i].num.toString() + "번 세탁기 / 상태 - 이상없음 / 작동중 X"
 
                             }
                             else if (statusList[i].state == false)
@@ -260,7 +258,8 @@ class ManagerActivity : AppCompatActivity() {
                         tmpList[0] = "신고된 고장이 없습니다"
                         for (i in 1..7)
                             tmpList[i] = ""
-                    } else
+                    }
+                    else
                     {
                         for (i in errorList.indices)
                         {
