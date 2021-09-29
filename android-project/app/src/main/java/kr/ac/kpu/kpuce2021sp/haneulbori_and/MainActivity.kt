@@ -6,7 +6,6 @@ import android.app.AlertDialog
 import android.app.TabActivity
 import android.content.Intent
 import android.graphics.drawable.Drawable
-import android.icu.text.SimpleDateFormat
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -29,6 +28,7 @@ import kotlinx.android.synthetic.main.laundry_iteam.*
 import kotlinx.android.synthetic.main.report_view.*
 import kotlinx.android.synthetic.main.report_view.view.*
 import kotlinx.android.synthetic.main.time_interver_layout.view.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -95,21 +95,35 @@ class MainActivity : TabActivity()
 
         // 시간 설정 시트 버튼
         setTimeButton.setOnClickListener{
+
             val bottomSheet = BottomSheetDialog(this)
 
             bottomSheet.setContentView(R.layout.activity_book)
-
+            val cal = bottomSheet.bookDatePicker
+            cal.minDate = System.currentTimeMillis()
+            cal.setOnDateChangeListener { view, year, month, dayOfMonth ->
+                startDate = "$year-${month + 1}-$dayOfMonth"
+            }
             bottomSheet.acceptButton.setOnClickListener {
 
-                val cal = Calendar.getInstance()
+                val time = bottomSheet.bookTimePicker
 
-                startDate = SimpleDateFormat("yyyy-MM-dd").format(cal.time)
+                val current = Calendar.getInstance()
 
-                startTime = SimpleDateFormat("HH:mm").format(cal.time)
+                if (((time.hour < current.get(Calendar.HOUR))
+                    || (time.minute < current.get(Calendar.MINUTE)))
+                    && (startDate == SimpleDateFormat("yyyy-MM-dd").format(current.get(Calendar.DATE)))){
+                    val dlg = AlertDialog.Builder(this)
+                    dlg.setTitle("시간 오류")
+                    dlg.setMessage("이미 지난시간을 선택하셨습니다.")
+                    dlg.setPositiveButton("확인", null)
+                    dlg.show()
+                } else {
 
-                Toast.makeText(this, "$startDate ${startTime}에 ${bookInterver}분 사용 예약 되었습니다.", Toast.LENGTH_SHORT). show()
-
-                bottomSheet.dismiss()
+                    startTime = "${time.hour}:${time.minute}"
+                    Toast.makeText(this, "$startDate ${startTime}에 ${bookInterver}분 사용 예약 되었습니다.", Toast.LENGTH_SHORT). show()
+                    bottomSheet.dismiss()
+                }
             }
 
             bottomSheet.timeSet50Button.setOnClickListener {
@@ -178,7 +192,9 @@ class MainActivity : TabActivity()
                     if (user != null) {
                         val itemMap = hashMapOf(
                             "user" to user.uid,
-                            "reason" to dlgView.reportReasonText.text.toString()
+                            "reason" to dlgView.reportReasonText.text.toString(),
+                            "where" to nowLaundry,
+                            "which" to ts
                         )
                         DB.collection("Report").document("${user.uid}_${nowLaundry}_$ts")
                             .set(itemMap)
@@ -210,10 +226,7 @@ class MainActivity : TabActivity()
                     position: Int,
                     id: Long
                 ) {
-
                 }
-
-
             }
 
 
@@ -459,6 +472,7 @@ class MainActivity : TabActivity()
 
                                         canBook =
                                             !(tempStart <= "$startDate $startTime" && "$startDate $startTime" <= tempEnd)
+                                        Log.d("temp", "$tempStart $startDate $startTime $tempEnd")
                                     }
                                 } else {
                                     canBook = true
