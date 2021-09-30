@@ -28,7 +28,8 @@ import kotlinx.android.synthetic.main.laundry_iteam.*
 import kotlinx.android.synthetic.main.report_view.*
 import kotlinx.android.synthetic.main.report_view.view.*
 import kotlinx.android.synthetic.main.time_interver_layout.view.*
-import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -102,7 +103,22 @@ class MainActivity : TabActivity()
             val cal = bottomSheet.bookDatePicker
             cal.minDate = System.currentTimeMillis()
             cal.setOnDateChangeListener { view, year, month, dayOfMonth ->
-                startDate = "$year-${month + 1}-$dayOfMonth"
+
+                val yearText = "$year"
+
+                val monthText = if (month <= 8){
+                    "0${month + 1}"
+                } else {
+                    "${month + 1}"
+                }
+
+                val dayText = if (dayOfMonth < 10) {
+                    "0$dayOfMonth"
+                } else {
+                    "$dayOfMonth"
+                }
+
+                startDate = "$yearText-$monthText-$dayText"
             }
             bottomSheet.acceptButton.setOnClickListener {
 
@@ -110,9 +126,20 @@ class MainActivity : TabActivity()
 
                 val current = Calendar.getInstance()
 
-                if (((time.hour < current.get(Calendar.HOUR))
-                    || (time.minute < current.get(Calendar.MINUTE)))
-                    && (startDate == SimpleDateFormat("yyyy-MM-dd").format(current.get(Calendar.DATE)))){
+                val timeText = if (time.hour < 10) {
+                    "0${time.hour}"
+                } else {
+                    "${time.hour}"
+                }
+
+                val minuteText = if (time.minute < 10) {
+                    "0${time.minute}"
+                } else {
+                    "${time.minute}"
+                }
+
+                startTime = "$timeText:$minuteText"
+                if (time.hour < current.get(Calendar.HOUR)){
                     val dlg = AlertDialog.Builder(this)
                     dlg.setTitle("시간 오류")
                     dlg.setMessage("이미 지난시간을 선택하셨습니다.")
@@ -120,7 +147,9 @@ class MainActivity : TabActivity()
                     dlg.show()
                 } else {
 
-                    startTime = "${time.hour}:${time.minute}"
+                    if (startDate == ""){
+                        startDate = LocalDate.now().format(DateTimeFormatter.ISO_DATE)
+                    }
                     Toast.makeText(this, "$startDate ${startTime}에 ${bookInterver}분 사용 예약 되었습니다.", Toast.LENGTH_SHORT). show()
                     bottomSheet.dismiss()
                 }
@@ -314,7 +343,7 @@ class MainActivity : TabActivity()
                             item = it["book"] as ArrayList<String>
 
                             for (doc in item) {
-                                var tempDoc = doc.split("//")
+                                val tempDoc = doc.split("//")
                                 if ((tempDoc[0] + "//" + tempDoc[1]) == (bookData[0] + "//" + bookData[1])) {
                                     item.remove(doc)
                                     Toast.makeText(this, item.size.toString(), Toast.LENGTH_SHORT).show()
