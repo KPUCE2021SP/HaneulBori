@@ -498,7 +498,7 @@ class MainActivity : TabActivity()
                                         val tempEndDateTime = tempTotal[1].split(" ")
                                         val tempEndDate = tempEndDateTime[0]
                                         val tempEndTime = tempEndDateTime[1]
-
+// temp
                                         canBook =
                                             !(tempStart <= "$startDate $startTime" && "$startDate $startTime" <= tempEnd)
                                         Log.d("temp", "$tempStart $startDate $startTime $tempEnd")
