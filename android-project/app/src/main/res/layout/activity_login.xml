@@ -101,17 +101,17 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/facebook_icon"
         android:contentDescription="facebook"
-        app:layout_constraintEnd_toStartOf="@+id/naverBtn"
+        app:layout_constraintEnd_toStartOf="@+id/twitterBtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/snsLoginText" />
 
     <ImageButton
-        android:id="@+id/naverBtn"
+        android:id="@+id/twitterBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/naver_circle_icon"
+        android:background="@drawable/twitter_icon"
         android:contentDescription="naver"
         app:layout_constraintEnd_toStartOf="@+id/googleBtn"
         app:layout_constraintHorizontal_bias="0.5"
@@ -125,18 +125,18 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/google_icon"
         android:contentDescription="google"
-        app:layout_constraintEnd_toStartOf="@+id/kakaoBtn"
+        app:layout_constraintEnd_toStartOf="@+id/githubBtn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/naverBtn"
+        app:layout_constraintStart_toEndOf="@+id/twitterBtn"
         app:layout_constraintTop_toBottomOf="@+id/snsLoginText" />
 
     <ImageButton
-        android:id="@+id/kakaoBtn"
+        android:id="@+id/githubBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:background="@drawable/kakao_icon"
+        android:background="@drawable/github_icon"
         android:contentDescription="kakao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -18,18 +18,27 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.OAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.kakao.sdk.auth.model.OAuthToken
-import com.kakao.sdk.common.KakaoSdk
-import com.kakao.sdk.common.util.Utility
-import com.kakao.sdk.user.UserApiClient
 import com.nhn.android.naverlogin.OAuthLogin
 import com.nhn.android.naverlogin.OAuthLoginHandler
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
+import java.util.ArrayList
+import androidx.annotation.NonNull
+
+import com.google.android.gms.tasks.OnFailureListener
+
+import com.google.firebase.auth.AuthResult
+
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseUser
+
+
 
 
 
@@ -62,33 +71,21 @@ class LoginActivity : AppCompatActivity()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         //firebase auth 객체
         firebaseAuth = FirebaseAuth.getInstance()
-            /* if (Firebase.auth.currentUser != null){
-            startActivity(
-                Intent(this, MainActivity::class.java)
-            )
-            finish()
-        } */
-        //로그인 버튼 (나중에 DB 구축해서 정보가 맞을 시 mainActivity로)
 
+        //github
+        val provider = OAuthProvider.newBuilder("github.com")
+        // Request read access to a user's email addresses.
+        // This must be preconfigured in the app's API permissions.
+        // Request read access to a user's email addresses.
+        // This must be preconfigured in the app's API permissions.
+        val scopes: ArrayList<String?> = object : ArrayList<String?>() {
+            init {
+                add("user:email")
+            }
+        }
+        provider.scopes = scopes
 
-            //카카오 키 해시
-            var keyHash = Utility.getKeyHash(this)
-            Log.d("KEY_HASH", keyHash)
-
-            /* signInBtn.setOnClickListener {
-                if (idEditText.text.toString() == "manager") {
-                    var intent = Intent(applicationContext, ManagerActivity::class.java)
-                    startActivity(intent)
-                } else if (idEditText.text.toString() == "user") {
-                    var intent = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(intent)
-                }
-            } */
-
-
-
-
-        //로그인 버튼 - email 로그인 (김형환)
+        //로그인 버튼 - email 로그인
         signInBtn.setOnClickListener {
 
             val ID = idEditText.text.toString()
@@ -124,37 +121,26 @@ class LoginActivity : AppCompatActivity()
             startActivity(intent)
         }
 
-        //kakao sns 로그인
-        kakaoBtn.setOnClickListener {
-            // 로그인 공통 callback 구성
 
-            KakaoSdk.init(this, "eabb64de648e0378b367d221640f3567")
-
-            val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
-                if (error != null) {
-                    Log.e("TAG", "로그인 실패", error)
-                }
-                else if (token != null) {
-                    Log.i("TAG", "로그인 성공 ${token.accessToken}")
-                    afterLogin()
+            val mOAuthLoginHandler: OAuthLoginHandler = object : OAuthLoginHandler() {
+                override fun run(success: Boolean) {
+                    if (success) {
+                        val accessToken = mOAuthLoginModule.getAccessToken(this@LoginActivity)
+                        val refreshToken = mOAuthLoginModule.getRefreshToken(this@LoginActivity)
+                        val expiresAt = mOAuthLoginModule.getExpiresAt(this@LoginActivity)
+                        val tokenType = mOAuthLoginModule.getTokenType(this@LoginActivity)
+                        afterLogin()
+                    } else {
+                        val errorCode = mOAuthLoginModule.getLastErrorCode(this@LoginActivity).code
+                        val errorDesc = mOAuthLoginModule.getLastErrorDesc(this@LoginActivity)
+                        Toast.makeText(
+                            this@LoginActivity, "errorCode:" + errorCode
+                                    + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
 
-            // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
-            if (UserApiClient.instance.isKakaoTalkLoginAvailable(applicationContext)) {
-                Log.d("TAG", "로그인 중")
-                UserApiClient.instance.loginWithKakaoTalk(
-                    applicationContext,
-                    callback = callback
-                )
-            } else {
-                Log.d("TAG", "로그인 중")
-                UserApiClient.instance.loginWithKakaoAccount(
-                    applicationContext,
-                    callback = callback
-                )
-            }
-        }
 
         //페이스북 로그인
         facebookBtn.setOnClickListener {
@@ -181,46 +167,65 @@ class LoginActivity : AppCompatActivity()
                 })
         }
 
-            // 사용자가 이미 페이스북에 로그인 했는지 확인(아직 미사용) -> 처리문 작성 필요
-            //val accessToken: AccessToken = AccessToken.getCurrentAccessToken()
-            //val isLoggedIn: Boolean = accessToken != null && !accessToken.isExpired
 
-            val mOAuthLoginHandler: OAuthLoginHandler = object : OAuthLoginHandler() {
-                override fun run(success: Boolean) {
-                    if (success) {
-                        val accessToken = mOAuthLoginModule.getAccessToken(this@LoginActivity)
-                        val refreshToken = mOAuthLoginModule.getRefreshToken(this@LoginActivity)
-                        val expiresAt = mOAuthLoginModule.getExpiresAt(this@LoginActivity)
-                        val tokenType = mOAuthLoginModule.getTokenType(this@LoginActivity)
-                        afterLogin()
-                    } else {
-                        val errorCode = mOAuthLoginModule.getLastErrorCode(this@LoginActivity).code
-                        val errorDesc = mOAuthLoginModule.getLastErrorDesc(this@LoginActivity)
-                        Toast.makeText(
-                            this@LoginActivity, "errorCode:" + errorCode
-                                    + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            }
-
-        naverBtn.setOnClickListener {
-            // 네이버 로그인
-            mOAuthLoginModule.init(
-                this@LoginActivity
-                ,getString(R.string.naver_client_id)
-                ,getString(R.string.naver_client_secret)
-                ,getString(R.string.naver_client_name)
-            )
-            mOAuthLoginModule.startOauthLoginActivity(this, mOAuthLoginHandler)
-        }
-
-        // 구글 로그인
+        //구글 로그인
         googleBtn.setOnClickListener {
             signIn()
         }
-    }
 
+
+        //트위터 로그인
+        twitterBtn.setOnClickListener {
+
+        }
+
+
+        //깃허브 로그인
+        githubBtn.setOnClickListener {
+            val pendingResultTask: Task<AuthResult>? = firebaseAuth.pendingAuthResult
+            if (pendingResultTask != null) {
+                // There's something already here! Finish the sign-in for your user.
+                pendingResultTask
+                    .addOnSuccessListener(
+                        OnSuccessListener<AuthResult?> {
+                            // User is signed in.
+                            // IdP data available in
+                            // authResult.getAdditionalUserInfo().getProfile().
+                            // The OAuth access token can also be retrieved:
+                            // authResult.getCredential().getAccessToken().
+                        })
+                    .addOnFailureListener(
+                        OnFailureListener {
+                            // Handle failure.
+                        })
+            } else {
+                // There's no pending result so you need to start the sign-in flow.
+                // See below.
+            }
+
+            firebaseAuth
+                .startActivityForSignInWithProvider( /* activity= */this, provider.build())
+                .addOnSuccessListener {
+                    // User is signed in.
+                    // IdP data available in
+                    // authResult.getAdditionalUserInfo().getProfile().
+                    // The OAuth access token can also be retrieved:
+                    // authResult.getCredential().getAccessToken().
+                    Log.d("TAG", "github login success")
+                    val user = firebaseAuth.currentUser
+                    afterLogin()
+                }
+                .addOnFailureListener {
+                    // Handle failure.
+                    Log.w("TAG", "Google sign in failed")
+                }
+
+        }
+
+    } // oncreate 끝
+
+
+    //----------------------------------------구글------------------------------------------
     //google login 함수
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
@@ -246,6 +251,7 @@ class LoginActivity : AppCompatActivity()
         }
     }
 
+    //firebase auth에 구글 로그인 연동
     private fun firebaseAuthWithGoogle(idToken: String) {
 
         val credential = GoogleAuthProvider.getCredential(idToken, null)
@@ -261,6 +267,8 @@ class LoginActivity : AppCompatActivity()
             }
     }
 
+
+    //----------------------------------페이스북--------------------------------------------
     //페이스북 firebase 연동
     private fun handleFacebookAccessToken(token: AccessToken) {
         Log.d("TAG", "handleFacebookAccessToken:$token")
@@ -283,6 +291,7 @@ class LoginActivity : AppCompatActivity()
             }
     }
 
+    // 로그인 후 추가 정보 입력
     private fun afterLogin() {
         endCount = 0
         val DB: FirebaseFirestore = Firebase.firestore
@@ -325,7 +334,5 @@ class LoginActivity : AppCompatActivity()
 
         }
     }
-
-    
 
 }
