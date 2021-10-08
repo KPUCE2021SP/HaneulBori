@@ -334,7 +334,7 @@ class MainActivity : TabActivity()
                     var item: ArrayList<String>
 
                     val userSnapshot = userCollectionRef.document(user.uid)
-                    val laundrySnapshot = laundryCollectionRef.document(bookData[2]).collection("machine")
+                    val laundrySnapshot = laundryCollectionRef.document("12floor").collection("machine")
                         .document(bookData[3])
 
                     books.removeAt(position)
@@ -543,7 +543,7 @@ class MainActivity : TabActivity()
                                                     } else {
                                                         val item = it["bookList"] as ArrayList<String>
                                                         val phoneNumber = it["PhoneNumber"]
-                                                        item.add("$startDate $startTime//$endDate $endTime//$nowLaundry//${machines[po]}")
+                                                        item.add("$startDate $startTime//$endDate $endTime//$phoneNumber//${machines[po]}")
                                                         DB.runTransaction {
                                                             userCollectionRef.document(user.getUid()).update("bookList", item)
                                                             laundryCollectionRef.document(nowLaundry).collection("machine")
