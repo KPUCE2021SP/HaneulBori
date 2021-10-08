@@ -29,6 +29,7 @@ import kotlinx.android.synthetic.main.report_view.*
 import kotlinx.android.synthetic.main.report_view.view.*
 import kotlinx.android.synthetic.main.time_interver_layout.view.*
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
@@ -139,7 +140,7 @@ class MainActivity : TabActivity()
                 }
 
                 startTime = "$timeText:$minuteText"
-                if (time.hour < current.get(Calendar.HOUR)){
+                if (false){
                     val dlg = AlertDialog.Builder(this)
                     dlg.setTitle("시간 오류")
                     dlg.setMessage("이미 지난시간을 선택하셨습니다.")
@@ -488,20 +489,41 @@ class MainActivity : TabActivity()
                                     for (tempTime in temp) {
                                         val tempTotal = tempTime.split("//")
 
-                                        val tempStart = tempTotal[0]
-                                        val tempEnd = tempTotal[1]
+                                        var tempStart = tempTotal[0]
+                                        var tempEnd = tempTotal[1]
 
                                         val tempStartDateTime = tempTotal[0].split(" ")
                                         val tempStartDate = tempStartDateTime[0]
                                         val tempStartTime = tempStartDateTime[1]
 
+                                        tempStart = "$tempStartDate+$tempStartTime"
+
                                         val tempEndDateTime = tempTotal[1].split(" ")
                                         val tempEndDate = tempEndDateTime[0]
                                         val tempEndTime = tempEndDateTime[1]
-// temp
-                                        canBook =
-                                            !(tempStart <= "$startDate $startTime" && "$startDate $startTime" <= tempEnd)
-                                        Log.d("temp", "$tempStart $startDate $startTime $tempEnd")
+
+                                        tempEnd = "$tempEndDate+$tempEndTime"
+                                        Log.d("temp", tempEnd)
+
+                                        val simpleFormat =  DateTimeFormatter.ISO_DATE
+
+                                        val tempsDate = LocalDateTime.parse(tempStart, DateTimeFormatter.ofPattern("yyyy-MM-dd+HH:mm"))
+                                        val tempeDate = LocalDateTime.parse(tempEnd, DateTimeFormatter.ofPattern("yyyy-MM-dd+HH:mm"))
+
+                                        val sDate = LocalDateTime.parse("$startDate+$startTime", DateTimeFormatter.ofPattern("yyyy-MM-dd+HH:mm"))
+                                        val eDate = LocalDateTime.parse("$endDate+$endTime", DateTimeFormatter.ofPattern("yyyy-MM-dd+HH:mm"))
+                                        Log.d("DateCheck", "\ntempsDate: $tempsDate\n" +
+                                                "tempeDate: $tempeDate\n" +
+                                                "sDate: $sDate\n" +
+                                                "eDate: $eDate\n")
+
+                                        canBook = if (
+                                            ((tempsDate < eDate) && (eDate < tempeDate)) ||
+                                            ((tempsDate < sDate) && (sDate < tempeDate))
+                                        ){
+                                            false
+                                        } else !((sDate < tempsDate) && (tempeDate < eDate))
+
                                     }
                                 } else {
                                     canBook = true
@@ -646,7 +668,7 @@ class MainActivity : TabActivity()
         if (tdate[1].toInt() < 10 && (tdate[1].length < 2)){
             tdate[1] = "0" + tdate[1]
         }
-        if (ttime[0].toInt() < 10 && (ttime[1].length < 2)){
+        if (ttime[0].toInt() < 10 && (ttime[0].length < 2)){
             ttime[0] = "0" + ttime[0]
         }
         if (ttime[1].toInt() < 10 && (ttime[1].length < 2)){
