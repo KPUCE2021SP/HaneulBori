@@ -176,7 +176,47 @@ class LoginActivity : AppCompatActivity()
 
         //트위터 로그인
         twitterBtn.setOnClickListener {
+            val provider = OAuthProvider.newBuilder("twitter.com")
+            val pendingResultTask = firebaseAuth.pendingAuthResult
+            if (pendingResultTask != null) {
+                // There's something already here! Finish the sign-in for your user.
+                pendingResultTask
+                    .addOnSuccessListener(
+                        OnSuccessListener {
+                            // User is signed in.
+                            // IdP data available in
+                            // authResult.getAdditionalUserInfo().getProfile().
+                            // The OAuth access token can also be retrieved:
+                            // authResult.getCredential().getAccessToken().
+                            // The OAuth secret can be retrieved by calling:
+                            // authResult.getCredential().getSecret().
+                        })
+                    .addOnFailureListener {
+                        // Handle failure.
+                    }
+            } else {
+                // There's no pending result so you need to start the sign-in flow.
+                // See below.
+            }
 
+            firebaseAuth
+                .startActivityForSignInWithProvider( /* activity= */this, provider.build())
+                .addOnSuccessListener {
+                    // User is signed in.
+                    // IdP data available in
+                    // authResult.getAdditionalUserInfo().getProfile().
+                    // The OAuth access token can also be retrieved:
+                    // authResult.getCredential().getAccessToken().
+                    // The OAuth secret can be retrieved by calling:
+                    // authResult.getCredential().getSecret().
+                    Log.d("TAG", "twitter login success")
+                    val user = firebaseAuth.currentUser
+                    afterLogin()
+                }
+                .addOnFailureListener {
+                    // Handle failure.
+                    Log.w("TAG", "twitter sign in failed")
+                }
         }
 
 
@@ -217,7 +257,7 @@ class LoginActivity : AppCompatActivity()
                 }
                 .addOnFailureListener {
                     // Handle failure.
-                    Log.w("TAG", "Google sign in failed")
+                    Log.w("TAG", "github sign in failed")
                 }
 
         }
