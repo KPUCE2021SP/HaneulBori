@@ -29,6 +29,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 import java.util.ArrayList
 import androidx.annotation.NonNull
+import com.facebook.login.LoginBehavior
 
 import com.google.android.gms.tasks.OnFailureListener
 
@@ -144,6 +145,7 @@ class LoginActivity : AppCompatActivity()
 
         //페이스북 로그인
         facebookBtn.setOnClickListener {
+            LoginBehavior.WEB_VIEW_ONLY
             LoginManager.getInstance()
                 .logInWithReadPermissions(this, Arrays.asList("email", "public_profile"))
             // 페이스북 로그인 콜백
